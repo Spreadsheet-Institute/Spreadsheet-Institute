@@ -21,17 +21,96 @@
         <br>
         <h2>Reference:</h2>
         <ol>
+            <li><a href="#fun-functions">Fun Functions</a></li>
+            <li><a href="#existential-functions">Existential Functions</a></li>
+            <li><a href="#type-functions">Type Functions</a></li>
             <li><a href="#list-functions">List Functions</a></li>
-            <li><a href="#type-functions"></a>Type Functions</li>
-            <li><a href="#functional-functions"></a>Functional Functions</li>
+            <li><a href="#text-functions"></a>Text Functions</li>
+            <li><a href="#number-functions"></a>Number Functions</li>
+            <li><a href="#sheet-functions"></a>Sheet Functions</li>
+            <li><a href="#miscellaneous-functions"></a>Miscellaneous Functions</li>
         </ol>
+        <br>
+        <h2 id="fun-functions">Fun Functions</h2>
+        <ul>
+            <li>=<a href="./COINTOSS">COINTOSS</a>()</li>
+            <li>=<a href="./FLIPCOIN">FLIPCOIN</a>([times])</li>
+            <li>=<a href="./MAGIC8BALL">MAGIC8BALL</a>(question)</li>
+            <li>=<a href="./ROCKPAPERSCISSORS">ROCKPAPERSCISSORS</a>(throw)</li>
+        </ul>
+        <br>
+        <h2 id="existential-functions">Existential Functions</h2>
+        <ul>
+            <li>=<a href="./ARITY">ARITY</a>([arg1], [argN], [arg25])</li>
+            <li>=<a href="./ID">ID</a>(value)</li>
+            <li>=<a href="./IS">IS</a>(value)</li>
+            <li>=<a href="./MAYBE">MAYBE</a>(value)</li>
+            <li>=<a href="./MAYBENOT">MAYBENOT</a>(value, default)</li>
+            <li>=<a href="./PROVIDED">PROVIDED</a>(value)</li>
+        </ul>
+        <br>
+        <h2 id="type-functions">Type Functions</h2>
+        <ul>
+            <li>=<a href="./ATOM">ATOM</a>(value)</li>
+            <li>=<a href="./TRUTHY">TRUTHY</a>(value)</li>
+            <li>=<a href="./TYPESTRING">TYPESTRING</a>(value)</li>
+        </ul>
+        <br>
         <h2 id="list-functions">List Functions</h2>
         <ul>
+            <li>=<a href="./ALL">ALL</a>(truth_values)</li>
             <li>=<a href="./CAR">CAR</a>(range)</li>
             <li>=<a href="./CDR">CDR</a>(range)</li>
             <li>=<a href="./CONS">CONS</a>(value, range)</li>
-            <li>=HLIST(value1, [valueN], [value25])</li>
-            <li>=VLIST(value1, [valueN], [value25])</li>
+            <li>=<a href="./HETEROGENOUS">HETEROGENOUS</a>(range)</li>
+            <li>=<a href="./HLIST">HLIST</a>(value1, [valueN], [value25])</li>
+            <li>=<a href="./HOMOGENOUS">HOMOGENOUS</a>(range)</li>
+            <li>=<a href="./ISHORIZONTAL">ISHORIZONTAL</a>(range)</li>
+            <li>=<a href="./ISVERTICAL">ISVERTICAL</a>(range)</li>
+            <li>=<a href="./LENGTH">LENGTH</a>(range)</li>
+            <li>=<a href="./MEMBER">MEMBER</a>(needle, haystack)</li>
+            <li>=<a href="./VLIST">VLIST</a>(value1, [valueN], [value25])</li>
+        </ul>
+        <br>
+        <h2 id="text-functions">Text Functions</h2>
+        <ul>
+            <li>=<a href="./ALPHABET">ALPHABET</a>([vertical])</li>
+            <li>=<a href="./FIRSTLETTER">FIRSTLETTER</a>(text)</li>
+            <li>=<a href="./FIRSTWORD">FIRSTWORD</a>(text)</li>
+            <li>=<a href="./INTERPOLATE">INTERPOLATE</a>(template, [_1], [_2], [_3], [_4], [_5])</li>
+            <li>=<a href="./ISSUBSTRING">ISSUBSTRING</a>(needle, haystack, [case_sensitive])</li>
+            <li>=<a href="./TEXTCONTAINS">TEXTCONTAINS</a>(haystack, needle, [case_sensitive])</li>
+        </ul>
+        <br>
+        <h2 id="number-functions">Number Functions</h2>
+        <ul>
+            <li>=<a href="./CAGR">CAGR</a>(start, end, [periods])</li>
+            <li>=<a href="./DECREMENT">DECREMENT</a>(number)</li>
+            <li>=<a href="./DIFFERENCE">DIFFERENCE</a>(minuend, subtrahend)</li>
+            <li>=<a href="./GREATERTHAN">GREATERTHAN</a>(x, y)</li>
+            <li>=<a href="./GTE">GTE</a>(x, y)</li>
+            <li>=<a href="./INCREMENT">INCREMENT</a>(number)</li>
+            <li>=<a href="./INVERSE">INVERSE</a>(number)</li>
+            <li>=<a href="./ISNEGATIVE">ISPOSITIVE</a>(number)</li>
+            <li>=<a href="./ISPOSITIVE">ISPOSITIVE</a>(number)</li>
+            <li>=<a href="./LESSTHAN">LESSTHAN</a>(x, y)</li>
+            <li>=<a href="./LTE">LTE</a>(x, y)</li>
+            <li>=<a href="./NEGATE">NEGATE</a>(number)</li>
+            <li>=<a href="./RATIO">RATIO</a>(numerator, denominator)</li>
+        </ul>
+        <br>
+        <h2 id="sheet-functions">Sheet Functions</h2>
+        <ul>
+            <li>=<a href="./COLUMNLETTER">COLUMNLETTER</a>(reference)</li>
+            <li>=<a href="./GET">GET</a>(name|range, [sheet], [file|path])</li>
+            <li>=<a href="./GETCOLUMN">GETCOLUMN</a>(column_number, range)</li>
+            <li>=<a href="./SHEETNAME">SHEETNAME</a>([reference])</li>
+        </ul>
+        <br>
+        <h2 id="experimental-functions">Experimental Functions</h2>
+        <ul>
+            <li>=<a href="./SQL">SQL</a>(table, query)</li>
+            <li>=<a href="./SUBSET">SUBSET</a>(table, query)</li>
         </ul>
     </body>
 </html>
