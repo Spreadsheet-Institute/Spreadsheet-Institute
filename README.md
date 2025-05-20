@@ -4,7 +4,7 @@
 
 Spreadsheet Institute represents a guided, holistic effort to seek, test, and break the boundaries of what can be accomplished by present & future spreadsheet technologies. Whether optimizing for performance, readability, extensibility, or aesthetics, our aim is to restore the spreadsheet experience from one of pain to pleasure, from tedious to tantalizing, and from the repetitive to the riveting.
 
-1. Spreadsheet Lisp
+## Spreadsheet Lisp
 
 With the introduction of LET() and LAMBDA(), modern spreadsheets can now host a useful subset of the storied Lisp functional programming paradigm. By identifying, naming, and reusing custom functions, overall formula complexity is reduced to its minimum to allow for even more powerful formulas to be written with fewer characters than the unoptimized original:
 
