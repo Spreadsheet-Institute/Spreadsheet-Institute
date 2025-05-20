@@ -8,8 +8,10 @@ Spreadsheet Institute represents a guided, holistic effort to seek, test, and br
 
 With the introduction of LET() and LAMBDA(), modern spreadsheets can now host a useful subset of the storied Lisp functional programming paradigm. By identifying, naming, and reusing custom functions, overall formula complexity is reduced to its minimum to allow for even more powerful formulas to be written with fewer characters than the unoptimized original:
 
+---
+
 ```
-=LEFT(A1, TRIM(FIND(" ", A1) - 1))
+=LEFT(A1, FIND(" ", A1) - 1)
 ```
 
 becomes
@@ -42,9 +44,9 @@ becomes:
 =SHEETNAME()
 ```
 
-...et cetera, et cetera, ad absurdum...
-
 ---
+
+...et cetera, et cetera, ad absurdum...
 
 The greater your formulas' complexity, the greater will be the benefits gained by leveraging custom functions.
 
