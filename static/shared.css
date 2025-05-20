@@ -14,3 +14,8 @@ body {
     font-optical-sizing: auto;
     font-style: normal;
 }
+
+a {
+    text-decoration: none;
+    color: #9966cc;
+}
