@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Spreadsheet Institute: Spreadsheet Lisp</title>
+        <link rel="stylesheet" href="/static/shared.css">
+    </head>
+    <body>
+        <h1 class="centered"><a href="/">Spreadsheet Institute</a></h1>
+        <p class="centered">Home of Spreadsheet Lisp (SL)</p>
+        <br>
+        <pre>
+            DEFINE(
+                <a href="../LENGTH/">LENGTH</a>,
+                LAMBDA(
+                    text|range,
+                    <a href="../TYPEDISPATCH/">TYPEDISPATCH</a>(
+                        input,
+                        "string", LEN(input),
+                        "range", COUNTA(input),
+                        otherwise, <a href="../THROWERROR/">THROWERROR</a>())))
+        </pre>
+    </body>
+</html>
