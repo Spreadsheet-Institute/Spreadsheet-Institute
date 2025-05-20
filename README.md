@@ -46,8 +46,8 @@ becomes:
 
 ---
 
-...et cetera, et cetera, ad absurdum...
+...et cetera, et cetera, ad absurdum.
 
-The greater your formulas' complexity, the greater will be the benefits gained by leveraging custom functions.
+In short: the greater your formulas' complexity, the greater will be the benefits gained by leveraging custom functions.
 
-Spreadsheet Institute is offering free formula audits to anyone who disagrees, for a limited time, to both prove our claim and to gather new functions to include with Spreadsheet Lisp.
+Spreadsheet Institute is now offering free formula audits to both prove our claim and to mine for new helper functions to include within Spreadsheet Lisp.
