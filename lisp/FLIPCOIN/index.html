@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: FLIPCOIN</title>
+        <link rel="stylesheet" href="/static/shared.css">
+    </head>
+    <body>
+        <h1 class="centered"><a href="/">Spreadsheet Institute</a></h1>
+        <p class="centered">Home of <a href="/lisp/">Spreadsheet Lisp (SL)</a></p>
+        <br>
+        <pre>
+            DEFINE(
+                <a href="../FLIPCOIN/">FLIPCOIN</a>,
+                LAMBDA(
+                    [times],
+                    LET(
+                        _times,
+                            <a href="../MAYBENOT/">MAYBENOT</a>(times, 1),
+                        IF(
+                            LTE(_times, 1),
+                            <a href="../COINTOSS/">COINTOSS</a>(),
+                            VSTACK(
+                                <a href="../COINTOSS/">COINTOSS</a>(),
+                                <a href="../FLIPCOIN/">FLIPCOIN</a>(<a href="../DECREMENT/">DECREMENT</a>(_times)))))))
+        </pre>
+    </body>
+</html>
