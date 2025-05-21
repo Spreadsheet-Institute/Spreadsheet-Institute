@@ -2,7 +2,7 @@
 
 *"Today's spreadsheet is tomorrow's abacus."*
 
-Spreadsheet Institute represents a guided, holistic effort to seek, test, and break the boundaries of what can be accomplished by present & future spreadsheet technologies. Whether optimizing for performance, readability, extensibility, or aesthetics, our aim is to restore the spreadsheet experience from one of pain to pleasure, from tedious to tantalizing, and from the repetitive to the riveting.
+Spreadsheet Institute represents a guided, holistic effort to seek, test, and break the boundaries of what can be accomplished by present & future spreadsheet technologies. Whether optimizing for performance, readability, extensibility, or aesthetics, our aim is to restore the spreadsheet experience from one of pain to pleasure, from tedious to tantalizing, and from the repetitive to the revolutionary.
 
 ## Spreadsheet Lisp
 
