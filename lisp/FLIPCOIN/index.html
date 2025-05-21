@@ -8,19 +8,21 @@
         <p class="centered">Home of <a href="/lisp/">Spreadsheet Lisp (SL)</a></p>
         <br>
         <pre>
-            DEFINE(
-                <a href="../FLIPCOIN/">FLIPCOIN</a>,
-                LAMBDA(
-                    [times],
-                    LET(
-                        _times,
-                            <a href="../MAYBENOT/">MAYBENOT</a>(times, <span class="constant">1</span>),
-                        IF(
-                            LTE(_times, <span class="constant">1</span>),
-                            <a href="../COINTOSS/">COINTOSS</a>(),
-                            VSTACK(
-                                <a href="../COINTOSS/">COINTOSS</a>(),
-                                <a href="../FLIPCOIN/">FLIPCOIN</a>(<a href="../DECREMENT/">DECREMENT</a>(_times)))))))
+
+    DEFINE(
+        <a href="../FLIPCOIN/">FLIPCOIN</a>,
+        LAMBDA(
+            [times],
+            LET(
+                _times,
+                    <a href="../MAYBENOT/">MAYBENOT</a>(times, <span class="constant">1</span>),
+                IF(
+                    LTE(_times, <span class="constant">1</span>),
+                    <a href="../COINTOSS/">COINTOSS</a>(),
+                    VSTACK(
+                        <a href="../COINTOSS/">COINTOSS</a>(),
+                        <a href="../FLIPCOIN/">FLIPCOIN</a>(<a href="../DECREMENT/">DECREMENT</a>(_times)))))))
+        
         </pre>
     </body>
 </html>

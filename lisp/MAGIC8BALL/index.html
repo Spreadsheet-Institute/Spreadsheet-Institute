@@ -8,35 +8,37 @@
         <p class="centered">Home of <a href="/lisp/">Spreadsheet Lisp (SL)</a></p>
         <br>
         <pre>
-            DEFINE(
-                <a href="../MAGIC8BALL/">MAGIC8BALL</a>,
-                LAMBDA(
-                    [question],
-                    IF(
-                        <a href="../PROVIDED/">PROVIDED</a>(question),
-                        CHOOSE(
-                            RANDBETWEEN(<span class="constant">1</span>, <span class="constant">20</span>),
-                            <span class="constant">"It is certain"</span>,
-                            <span class="constant">"Reply hazy, try again"</span>,
-                            <span class="constant">"It is decidedly so"</span>,
-                            <span class="constant">"Without a doubt"</span>,
-                            <span class="constant">"Don't count on it"</span>,
-                            <span class="constant">"Yes, definitely"</span>,
-                            <span class="constant">"Ask again later"</span>,
-                            <span class="constant">"You may rely on it"</span>,
-                            <span class="constant">"My reply is no"</span>,
-                            <span class="constant">"As I see it, yes"</span>,
-                            <span class="constant">"Better not tell you now"</span>,
-                            <span class="constant">"Most likely"</span>,
-                            <span class="constant">"My sources say no"</span>,
-                            <span class="constant">"Outlook good"</span>,
-                            <span class="constant">"Cannot predict now"</span>,
-                            <span class="constant">"Yes"</span>,
-                            <span class="constant">"Outlook not so good"</span>,
-                            <span class="constant">"Signs point to yes"</span>,
-                            <span class="constant">"Concentrate and ask again"</span>,
-                            <span class="constant">"Very doubtful"</span>),
-                        <span class="constant">"Ask, and you will be answered"</span>)))
+            
+    DEFINE(
+        <a href="../MAGIC8BALL/">MAGIC8BALL</a>,
+        LAMBDA(
+            [question],
+            IF(
+                <a href="../PROVIDED/">PROVIDED</a>(question),
+                CHOOSE(
+                    RANDBETWEEN(<span class="constant">1</span>, <span class="constant">20</span>),
+                    <span class="constant">"It is certain"</span>,
+                    <span class="constant">"Reply hazy, try again"</span>,
+                    <span class="constant">"It is decidedly so"</span>,
+                    <span class="constant">"Without a doubt"</span>,
+                    <span class="constant">"Don't count on it"</span>,
+                    <span class="constant">"Yes, definitely"</span>,
+                    <span class="constant">"Ask again later"</span>,
+                    <span class="constant">"You may rely on it"</span>,
+                    <span class="constant">"My reply is no"</span>,
+                    <span class="constant">"As I see it, yes"</span>,
+                    <span class="constant">"Better not tell you now"</span>,
+                    <span class="constant">"Most likely"</span>,
+                    <span class="constant">"My sources say no"</span>,
+                    <span class="constant">"Outlook good"</span>,
+                    <span class="constant">"Cannot predict now"</span>,
+                    <span class="constant">"Yes"</span>,
+                    <span class="constant">"Outlook not so good"</span>,
+                    <span class="constant">"Signs point to yes"</span>,
+                    <span class="constant">"Concentrate and ask again"</span>,
+                    <span class="constant">"Very doubtful"</span>),
+                <span class="constant">"Ask, and you will be answered"</span>)))
+        
         </pre>
     </body>
 </html>
