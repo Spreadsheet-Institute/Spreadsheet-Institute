@@ -5,27 +5,28 @@
 }
 
 body {
+    background-color: #0F0616;
     color: #FFFFFF;
-    padding-left: 2vw;
-    padding-right: 2vw;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
-
+    
     font-family: "Source Code Pro", monospace;
     font-optical-sizing: auto;
+    font-size: 2rem;
     font-style: normal;
 
-    font-size: 2rem;
-
-    background-color: #0F0616;
+    padding-top: 2vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 2vh;
 }
 
 a {
-    text-decoration: none;
     color: #9966cc;
+
+    text-decoration: none;
 }
 
 .constant {
     color: #A2BFFE;
+
     font-size: italic;
 }
