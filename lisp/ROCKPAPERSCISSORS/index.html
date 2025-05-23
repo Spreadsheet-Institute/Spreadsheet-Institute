@@ -10,13 +10,10 @@
 
         <pre>
             
-    DEFINE(
-        <a href="../ROCKPAPERSCISSORS/">ROCKPAPERSCISSORS</a>,
-        LAMBDA(
-            throw,
+    =ROCKPAPERSCISSORS("Paper")
+    -> "You threw PAPER. SL threw ROCK. "
 
         </pre>
-
         <pre>
             
     DEFINE(
@@ -32,28 +29,23 @@
                         <span class="constant">"ROCK"</span>,
                         <span class="constant">"PAPER"</span>,
                         <span class="constant">"SCISSORS"</span>),
-                CONCAT(
-                    <a href="../FORMAT/">FORMAT</a>(
-                        <span class="constant">"You threw {1}. SL threw {2}. "</span>,
-                        human,
-                        robot)
-                    IFS(
-                        EQUAL(human, robot),
-                            <a href="../FORMAT/">FORMAT</a>(<span class="constant">"Tie! {1} vs. {1}"</span>, human),
-                        AND(EQUAL(human, <span class="constant">"PAPER"</span>), EQUAL(robot, <span class="constant">"ROCK"</span>)),
-                            <span class="constant">"You win! Paper covers Rock."</span>,
-                        AND(EQUAL(human, <span class="constant">"PAPER"</span>), EQUAL(robot, <span class="constant">"SCISSORS"</span>)),
-                            <span class="constant">"You lose! Scissors cuts Paper."</span>,
-                        AND(EQUAL(human, <span class="constant">"ROCK"</span>), EQUAL(robot, <span class="constant">"SCISSORS"</span>)),
-                            <span class="constant">"You win! Rock crushes Scissors."</span>,
-                        AND(EQUAL(human, <span class="constant">"ROCK"</span>), EQUAL(robot, <span class="constant">"PAPER"</span>)),
-                            <span class="constant">"You lose! Paper covers Rock."</span>,
-                        AND(EQUAL(human, <span class="constant">"SCISSORS"</span>), EQUAL(robot, <span class="constant">"PAPER"</span>)),
-                            <span class="constant">"You win! Scissors cuts Paper."</span>,
-                        AND(EQUAL(human, <span class="constant">"SCISSORS"</span>), EQUAL(robot, <span class="constant">"ROCK"</span>)),
-                            <span class="constant">"You lose! Rock crushes Scissors."</span>,
-                        <a href="../OTHERWISE/">OTHERWISE</a>,
-                            <span class="constant">"Invalid throw. Please choose Rock, Paper, or Scissors."</span>)))))
+                IFS(
+                    EQUAL(human, robot),
+                        <a href="../FORMAT/">FORMAT</a>(<span class="constant">"Tie! {1} vs. {1}"</span>, human),
+                    AND(EQUAL(human, <span class="constant">"PAPER"</span>), EQUAL(robot, <span class="constant">"ROCK"</span>)),
+                        <span class="constant">"You win! Paper covers Rock."</span>,
+                    AND(EQUAL(human, <span class="constant">"PAPER"</span>), EQUAL(robot, <span class="constant">"SCISSORS"</span>)),
+                        <span class="constant">"You lose! Scissors cuts Paper."</span>,
+                    AND(EQUAL(human, <span class="constant">"ROCK"</span>), EQUAL(robot, <span class="constant">"SCISSORS"</span>)),
+                        <span class="constant">"You win! Rock crushes Scissors."</span>,
+                    AND(EQUAL(human, <span class="constant">"ROCK"</span>), EQUAL(robot, <span class="constant">"PAPER"</span>)),
+                        <span class="constant">"You lose! Paper covers Rock."</span>,
+                    AND(EQUAL(human, <span class="constant">"SCISSORS"</span>), EQUAL(robot, <span class="constant">"PAPER"</span>)),
+                        <span class="constant">"You win! Scissors cuts Paper."</span>,
+                    AND(EQUAL(human, <span class="constant">"SCISSORS"</span>), EQUAL(robot, <span class="constant">"ROCK"</span>)),
+                        <span class="constant">"You lose! Rock crushes Scissors."</span>,
+                    <a href="../OTHERWISE/">OTHERWISE</a>,
+                        <span class="constant">"Invalid throw. Please choose Rock, Paper, or Scissors."</span>))))
         
         </pre>
         <br>
