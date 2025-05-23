@@ -12,7 +12,7 @@ body {
 
     font-family: "Source Code Pro", monospace;
     font-optical-sizing: auto;
-    font-style: italic;
+    font-style: normal;
 
     font-size: 2rem;
 
@@ -26,4 +26,5 @@ a {
 
 .constant {
     color: #A2BFFE;
+    font-size: italic;
 }
