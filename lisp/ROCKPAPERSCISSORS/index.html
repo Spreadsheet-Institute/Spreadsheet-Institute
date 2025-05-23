@@ -10,39 +10,39 @@
         <pre>
             
     DEFINE(
-        <a href="../MAGIC8BALL/">ROCKPAPERSCISSORS</a>,
+        <a href="../ROCKPAPERSCISSORS/">ROCKPAPERSCISSORS</a>,
         LAMBDA(
             throw,
             LET(
-                _human,
+                human,
                     UPPER(throw),
-                _robot,
+                robot,
                     CHOOSE(
-                        RANDBETWEEN(1, 3),
+                        RANDBETWEEN(<span class="constant">1</span>, <span class="constant">3</span>),
                         <span class="constant">"ROCK"</span>,
                         <span class="constant">"PAPER"</span>,
                         <span class="constant">"SCISSORS"</span>),
                 CONCAT(
                     <a href="../FORMAT/">FORMAT</a>(
                         <span class="constant">"You threw {1}. SL threw {2}. "</span>,
-                        _human,
-                        _robot)
+                        human,
+                        robot)
                     IFS(
-                        EQUAL(_human, _robot),
-                            <a href="../FORMAT/">FORMAT</a>("Tie! {1} vs. {1}", _human),
-                        AND(EQUAL(_human, <span class="constant">"PAPER"</span>), EQUAL(_robot, <span class="constant">"ROCK"</span>)),
+                        EQUAL(human, robot),
+                            <a href="../FORMAT/">FORMAT</a>(<span class="constant">"Tie! {1} vs. {1}"</span>, human),
+                        AND(EQUAL(human, <span class="constant">"PAPER"</span>), EQUAL(robot, <span class="constant">"ROCK"</span>)),
                             <span class="constant">"You win! Paper covers Rock."</span>,
-                        AND(EQUAL(_human, <span class="constant">"PAPER"</span>), EQUAL(_robot, <span class="constant">"SCISSORS"</span>)),
+                        AND(EQUAL(human, <span class="constant">"PAPER"</span>), EQUAL(robot, <span class="constant">"SCISSORS"</span>)),
                             <span class="constant">"You lose! Scissors cuts Paper."</span>,
-                        AND(EQUAL(_human, <span class="constant">"ROCK"</span>), EQUAL(_robot, <span class="constant">"SCISSORS"</span>)),
+                        AND(EQUAL(human, <span class="constant">"ROCK"</span>), EQUAL(robot, <span class="constant">"SCISSORS"</span>)),
                             <span class="constant">"You win! Rock crushes Scissors."</span>,
-                        AND(EQUAL(_human, <span class="constant">"ROCK"</span>), EQUAL(_robot, <span class="constant">"PAPER"</span>)),
+                        AND(EQUAL(human, <span class="constant">"ROCK"</span>), EQUAL(robot, <span class="constant">"PAPER"</span>)),
                             <span class="constant">"You lose! Paper covers Rock."</span>,
-                        AND(EQUAL(_human, <span class="constant">"SCISSORS"</span>), EQUAL(_robot, <span class="constant">"PAPER"</span>)),
+                        AND(EQUAL(human, <span class="constant">"SCISSORS"</span>), EQUAL(robot, <span class="constant">"PAPER"</span>)),
                             <span class="constant">"You win! Scissors cuts Paper."</span>,
-                        AND(EQUAL(_human, <span class="constant">"SCISSORS"</span>), EQUAL(_robot, <span class="constant">"ROCK"</span>)),
+                        AND(EQUAL(human, <span class="constant">"SCISSORS"</span>), EQUAL(robot, <span class="constant">"ROCK"</span>)),
                             <span class="constant">"You lose! Rock crushes Scissors."</span>,
-                        <a href="../otherwise/">otherwise</a>,
+                        <a href="../OTHERWISE/">OTHERWISE</a>,
                             <span class="constant">"Invalid throw. Please choose Rock, Paper, or Scissors."</span>)))))
         
         </pre>
