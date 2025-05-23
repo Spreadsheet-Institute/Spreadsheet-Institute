@@ -24,8 +24,7 @@
                 human,
                     UPPER(throw),
                 robot,
-                    CHOOSE(
-                        RANDBETWEEN(<span class="constant">1</span>, <span class="constant">3</span>),
+                    PICKFROM(
                         <span class="constant">"ROCK"</span>,
                         <span class="constant">"PAPER"</span>,
                         <span class="constant">"SCISSORS"</span>),
@@ -48,6 +47,8 @@
                         <span class="constant">"Invalid throw. Please choose Rock, Paper, or Scissors."</span>))))
         
         </pre>
+        <br>
+        <hr>
         <br>
         <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/ROCKPAPERSCISSORS/0.9.0.sl">optimize this function</a></p>
     </body>
