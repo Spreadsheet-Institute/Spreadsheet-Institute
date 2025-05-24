@@ -12,15 +12,15 @@
         <br>
         <pre>
 
-    DEFINE(
-        <a href="../LENGTH/">LENGTH</a>,
-        LAMBDA(
+DEFINE(
+    <a href="../LENGTH/">LENGTH</a>,
+    LAMBDA(
+        input,
+        <a href="../TYPEDISPATCH/">TYPEDISPATCH</a>(
             input,
-            <a href="../TYPEDISPATCH/">TYPEDISPATCH</a>(
-                input,
-                <span class="constant">"String"</span>, LEN(input),
-                <span class="constant">"Range"</span>, COUNTA(input),
-                <a href="../otherwise/">otherwise</a>, <a href="../THROWERROR/">THROWERROR</a>())))
+            <span class="constant">"String"</span>, LEN(input),
+            <span class="constant">"Range"</span>, COUNTA(input),
+            <a href="../otherwise/">otherwise</a>, <a href="../THROWERROR/">THROWERROR</a>())))
         
         </pre>
     </body>

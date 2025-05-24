@@ -12,19 +12,19 @@
         <br>
         <pre>
 
-    DEFINE(
-        <a href="../FLIPCOIN/">FLIPCOIN</a>,
-        LAMBDA(
-            [times],
-            LET(
-                counter,
-                    <a href="../DEFAULT/">DEFAULT</a>(times, <span class="constant">1</span>),
-                IF(
-                    LTE(counter, <span class="constant">1</span>),
+DEFINE(
+    <a href="../FLIPCOIN/">FLIPCOIN</a>,
+    LAMBDA(
+        [times],
+        LET(
+            counter,
+                <a href="../DEFAULT/">DEFAULT</a>(times, <span class="constant">1</span>),
+            IF(
+                LTE(counter, <span class="constant">1</span>),
+                <a href="../COINTOSS/">COINTOSS</a>(),
+                VSTACK(
                     <a href="../COINTOSS/">COINTOSS</a>(),
-                    VSTACK(
-                        <a href="../COINTOSS/">COINTOSS</a>(),
-                        <a href="../FLIPCOIN/">FLIPCOIN</a>(<a href="../DECREMENT/">DECREMENT</a>(counter)))))))
+                    <a href="../FLIPCOIN/">FLIPCOIN</a>(<a href="../DECREMENT/">DECREMENT</a>(counter)))))))
         
         </pre>
     </body>
