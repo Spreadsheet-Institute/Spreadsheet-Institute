@@ -51,4 +51,4 @@ becomes:
 In short: the greater your formulas' complexity, the greater will be the benefits gained by leveraging custom functions.
 
 > [!NOTE]
-> Spreadsheet Institute offers free formula audits, both to prove our efficiency gains as well as to gather new, helpful functions for Spreadsheet Lisp. Contact: dev@spreadsheet.institute
+> Spreadsheet Institute offers free formula audits, both to prove our claims as well as to gather new, helpful functions for Spreadsheet Lisp. Contact: dev@spreadsheet.institute
