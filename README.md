@@ -26,7 +26,7 @@ becomes
 =IF(AND(ISTEXT(A1), ISTEXT(B1)), ISNUMBER(SEARCH(A1, B1)), OR(EXACT(A1, B1)))
 ```
 
-becomes:
+becomes
 
 ```
 =CONTAINS(B1, A1)
@@ -38,7 +38,7 @@ becomes:
 =IF(IFERROR(FIND("!", RIGHT(CELL("filename", INDIRECT(CONCAT("A1"))), LEN(CELL("filename", INDIRECT(CONCAT("A1")))) - FIND("]", CELL("filename", INDIRECT(CONCAT("A1")))))), 0)>0, LEFT(RIGHT(CELL("filename", INDIRECT(CONCAT("A1"))), LEN(CELL("filename", INDIRECT(CONCAT("A1")))) - FIND("]", CELL("filename", INDIRECT(CONCAT("A1"))))), IFERROR(FIND("!", RIGHT(CELL("filename", INDIRECT(CONCAT("A1"))), LEN(CELL("filename", INDIRECT(CONCAT("A1")))) - FIND("]", CELL("filename", INDIRECT(CONCAT("A1"))))))), RIGHT(CELL("filename", INDIRECT(CONCAT("A1"))), LEN(CELL("filename", INDIRECT(CONCAT("A1")))) - FIND("]", CELL("filename", INDIRECT(CONCAT("A1")))))))
 ```
 
-becomes:
+becomes
 
 ```
 =SHEETNAME()
