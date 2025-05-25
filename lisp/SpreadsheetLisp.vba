@@ -1,11 +1,11 @@
 ' SpreadsheetLisp.vba imports SL definitions into the Name Manager
 
 ' To run this macro:
-' 1. Open any macro-enabled workbook in Microsoft Excel (.xlsm)
-' 2. Open the VBA Editor (Alt + F11 on PC or Opt + F11 on Mac)
-' 3. Click Insert > Module in the menu
+' 1. Open any macro-enabled workbook (.xlsm) in Microsoft Excel
+' 2. Open the VBA Editor (Alt + F11 on PC / Opt + F11 on Mac)
+' 3. From the top menu, select Insert > Module
 ' 4. Copy this file into the new module window
-' 5. Save the macro (Ctrl+S on PC, Command+S on Mac)
+' 5. Save the macro (Ctrl+S on PC / Command+S on Mac)
 ' 6. In the workbook, click Developer > Macros > SpreadsheetLisp > Run
 ' 7. Select the downloaded Spreadsheet Lisp source file
 
