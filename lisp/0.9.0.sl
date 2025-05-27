@@ -2,6 +2,8 @@ DEFINE(OTHERWISE,TRUE)
 
 DEFINE(COINTOSS,LAMBDA(PICK("Heads","Tails")))
 
+DEFINE(DECREMENT,LAMBDA(x,SUM(x,-1)))
+
 DEFINE(DEFAULT,LAMBDA(optional_argument,fallback_value,IF(PROVIDED(optional_argument),optional_argument,fallback_value)))
 
 DEFINE(FLIPCOIN,LAMBDA([times],LET(counter,DEFAULT(times, 1),IF(LTE(counter, 1),COINTOSS(),VSTACK(COINTOSS(),FLIPCOIN(DECREMENT(counter)))))))
