@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: LTE</title>
+        <link rel="stylesheet" href="/static/shared.css">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">Spreadsheet.<a href="/">Institute</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../LTE/">LTE</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../LTE/">LTE</a>(
+    2,
+    1)
+-> <span class="constant">FALSE</span>
+
+=<a href="../LTE/">LTE</a>(
+    1,
+    1)
+-> <span class="constant">TRUE</span>
+
+=<a href="../LTE/">LTE</a>(
+    0,
+    1)
+-> <span class="constant">TRUE</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../LTE/">LTE</a>,
+    LAMBDA(
+        x,
+        y,
+        IF(
+            x <= y,
+            <span class="constant">TRUE</span>,
+            <span class="constant">FALSE</span>)))
+        </pre>
+    </body>
+</html>
