@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: CAPITALIZE</title>
+        <link rel="stylesheet" href="/static/shared.css">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">Spreadsheet.<a href="/">Institute</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../CAPITALIZE/">CAPITALIZE</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../CAPITALIZE/">CAPITALIZE</a>(<span class="constant">"word"</span>)
+-> <span class="constant">"Word"</span>
+
+=<a href="../CAPITALIZE/">CAPITALIZE</a>(<span class="constant">"this is a sentence"</span>)
+-> <span class="constant">"This is a sentence"</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../CAPITALIZE/">CAPITALIZE</a>,
+    LAMBDA(
+        text,
+        CONCAT(
+            UPPER(FIRSTLETTER(text)),
+            RIGHT(text, DECREMENT(LEN(text))))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/CAPITALIZE/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
