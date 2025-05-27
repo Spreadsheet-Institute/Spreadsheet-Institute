@@ -12,6 +12,8 @@ DEFINE(DECREMENT,LAMBDA(x,SUM(x,-1)))
 
 DEFINE(DEFAULT,LAMBDA(optional_argument,fallback_value,IF(PROVIDED(optional_argument),optional_argument,fallback_value)))
 
+DEFINE(EQUAL,LAMBDA(this,that,this=that))
+
 DEFINE(FIRSTLETTER,LAMBDA(text,LEFT(text,1)))
 
 DEFINE(FLIPCOIN,LAMBDA([times],LET(counter,DEFAULT(times, 1),IF(LTE(counter, 1),COINTOSS(),VSTACK(COINTOSS(),FLIPCOIN(DECREMENT(counter)))))))
