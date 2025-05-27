@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: DEFAULT</title>
+        <link rel="stylesheet" href="/static/shared.css">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">Spreadsheet.<a href="/">Institute</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../DEFAULT/">DEFAULT</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../DEFAULT/">DEFAULT</a>(<span class="constant">1</span>, <span class="constant">2</span>)
+-> <span class="constant">1</span>
+
+=<a href="../DEFAULT/">DEFAULT</a>(&lt;omitted_optional&gt;, <span class="constant">2</span>)
+-> <span class="constant">2</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../DEFAULT/">DEFAULT</a>,
+    LAMBDA(
+        optional_argument,
+        fallback_value
+        IF(
+            <a href="../PROVIDED/">PROVIDED</a>(optional_argument,
+            optional_argument,
+            fallback_value)))
+        </pre>
+    </body>
+</html>
