@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: FORMAT</title>
+        <link rel="stylesheet" href="/static/shared.css">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">Spreadsheet.<a href="/">Institute</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../FORMAT/">FORMAT</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../FORMAT/">FORMAT</a>(<span class="constant">"The time is now {1} o'clock."</span>, <span class="constant">5</span>)
+-> <span class="constant">"The time is now 5 o'clock."</span>
+
+=<a href="../FORMAT/">FORMAT</a>(
+    <span class="constant">"{1}% of {2} is {3}."</span>,
+    <span class="constant">10</span>,
+    <span class="constant">20</span>,
+    <a href="../PERCENTOF/">PERCENTOF</a>,
+        <span class="constant">10</span>,
+        <span class="constant">20</span>)
+-> <span class="constant">"10% of 20 is 2."</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../FORMAT/">FORMAT</a>,
+    LAMBDA(
+        template_text,
+        first_value,
+        [second_value],
+        [third_value],
+        [fourth_value],
+        [fifth_value],
+        LET(
+            _after1,
+                SUBSTITUTE(template_text, <span class="constant">"{1}"</span>, first_value),
+            _after2,
+                IF(
+                    <a href="../PROVIDED/">PROVIDED</a>(second_value),
+                    SUBSTITUTE(_after1, <span class="constant">"{2}"</span>, second_value),
+                    _after1),
+            _after3,
+                IF(
+                    <a href="../PROVIDED/">PROVIDED</a>(third_value),
+                    SUBSTITUTE(_after2, <span class="constant">"{3}"</span>, third_value),
+                    _after2),
+            _after4,
+                IF(
+                    <a href="../PROVIDED/">PROVIDED</a>(fourth_value),
+                    SUBSTITUTE(_after3, <span class="constant">"{4}"</span>, fourth_value),
+                    _after3),
+            IF(
+                <a href="../PROVIDED/">PROVIDED</a>(fifth_value),
+                SUBSTITUTE(_after4, <span class="constant">"{5}"</span>, fifth_value),
+                _after4))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/FORMAT/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
