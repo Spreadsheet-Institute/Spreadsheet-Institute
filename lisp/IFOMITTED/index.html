@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: IFOMITTED</title>
+        <link rel="stylesheet" href="/static/shared.css">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">Spreadsheet.<a href="/">Institute</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../IFOMITTED/">IFOMITTED</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../IFPROVIDED/">IFOMITTED</a>(<span class="constant">1</span>, <span class="constant">2</span>)
+-> <span class="constant">1</span>
+
+=<a href="../DEFAULT/">DEFAULT</a>(&lt;omitted_optional&gt;, <span class="constant">2</span>)
+-> <span class="constant">2</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../IFOMITTED/">IFOMITTED</a>,
+    LAMBDA(
+        optional_argument,
+        value_if_omitted,
+        value_if_provided,
+        IF(
+            ISOMITTED(optional_argument),
+            value_if_omitted,
+            value_if_provided)))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/IFOMITTED/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

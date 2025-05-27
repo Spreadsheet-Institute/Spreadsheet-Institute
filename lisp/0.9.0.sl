@@ -18,6 +18,8 @@ DEFINE(FIRSTLETTER,LAMBDA(text,LEFT(text,1)))
 
 DEFINE(FLIPCOIN,LAMBDA([times],LET(counter,DEFAULT(times, 1),IF(LTE(counter, 1),COINTOSS(),VSTACK(COINTOSS(),FLIPCOIN(DECREMENT(counter)))))))
 
+DEFINE(IFOMITTED,LAMBDA(optional_argument,value_if_omitted,value_if_provided,IF(ISOMITTED(optional_argument),value_if_omitted,value_if_provided)))
+
 DEFINE(LTE,LAMBDA(x,y,IF(x<=y,TRUE,FALSE)))
 
 DEFINE(MAGIC8BALL,LAMBDA([yes_or_no_question],IF(PROVIDED(yes_or_no_question),PICK("It is certain","Reply hazy, try again","It is decidedly so","Without a doubt","Don't count on it","Yes, definitely","Ask again later","You may rely on it","My reply is no","As I see it, yes","Better not tell you now","Most likely","My sources say no","Outlook good","Cannot predict now","Yes","Outlook not so good","Signs point to yes","Concentrate and ask again","Very doubtful"),"Ask, and you will be answered")))
