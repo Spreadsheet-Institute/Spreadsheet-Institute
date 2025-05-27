@@ -2,6 +2,8 @@ DEFINE(OTHERWISE,TRUE)
 
 DEFINE(COINTOSS,LAMBDA(PICK("Heads","Tails")))
 
+DEFINE(DEFAULT,LAMBDA(optional_argument,fallback_value,IF(PROVIDED(optional_argument,optional_argument,fallback_value)))))
+
 DEFINE(FLIPCOIN,LAMBDA([times],LET(counter,DEFAULT(times, 1),IF(LTE(counter, 1),COINTOSS(),VSTACK(COINTOSS(),FLIPCOIN(DECREMENT(counter)))))))
 
 DEFINE(MAGIC8BALL,LAMBDA([question],IF(PROVIDED(question),PICK("It is certain","Reply hazy, try again","It is decidedly so","Without a doubt","Don't count on it","Yes, definitely","Ask again later","You may rely on it","My reply is no","As I see it, yes","Better not tell you now","Most likely","My sources say no","Outlook good","Cannot predict now","Yes","Outlook not so good","Signs point to yes","Concentrate and ask again","Very doubtful"),"Ask, and you will be answered")))
