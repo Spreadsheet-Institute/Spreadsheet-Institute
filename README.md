@@ -53,4 +53,4 @@ becomes
 In short: the greater your formulas' complexity, the greater will be the benefits gained by leveraging custom functions.
 
 > [!NOTE]
-> Spreadsheet.[Institute](https://spreadsheet.institute/")/ offers [free]("https://www.investopedia.com/terms/f/free-lunch.asp"), NDA-covered formula audits, in which we optimize your team's favorite spreadsheets as we forage for new functions to include with Spreadsheet Lisp ([SL]("https://spreadsheet.institute/lisp/")). Contact: hq@spreadsheet.institute
+> Spreadsheet.[Institute](https://spreadsheet.institute/)/ offers [free](https://www.investopedia.com/terms/f/free-lunch.asp), NDA-covered formula audits, in which we optimize your team's favorite spreadsheets as we forage for new functions to include with Spreadsheet Lisp ([SL](https://spreadsheet.institute/lisp/)). Contact: hq@spreadsheet.institute
