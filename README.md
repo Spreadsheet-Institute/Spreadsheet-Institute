@@ -13,7 +13,7 @@ With the introduction of LET() and LAMBDA(), modern spreadsheets can now host a 
 ---
 
 ```
-=LEFT(A1, FIND(" ", A1) - 1)
+=LEFT(TRIM(A1), FIND(" ", TRIM(A1)) - 1)
 ```
 
 becomes
