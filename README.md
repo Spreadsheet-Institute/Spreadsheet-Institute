@@ -2,7 +2,7 @@
 
 *"Today's spreadsheet is tomorrow's abacus."*
 
-<img src="./si-logo.jpeg" width="100" height="100" alt="Spreadsheet.Institute/ logo">
+<img src="./static/logo.jpeg" width="100" height="100" alt="Spreadsheet.Institute/ logo">
 
 Spreadsheet.Institute/ embodies a collaborative effort to seek, test, and break the boundaries of what can be accomplished by present & future spreadsheet technologies. Whether optimizing for performance, readability, extensibility, or mere aesthetics, our aim is to restore the spreadsheet experience from one of pain to one of pleasure, from the intellectually-tedious to the intellectually-tantalizing; in short, from a game of memory to a game of creativity.
 
