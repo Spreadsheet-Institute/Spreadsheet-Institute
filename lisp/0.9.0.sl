@@ -33,3 +33,5 @@ DEFINE(PICK,LAMBDA(_1, [_2], [_3], [_4], [_5],[_6], [_7], [_8], [_9], [_10],[_11
 DEFINE(PROVIDED,LAMBDA([argument],NOT(ISOMITTED(argument))))
 
 DEFINE(IS,LAMBDA(argument,IF(ISOMITTED(argument), 0, 1)))
+
+DEFINE(SQUAREROOT,LAMBDA(x,POWER(x,0.5)))
