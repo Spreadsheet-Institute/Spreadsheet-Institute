@@ -48,9 +48,9 @@ becomes
 
 ---
 
-...et cetera, et cetera, ad absurdum.
+... et cetera, et cetera, ad absurdum.
 
-In short: the greater your formulas' complexity, the greater will be the benefits gained by leveraging custom functions.
+In short: using *custom functions* to abstract *long formulas* into *short formulas* saves time (developing and maintaining spreadsheets), which saves money. Any fortuitous joys which are derived from the design and implementation of such abstractions cannot here be quantified, objectively, and so are left as a variable benefit for each individual to quantify, subjectively, at their own pace.
 
 > [!NOTE]
 > Spreadsheet.[Institute](https://spreadsheet.institute/)/ offers [free](https://www.investopedia.com/terms/f/free-lunch.asp), NDA-covered formula audits, in which we optimize your team's favorite spreadsheets as we forage for new functions to include with Spreadsheet Lisp ([SL](https://spreadsheet.institute/lisp/)). Contact: hq@spreadsheet.institute
