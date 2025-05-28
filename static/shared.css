@@ -33,3 +33,7 @@ a {
     font-style: italic;
     font-weight: bold;
 }
+
+pre {
+    overflow-x: scroll;
+}
