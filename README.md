@@ -8,7 +8,7 @@ Spreadsheet.Institute/ embodies a collaborative effort to seek, test, and break 
 
 ## Spreadsheet Lisp
 
-With the introduction of LET() and LAMBDA(), modern spreadsheets can now host a useful subset of the storied Lisp functional programming paradigm. By identifying, naming, and reusing custom functions, overall formula complexity is reduced to its minimum to allow for even more powerful formulas to be written with fewer characters than the unoptimized originals:
+With the introduction of LET() and LAMBDA(), modern spreadsheets can now host a pure subset of the Lisp functional programming paradigm. By identifying, naming, and reusing custom functions, overall formula complexity is reduced to its minimum to allow for even more powerful formulas to be written with fewer characters than the unoptimized originals:
 
 ---
 
