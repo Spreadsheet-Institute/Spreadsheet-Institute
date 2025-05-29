@@ -26,6 +26,8 @@ DEFINE(FLIPCOIN,LAMBDA([times],LET(counter,DEFAULT(times, 1),IF(LTE(counter, 1),
 
 DEFINE(FORMAT,LAMBDA(template_text,first_value,[second_value],[third_value],[fourth_value],[fifth_value],LET(_after1,SUBSTITUTE(template_text,"{1}", first_value),_after2,IF(PROVIDED(second_value),SUBSTITUTE(_after1,"{2}", second_value),_after1),_after3,IF(PROVIDED(third_value),SUBSTITUTE(_after2,"{3}", third_value),_after2),_after4,IF(PROVIDED(fourth_value),SUBSTITUTE(_after3,"{4}", fourth_value),_after3),IF(PROVIDED(fifth_value),SUBSTITUTE(_after4,"{5}", fifth_value),_after4))))
 
+DEFINE(GTE,LAMBDA(x,y,IF(x >= y,TRUE,FALSE)))
+
 DEFINE(IFOMITTED,LAMBDA(optional_argument,value_if_omitted,value_if_provided,IF(ISOMITTED(optional_argument),value_if_omitted,value_if_provided)))
 
 DEFINE(LTE,LAMBDA(x,y,IF(x<=y,TRUE,FALSE)))
