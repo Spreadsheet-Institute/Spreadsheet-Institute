@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: CELLNAME</title>
+        <link rel="stylesheet" href="/static/shared.css">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../CELLNAME/">CELLNAME</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../CELLNAME/">CELLNAME</a>(A1)
+-> <span class="constant">"A1"</span>
+
+=<a href="../CELLNAME/">CELLNAME</a>(A1, YES)
+-> <span class="constant">"$A$1"</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../CELLNAME/">CELLNAME</a>,
+    LAMBDA(
+        [reference],
+        [absolute],
+        LET(
+            address,
+                IFOMITTED(
+                    reference,
+                    CELL("address"),
+                    CELL(
+                        <span class="constant">"address"</span>,
+                        reference)),
+            display_absolute,
+                <a href="../DEFAULT/">DEFAULT</a>(
+                    absolute,
+                    <span class="constant">NO</span>),
+            IF(
+                display_absolute,
+                address,
+                SUBSTITUTE(
+                    address,
+                    <span class="constant">"$"</span>,
+                    <span class="constant">""</span>)))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/CELLNAME/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
