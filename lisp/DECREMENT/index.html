@@ -13,6 +13,9 @@
         <pre>
 =<a href="../DECREMENT/">DECREMENT</a>(<span class="constant">1</span>)
 -> <span class="constant">0</span>
+
+=<a href="../DECREMENT/">DECREMENT</a>(<span class="constant">1</span>, <span class="constant">1</span>)
+-> <span class="constant">-1</span>
         </pre>
         <br>
         <hr>
@@ -22,9 +25,14 @@ DEFINE(
     <a href="../DECREMENT/">DECREMENT</a>,
     LAMBDA(
         x,
+        [times],
         SUM(
             x,
-            <span class="constant">-1</span>)))
+            PRODUCT(
+                <span class="constant">-1</span>,
+                <a href="../DEFAULT/">DEFAULT</a>(
+                    times,
+                    <span class="constant">1</span>)))))
         </pre>
         <br>
         <hr>

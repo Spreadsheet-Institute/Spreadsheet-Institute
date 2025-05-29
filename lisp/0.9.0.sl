@@ -14,7 +14,7 @@ DEFINE(CDR,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),MAKEARRAY(1,D
 
 DEFINE(COINTOSS,LAMBDA(PICK("Heads","Tails")))
 
-DEFINE(DECREMENT,LAMBDA(x,SUM(x,-1)))
+DEFINE(DECREMENT,LAMBDA(x,[times],SUM(x,PRODUCT(-1,DEFAULT(times,1)))))
 
 DEFINE(DEFAULT,LAMBDA(optional_argument,fallback_value,IF(PROVIDED(optional_argument),optional_argument,fallback_value)))
 
