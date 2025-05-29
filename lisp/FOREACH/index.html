@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: FOREACH</title>
+        <link rel="stylesheet" href="/static/shared.css">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../FOREACH/">FOREACH</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../FOREACH/">FOREACH</a>(
+    {<span class="constant">1</span>;<span class="constant">2</span>;<span class="constant">3</span>},
+    <a href="../INCREMENT/">INCREMENT</a>)
+-> {<span class="constant">2</span>;<span class="constant">3</span>;<span class="constant">4</span>}
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../FOREACH/">FOREACH</a>,
+    LAMBDA(
+        range,
+        function_to_apply,
+        MAP(
+            range,
+            function_to_apply)))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/FOREACH/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
