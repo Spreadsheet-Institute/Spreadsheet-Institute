@@ -17,7 +17,9 @@ DEFINE(
     LAMBDA(
         input,
         IF(
-            ISTEXT(input),
+            <a href="../EQUAL/">EQUAL</a>(
+                COUNTA(input),
+                <span class="centered">1</span>),
             LEN(input),
             COUNTA(input))))
         
