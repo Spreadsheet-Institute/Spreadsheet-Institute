@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: CDR</title>
+        <link rel="stylesheet" href="/static/shared.css">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../CDR/">CDR</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../CDR/">CDR</a>(A1:A5)
+-> A2:A5
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../CAR/">CDR</a>,
+    LAMBDA(
+        range,
+        IF(
+            <a href="../GREATERTHAN/">GREATERTHAN</a>(
+                COLUMNS(range),
+                ROWS(range)),
+            MAKEARRAY(
+                <span class="constant">1</span>,
+                <a href="../DECREMENT/">DECREMENT</a>(COLUMNS(range)),
+                LAMBDA(
+                    _row,
+                    col,
+                    INDEX(
+                        range,
+                        <span class="constant">1</span>,
+                        <a href="../INCREMENT/">INCREMENT</a>(col)))),
+            MAKEARRAY(
+                <a href="../DECREMENT/">DECREMENT</a>(ROWS(range)),
+                <span class="constant">1</span>,
+                LAMBDA(
+                    row,
+                    _col,
+                    INDEX(
+                        range,
+                        <a href="../INCREMENT/">INCREMENT</a>(row),
+                        <span class="constant">1</span>))))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/CDR/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
