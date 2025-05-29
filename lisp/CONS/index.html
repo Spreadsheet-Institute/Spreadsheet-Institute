@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: CONS</title>
+        <link rel="stylesheet" href="/static/shared.css">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../CONS/">CONS</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../CONS/">CONS</a>(A1, A2:A5)
+-> A1:A5
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../CONS/">CONS</a>,
+    LAMBDA(
+        value,
+        range,
+        IF(
+            <a href="../GREATERTHAN/">GREATERTHAN</a>(
+                COLUMNS(range),
+                ROWS(range)),
+            HSTACK(
+                value,
+                range),
+            VSTACK(
+                value,
+                range))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/CONS/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
