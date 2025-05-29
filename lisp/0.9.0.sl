@@ -32,6 +32,8 @@ DEFINE(GTE,LAMBDA(x,y,IF(x >= y,TRUE,FALSE)))
 
 DEFINE(IFOMITTED,LAMBDA(optional_argument,value_if_omitted,value_if_provided,IF(ISOMITTED(optional_argument),value_if_omitted,value_if_provided)))
 
+DEFINE(INCREMENT,LAMBDA(x,SUM(x,1)))
+
 DEFINE(LESSTHAN,LAMBDA(x,y,IF(x < y,TRUE,FALSE)))
 
 DEFINE(LTE,LAMBDA(x,y,IF(x<=y,TRUE,FALSE)))
