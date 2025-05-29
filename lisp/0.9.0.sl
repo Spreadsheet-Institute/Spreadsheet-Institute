@@ -20,6 +20,8 @@ DEFINE(DEFAULT,LAMBDA(optional_argument,fallback_value,IF(PROVIDED(optional_argu
 
 DEFINE(EQUAL,LAMBDA(this,that,this=that))
 
+DEFINE(FIRST,LAMBDA(range,CAR(range)))
+
 DEFINE(FIRSTLETTER,LAMBDA(text,LEFT(text,1)))
 
 DEFINE(FLIPCOIN,LAMBDA([times],LET(counter,DEFAULT(times, 1),IF(LTE(counter, 1),COINTOSS(),VSTACK(COINTOSS(),FLIPCOIN(DECREMENT(counter)))))))
