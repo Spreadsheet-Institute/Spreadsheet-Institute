@@ -53,4 +53,4 @@ becomes
 In short: using *custom functions* to abstract *long formulas* into *short formulas* saves time (developing and maintaining spreadsheets), which saves money. Any fortuitous joys which are derived from the design and implementation of such abstractions cannot here be quantified, objectively, and so are left as a variable benefit for each individual to quantify, subjectively, at their own pace.
 
 > [!NOTE]
-> Spreadsheet.[Institute](https://spreadsheet.institute/)/ offers [free](https://www.investopedia.com/terms/f/free-lunch.asp), NDA-covered formula audits, in which we optimize your team's favorite spreadsheets as we forage for new functions to include with Spreadsheet Lisp ([SL](https://spreadsheet.institute/lisp/)). Contact: hq@spreadsheet.institute
+> Spreadsheet.[Institute](https://spreadsheet.institute/)/ offers [free](https://www.investopedia.com/terms/f/free-lunch.asp), NDA-covered formula audits, in which we optimize your team's least-favorite spreadsheets as we forage for new functions to include within Spreadsheet Lisp ([SL](https://spreadsheet.institute/lisp/)). Contact: hq@spreadsheet.institute
