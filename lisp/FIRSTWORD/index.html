@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: FIRSTWORD</title>
+        <link rel="stylesheet" href="/static/shared.css">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../FIRSTWORD/">FIRSTWORD</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../FIRSTLETTER/">FIRSTWORD</a>(<span class="constant">"What is love?"</span>)
+-> <span class="constant">"What"</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../FIRSTWORD/">FIRSTWORD</a>,
+    LAMBDA(
+        text,
+        LEFT(
+            TRIM(text),
+            DECREMENT(
+                FIND(
+                    <span class="constant">" "</span>,
+                    TRIM(text))))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/FIRSTWORD/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
