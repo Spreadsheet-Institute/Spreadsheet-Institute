@@ -39,7 +39,7 @@ becomes
 ---
 
 ```
-=IF(IFERROR(FIND("!", RIGHT(CELL("filename", INDIRECT(CONCAT("A1"))), LEN(CELL("filename", INDIRECT(CONCAT("A1")))) - FIND("]", CELL("filename", INDIRECT(CONCAT("A1")))))), 0)>0, LEFT(RIGHT(CELL("filename", INDIRECT(CONCAT("A1"))), LEN(CELL("filename", INDIRECT(CONCAT("A1")))) - FIND("]", CELL("filename", INDIRECT(CONCAT("A1"))))), IFERROR(FIND("!", RIGHT(CELL("filename", INDIRECT(CONCAT("A1"))), LEN(CELL("filename", INDIRECT(CONCAT("A1")))) - FIND("]", CELL("filename", INDIRECT(CONCAT("A1"))))))), RIGHT(CELL("filename", INDIRECT(CONCAT("A1"))), LEN(CELL("filename", INDIRECT(CONCAT("A1")))) - FIND("]", CELL("filename", INDIRECT(CONCAT("A1")))))))
+=RIGHT(CELL("filename",INDIRECT(CONCAT("A1"))),LEN(CELL("filename",INDIRECT(CONCAT("A1"))))-FIND("]",CELL("filename",INDIRECT(CONCAT("A1")))))
 ```
 
 becomes
