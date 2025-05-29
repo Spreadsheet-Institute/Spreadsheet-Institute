@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: ISHORIZONTAL</title>
+        <link rel="stylesheet" href="/static/shared.css">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../ISHORIZONTAL/">ISHORIZONTAL</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../ISHORIZONTAL/">ISHORIZONTAL</a>(A1:E1)
+-> <span class="constant">TRUE</span>
+
+=<a href="../ISHORIZONTAL/">ISHORIZONTAL</a>(A1:A5)
+-> <span class="constant">FALSE</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../ISHORIZONTAL/">ISHORIZONTAL</a>,
+    LAMBDA(
+        range,
+        IF(
+            GREATERTHAN(
+                COLUMNS(range),
+                ROWS(range)),
+            <span class="constant">TRUE</span>,
+            <span class="constant">FALSE</span>)))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/ISHORIZONTAL/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

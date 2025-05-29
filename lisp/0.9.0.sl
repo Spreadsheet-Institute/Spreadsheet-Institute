@@ -38,6 +38,10 @@ DEFINE(IFOMITTED,LAMBDA(optional_argument,value_if_omitted,value_if_provided,IF(
 
 DEFINE(INCREMENT,LAMBDA(x,[times],SUM(x,PRODUCT(1,DEFAULT(times,1)))))
 
+DEFINE(ISHORIZONTAL,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),TRUE,FALSE)))
+
+DEFINE(ISVERTICAL,LAMBDA(range,IF(GREATERTHAN(ROWS(range),COLUMNS(range)),TRUE,FALSE)))
+
 DEFINE(LAST,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),INDEX(range,1,COUNTA(range)),INDEX(range,COUNTA(range),1))))
 
 DEFINE(LENGTH,LAMBDA(input,IF(EQUAL(COUNTA(input),1),LEN(input),COUNTA(input))))
