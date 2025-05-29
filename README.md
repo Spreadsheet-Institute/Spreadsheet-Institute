@@ -10,6 +10,8 @@ Spreadsheet.Institute/ embodies a collaborative effort to seek, test, and break 
 
 Try it: [SpreadsheetLisp.xlsx](https://spreadsheet.institute/lisp/SpreadsheetLisp.xlsx)
 
+Or: [Install it yourself](https://spreadsheet.institute/lisp/install)
+
 With the introduction of LET() and LAMBDA(), modern spreadsheets can now host a pure subset of the Lisp functional programming paradigm. By identifying, naming, and reusing custom functions, average formula complexity is reduced to its minimum to allow for even more powerful formulas to be written with fewer characters than the unoptimized originals:
 
 ---
