@@ -23,21 +23,7 @@ DEFINE(
     LAMBDA(
         range,
         IF(
-            <a href="../GREATERTHAN/">GREATERTHAN</a>(
-                COLUMNS(range),
-                ROWS(range)),
-            MAKEARRAY(
-                <span class="constant">1</span>,
-                COLUMNS(range),
-                LAMBDA(
-                    _row,
-                    col,
-                    INDEX(
-                        range,
-                        <span class="constant">1</span>,
-                        <a href="../DECREMENT/">DECREMENT</a>(
-                            LENGTH(range),
-                            DECREMENT(col))))),
+            ISVERTICAL(range),
             MAKEARRAY(
                 ROWS(range),
                 <span class="constant">1</span>,
@@ -49,7 +35,19 @@ DEFINE(
                         <a href="../DECREMENT/">DECREMENT</a>(
                             LENGTH(range),
                             DECREMENT(row)),
-                        <span class="constant">1</span>))))))
+                        <span class="constant">1</span>))),
+            MAKEARRAY(
+                <span class="constant">1</span>,
+                COLUMNS(range),
+                LAMBDA(
+                    _row,
+                    col,
+                    INDEX(
+                        range,
+                        <span class="constant">1</span>,
+                        <a href="../DECREMENT/">DECREMENT</a>(
+                            LENGTH(range),
+                            DECREMENT(col))))))))
         </pre>
         <br>
         <hr>
