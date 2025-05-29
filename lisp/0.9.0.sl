@@ -24,6 +24,8 @@ DEFINE(DEFAULT,LAMBDA(optional_argument,fallback_value,IF(PROVIDED(optional_argu
 
 DEFINE(EQUAL,LAMBDA(this,that,this=that))
 
+DEFINE(FILENAME,LAMBDA([reference],CELL("filename",DEFAULT(reference,INDIRECT(CONCAT("A1"))))))
+
 DEFINE(FIRST,LAMBDA(range,CAR(range)))
 
 DEFINE(FIRSTLETTER,LAMBDA(text,LEFT(text,1)))
@@ -69,5 +71,7 @@ DEFINE(PICK,LAMBDA(_1, [_2], [_3], [_4], [_5],[_6], [_7], [_8], [_9], [_10],[_11
 DEFINE(PROVIDED,LAMBDA([argument],NOT(ISOMITTED(argument))))
 
 DEFINE(IS,LAMBDA(argument,IF(ISOMITTED(argument), 0, 1)))
+
+DEFINE(SHEETNAME,LAMBDA([reference],LET(filename,FILENAME(reference),bracket_position,FIND("]",filename),RIGHT(filename,DECREMENT(LEN(filename),bracket_position)))))
 
 DEFINE(SQUAREROOT,LAMBDA(x,POWER(x,0.5)))

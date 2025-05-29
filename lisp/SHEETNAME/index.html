@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: SHEETNAME</title>
+        <link rel="stylesheet" href="/static/shared.css">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../SHEETNAME/">SHEETNAME</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../SHEETNAME/">SHEETNAME</a>()
+-> <span class="constant">"Sheet1"</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../SHEETNAME/">SHEETNAME</a>,
+    LAMBDA(
+        [reference],
+        LET(
+            filename,
+                <a href="../FILENAME/">FILENAME</a>(reference),
+            bracket_position,
+                FIND(
+                    <span class="constant">"]"</span>,
+                    filename),
+            RIGHT(
+                filename,
+                <a href="../DECREMENT/">DECREMENT</a>(
+                    LEN(filename),
+                    bracket_position)))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/SHEETNAME/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
