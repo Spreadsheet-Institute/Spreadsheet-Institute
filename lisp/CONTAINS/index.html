@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: CONTAINS</title>
+        <link rel="stylesheet" href="/static/shared.css">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../CONTAINS/">CONTAINS</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../CONTAINS/">CONTAINS</a>("Spreadsheet Lisp", "Lisp")
+-> TRUE
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../CONTAINS/">CONTAINS</a>,
+    LAMBDA(
+        haystack,
+        needle,
+        IF(
+            AND(
+                EQUAL(
+                    COUNTA(haystack),
+                    <span class="constant">1</span>),
+                EQUAL(
+                    COUNTA(needle),
+                    <span class="constant">1</span>)),
+            ISNUMBER(
+                SEARCH(
+                    needle,
+                    haystack)),
+            OR(
+                EXACT(
+                    needle,
+                    haystack)))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/CONTAINS/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
