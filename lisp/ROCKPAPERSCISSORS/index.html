@@ -27,7 +27,7 @@ DEFINE(
         throw,
         LET(
             human,
-                <a href="../CAPITALIZE/">CAPITALIZE</a>(LOWER(throw)),
+                <a href="../CAPITALIZE/">CAPITALIZE</a>(LOWER(DEFAULT(throw, ""))),
             robot,
                 <a href="../PICK/">PICK</a>(
                     <span class="constant">"Rock"</span>,
