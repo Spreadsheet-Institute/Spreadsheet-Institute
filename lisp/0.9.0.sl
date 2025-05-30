@@ -24,7 +24,7 @@ DEFINE(DECREMENT,LAMBDA(x,[times],SUM(x,PRODUCT(-1,DEFAULT(times,1)))))
 
 DEFINE(DEFAULT,LAMBDA(optional_argument,fallback_value,IF(PROVIDED(optional_argument),optional_argument,fallback_value)))
 
-DEFINE(EQUAL,LAMBDA(this,that,this=that))
+DEFINE(EQUAL,LAMBDA(a,b,a=b))
 
 DEFINE(FILENAME,LAMBDA([reference],CELL("filename",DEFAULT(reference,INDIRECT(CONCAT("A1"))))))
 
