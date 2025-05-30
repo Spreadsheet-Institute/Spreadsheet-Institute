@@ -12,7 +12,27 @@ Try it: [SpreadsheetLisp.xlsx](https://spreadsheet.institute/lisp/SpreadsheetLis
 
 Or: [Install it yourself](https://spreadsheet.institute/lisp/install)
 
-With the introduction of *LET()* and *LAMBDA()*, modern spreadsheets can run a subset of the Lisp programming language directly in the Name Manager. These "composite" functions simplify spreadsheets by shortening formulas down to a single function:
+With the introduction of *LET()* and *LAMBDA()*, modern spreadsheets can run a useful subset of the Lisp programming language directly in the Formula Bar. These "composite" functions simplify spreadsheets by shortening formulas down to a single function:
+
+---
+
+```
+Before:
+=INDEX(A1:A100, 1, 1)
+
+After:
+=FIRST(A1:A100)
+```
+
+---
+
+```
+Before:
+=IF(COLUMNS(A1:A100)>ROWS(A1:A100),INDEX(A1:A100,1,COUNTA(A1:A100)),INDEX(A1:A100,COUNTA(A1:A100),1))
+
+After:
+=LAST(A1:A100)
+```
 
 ---
 
@@ -58,7 +78,7 @@ After:
 
 ... and so on.
 
-In short: "naming formulas".
+In short: "named formulas".
 
 > [!NOTE]
 > Spreadsheet.[Institute](https://spreadsheet.institute/)/ currently offers [free](https://www.investopedia.com/terms/f/free-lunch.asp), NDA-optional formula audits, in which we optimize your team's least/favorite spreadsheets, making them quicker and easier to update while we forage for new functions to include within Spreadsheet Lisp ([SL](https://spreadsheet.institute/lisp/)). Contact: hq@spreadsheet.institute
