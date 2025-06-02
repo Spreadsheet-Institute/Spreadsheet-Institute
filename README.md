@@ -4,7 +4,7 @@
 
 <img src="./static/logo.jpeg" width="100" height="100" alt="Spreadsheet.Institute/ logo">
 
-Spreadsheet.Institute/ embodies a collaborative effort to seek, test, and break the boundaries of what can be accomplished by present & future spreadsheet technologies. Whether optimizing for performance, readability, extensibility, or mere aesthetics, our aim is to turn every user into a poweruser.
+Spreadsheet.Institute/ embodies a collaborative effort to seek, test, and break the boundaries of what can be accomplished by present & future spreadsheet technologies. Whether optimizing for performance, readability, extensibility, or mere aesthetics: our aim is to turn every user into a poweruser.
 
 ## Spreadsheet Lisp
 
