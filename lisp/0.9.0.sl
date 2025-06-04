@@ -1,3 +1,5 @@
+DEFINE(ALL,LAMBDA(truth_values,AND(truth_values)))
+
 DEFINE(OTHERWISE,TRUE)
 
 DEFINE(NO,FALSE)
