@@ -48,9 +48,13 @@ DEFINE(GTE,LAMBDA(x,y,IF(x >= y,TRUE,FALSE)))
 
 DEFINE(HLIST,LAMBDA([_1], [_2], [_3], [_4], [_5],[_6], [_7], [_8], [_9], [_10],[_11], [_12], [_13], [_14], [_15],[_16], [_17], [_18], [_19], [_20],[_21], [_22], [_23], [_24], [_25],LET(column_count,SUM(IS(_1), IS(_2), IS(_3), IS(_4), IS(_5),IS(_6), IS(_7), IS(_8), IS(_9), IS(_10),IS(_11), IS(_12), IS(_13), IS(_14), IS(_15),IS(_16), IS(_17), IS(_18), IS(_19), IS(_20),IS(_21), IS(_22), IS(_23), IS(_24), IS(_25)),IF(EQUAL(column_count,0),"()",MAKEARRAY(1,column_count,LAMBDA(_row,col,CHOOSE(col,_1, _2, _3, _4, _5,_6, _7, _8, _9, _10,_11, _12, _13, _14, _15,_16, _17, _18, _19, _20,_21, _22, _23, _24, _25)))))))
 
+DEFINE(ID,LAMBDA(input,input))
+
 DEFINE(IFOMITTED,LAMBDA(optional_argument,value_if_omitted,value_if_provided,IF(ISOMITTED(optional_argument),value_if_omitted,value_if_provided)))
 
 DEFINE(INCREMENT,LAMBDA(x,[times],SUM(x,PRODUCT(1,DEFAULT(times,1)))))
+
+DEFINE(IS,LAMBDA(argument,IF(ISOMITTED(argument), 0, 1)))
 
 DEFINE(ISATOM,LAMBDA(input,MEMBER(TYPESTRING(input),VLIST("Number","String","Error"))))
 
@@ -83,8 +87,6 @@ DEFINE(ROCKPAPERSCISSORS,LAMBDA(throw,LET(human,CAPITALIZE(LOWER(DEFAULT(throw,"
 DEFINE(PICK,LAMBDA(_1, [_2], [_3], [_4], [_5],[_6], [_7], [_8], [_9], [_10],[_11], [_12], [_13], [_14], [_15],[_16], [_17], [_18], [_19], [_20],[_21], [_22], [_23], [_24], [_25],LET(count,SUM(IS(_1), IS(_2), IS(_3), IS(_4), IS(_5),IS(_6), IS(_7), IS(_8), IS(_9), IS(_10),IS(_11), IS(_12), IS(_13), IS(_14), IS(_15),IS(_16), IS(_17), IS(_18), IS(_19), IS(_20),IS(_21), IS(_22), IS(_23), IS(_24), IS(_25)),CHOOSE(RANDBETWEEN(1, count), _1, _2, _3, _4, _5, _6, _7, _8, _9, _10,_11, _12, _13, _14, _15,_16, _17, _18, _19, _20,_21, _22, _23, _24, _25))))
 
 DEFINE(PROVIDED,LAMBDA([argument],NOT(ISOMITTED(argument))))
-
-DEFINE(IS,LAMBDA(argument,IF(ISOMITTED(argument), 0, 1)))
 
 DEFINE(SHEETNAME,LAMBDA([reference],LET(filename,FILENAME(reference),bracket_position,FIND("]",filename),RIGHT(filename,DECREMENT(LEN(filename),bracket_position)))))
 
