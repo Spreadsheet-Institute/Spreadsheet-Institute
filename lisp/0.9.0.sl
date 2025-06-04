@@ -52,6 +52,8 @@ DEFINE(IFOMITTED,LAMBDA(optional_argument,value_if_omitted,value_if_provided,IF(
 
 DEFINE(INCREMENT,LAMBDA(x,[times],SUM(x,PRODUCT(1,DEFAULT(times,1)))))
 
+DEFINE(ISATOM,LAMBDA(input,MEMBER(TYPESTRING(input),VLIST("Number","String","Error"))))
+
 DEFINE(ISHORIZONTAL,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),TRUE,FALSE)))
 
 DEFINE(ISRANGE,LAMBDA(input,EQUAL(TYPESTRING(input),"Range")))
