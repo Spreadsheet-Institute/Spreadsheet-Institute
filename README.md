@@ -50,6 +50,16 @@ After:
 
 ```
 Before:
+=MAKEARRAY(5, 1, LAMBDA(row, _col, CHOOSE(row, 1, 2, 3, 4, 5)))
+
+After:
+=VLIST(1, 2, 3, 4, 5)
+```
+
+---
+
+```
+Before:
 =IF(AND(ISTEXT(A1), ISTEXT(B1)), ISNUMBER(SEARCH(A1, B1)), OR(EXACT(A1, B1)))
 
 After:
