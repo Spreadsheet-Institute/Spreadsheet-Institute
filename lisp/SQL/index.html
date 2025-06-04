@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: SQL</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../SQL/">SQL</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+            
+DEFINE(
+    <a href="../SQL/">SQL</a>,
+    LAMBDA(
+        table,
+        query,
+        LET(
+            first_word,
+                <a href="../FIRSTWORD/">FIRSTWORD</a>(query),
+            rest_of_query,
+                TRIM(
+                    TEXTAFTER(
+                        query,
+                        first_word)),
+            SWITCH(
+                first_word,
+                <span class="constant">"select"</span>,
+                    <a href="../SUBSET/">SUBSET</a>(
+                        table,
+                        rest_of_query),
+                <a href="../OTHERWISE/">OTHERWISE</a>,
+                    table))))
+        
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/SQL/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

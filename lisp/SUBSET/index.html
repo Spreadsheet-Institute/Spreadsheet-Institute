@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: SUBSET</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../SUBSET/">SUBSET</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+            
+DEFINE(
+    <a href="../SUBSET/">SUBSET</a>,
+    LET(
+        where_index,
+            IFERROR(
+                FIND(
+                    <span class="constant">"where"</span>,
+                    LOWER(query)),
+                <span class="constant">0</span>),
+        source_columns,
+            INDEX(
+                table,
+                <span class="constant">1</span>,
+                <span class="constant">0</span>),
+        column_string,
+            TRIM(
+                IF(
+                    <a href="../GREATERTHAN/">GREATERTHAN</a>(
+                        where_index,
+                        <span class="constant">0</span>),
+                    LEFT(
+                        query,
+                        <a href="../DECREMENT/">DECREMENT</a>(where_index)),
+                    query)),
+        queried_columns,
+            TRIMALL(
+                TEXTSPLIT(
+                    column_string,
+                    <span class="constant">","</span>)),
+        column_indexes,
+            COLINDEXES(
+                queried_columns,
+                source_columns),
+        subset,
+            GETCOLS(
+                table,
+                column_indexes),
+        IF(
+            EQUAL(
+                where_index,
+                <span class="constant">0</span>),
+            subset,
+            LET(
+                where_clause,
+                    TEXTSPLIT(
+                        TRIM(
+                            TEXTAFTER(
+                                query,
+                                <span class="constant">"where"</span>)),
+                        <span class="constant">" "</span>)
+                column_header,
+                    <a href="../CAR/">CAR</a>(where_clause),
+                condition,
+                    <a href="../CAR/">CAR</a>(<a href="../CDR/">CDR</a>(where_clause)),
+                value,
+                    VALUE(<a href="../CAR/">CAR</a>(<a href="../CDR/">CDR</a>(<a href="../CDR/">CDR</a>(where_clause)))),
+                column_index,
+                    COLINDEXES(
+                        column_header,
+                        queried_columns),
+                filtered_column,
+                    GETCOLS(
+                        subset,
+                        column_index),
+                VSTACK(
+                    queried_columns,
+                    FILTER(
+                        subset,
+                        SWITCH(
+                            condition,
+                            <span class="constant">"="</span>,
+                                <a href="../EQUAL/">EQUAL</a>(
+                                    filtered_column,
+                                    value),
+                            <span class="constant">">"</span>,
+                                <a href="../GREATERTHAN/">GREATERTHAN</a>(
+                                    filtered_column,
+                                    value),
+                            <span class="constant">">="</span>,
+                                <a href="../GTE/">GTE</a>(
+                                    filtered_column,
+                                    value),
+                            <span class="constant">"<"</span>,
+                                <a href="../LESSTHAN/">LESSTHAN</a>(
+                                    filtered_column,
+                                    value),
+                            <span class="constant">"<="</span>,
+                                <a href="../LTE/">LTE</a>(
+                                    filtered_column,
+                                    value))))))))
+        
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/SUBSET/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
