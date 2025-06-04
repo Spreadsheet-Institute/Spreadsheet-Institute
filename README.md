@@ -12,7 +12,7 @@ Try it: [SpreadsheetLisp.xlsx](https://spreadsheet.institute/lisp/SpreadsheetLis
 
 Or: [Install it yourself](https://spreadsheet.institute/lisp/install)
 
-([List of Spreadsheet Lisp functions](https://spreadsheet.institute/lisp/index.html#installation-link))
+([List of Spreadsheet Lisp Functions](https://spreadsheet.institute/lisp/index.html#installation-link))
 
 With the introduction of *LET()* and *LAMBDA()*, modern spreadsheets can run a useful subset of the Lisp programming language directly in the Formula Bar. These "composite" functions simplify spreadsheets by shortening formulas down to a single function:
 
