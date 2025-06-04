@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: TRIMALL</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../TRIMALL/">TRIMALL</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../TRIMALL/">TRIMALL</a>({<span class="constant">"   a "</span>;<span class="constant">"b  "</span>;<span class="constant">" c "</span>})
+-> {<span class="constant">"a"</span>;<span class="constant">"b"</span>;<span class="constant">"c"</span>}
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../TRIMALL/">TRIMALL</a>,
+    LAMBDA(
+        range,
+        MAKEARRAY(
+            ROWS(range),
+            COLUMNS(range),
+            LAMBDA(
+                row,
+                col,
+                TRIM(
+                    INDEX(
+                        range,
+                        row,
+                        col))))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/TRIMALL/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
