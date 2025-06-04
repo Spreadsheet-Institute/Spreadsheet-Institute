@@ -22,7 +22,7 @@ DEFINE(
                     <span class="constant">"where"</span>,
                     LOWER(query)),
                 <span class="constant">0</span>),
-        source_columns,
+        column_names,
             INDEX(
                 table,
                 <span class="constant">1</span>,
@@ -43,15 +43,15 @@ DEFINE(
                     column_string,
                     <span class="constant">","</span>)),
         column_indexes,
-            COLINDEXES(
+            <a href="../COLINDEXES/">COLINDEXES</a>(
                 queried_columns,
-                source_columns),
+                column_names),
         subset,
-            GETCOLS(
+            <a href="../GETCOLS/">GETCOLS</a>(
                 table,
                 column_indexes),
         IF(
-            EQUAL(
+            <a href="../EQUAL/">EQUAL</a>(
                 where_index,
                 <span class="constant">0</span>),
             subset,
@@ -70,11 +70,11 @@ DEFINE(
                 value,
                     VALUE(<a href="../CAR/">CAR</a>(<a href="../CDR/">CDR</a>(<a href="../CDR/">CDR</a>(where_clause)))),
                 column_index,
-                    COLINDEXES(
+                    <a href="../COLINDEXES/">COLINDEXES</a>(
                         column_header,
                         queried_columns),
                 filtered_column,
-                    GETCOLS(
+                    <a href="../GETCOLS/">GETCOLS</a>(
                         subset,
                         column_index),
                 VSTACK(
