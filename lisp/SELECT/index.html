@@ -15,94 +15,97 @@
             
 DEFINE(
     <a href="../SELECT/">SELECT</a>,
-    LET(
-        where_index,
-            IFERROR(
-                FIND(
-                    <span class="constant">"where"</span>,
-                    LOWER(query)),
-                <span class="constant">0</span>),
-        column_names,
-            INDEX(
-                table,
-                <span class="constant">1</span>,
-                <span class="constant">0</span>),
-        column_string,
-            TRIM(
-                IF(
-                    <a href="../GREATERTHAN/">GREATERTHAN</a>(
-                        where_index,
-                        <span class="constant">0</span>),
-                    LEFT(
-                        query,
-                        <a href="../DECREMENT/">DECREMENT</a>(where_index)),
-                    query)),
-        queried_columns,
-            TRIMALL(
-                TEXTSPLIT(
-                    column_string,
-                    <span class="constant">","</span>)),
-        column_indexes,
-            <a href="../COLINDEXES/">COLINDEXES</a>(
-                queried_columns,
-                column_names),
-        subset,
-            <a href="../GETCOLS/">GETCOLS</a>(
-                table,
-                column_indexes),
-        IF(
-            <a href="../EQUAL/">EQUAL</a>(
-                where_index,
-                <span class="constant">0</span>),
-            subset,
-            LET(
-                where_clause,
+    LAMBDA(
+        table,
+        query,
+        LET(
+            where_index,
+                IFERROR(
+                    FIND(
+                        <span class="constant">"where"</span>,
+                        LOWER(query)),
+                    <span class="constant">0</span>),
+            column_names,
+                INDEX(
+                    table,
+                    <span class="constant">1</span>,
+                    <span class="constant">0</span>),
+            column_string,
+                TRIM(
+                    IF(
+                        <a href="../GREATERTHAN/">GREATERTHAN</a>(
+                            where_index,
+                            <span class="constant">0</span>),
+                        LEFT(
+                            query,
+                            <a href="../DECREMENT/">DECREMENT</a>(where_index)),
+                        query)),
+            queried_columns,
+                TRIMALL(
                     TEXTSPLIT(
-                        TRIM(
-                            TEXTAFTER(
-                                query,
-                                <span class="constant">"where"</span>)),
-                        <span class="constant">" "</span>)
-                column_header,
-                    <a href="../CAR/">CAR</a>(where_clause),
-                condition,
-                    <a href="../CAR/">CAR</a>(<a href="../CDR/">CDR</a>(where_clause)),
-                value,
-                    VALUE(<a href="../CAR/">CAR</a>(<a href="../CDR/">CDR</a>(<a href="../CDR/">CDR</a>(where_clause)))),
-                column_index,
-                    <a href="../COLINDEXES/">COLINDEXES</a>(
-                        column_header,
-                        queried_columns),
-                filtered_column,
-                    <a href="../GETCOLS/">GETCOLS</a>(
-                        subset,
-                        column_index),
-                VSTACK(
+                        column_string,
+                        <span class="constant">","</span>)),
+            column_indexes,
+                <a href="../COLINDEXES/">COLINDEXES</a>(
                     queried_columns,
-                    FILTER(
-                        subset,
-                        SWITCH(
-                            condition,
-                            <span class="constant">"="</span>,
-                                <a href="../EQUAL/">EQUAL</a>(
-                                    filtered_column,
-                                    value),
-                            <span class="constant">">"</span>,
-                                <a href="../GREATERTHAN/">GREATERTHAN</a>(
-                                    filtered_column,
-                                    value),
-                            <span class="constant">">="</span>,
-                                <a href="../GTE/">GTE</a>(
-                                    filtered_column,
-                                    value),
-                            <span class="constant">"<"</span>,
-                                <a href="../LESSTHAN/">LESSTHAN</a>(
-                                    filtered_column,
-                                    value),
-                            <span class="constant">"<="</span>,
-                                <a href="../LTE/">LTE</a>(
-                                    filtered_column,
-                                    value))))))))
+                    column_names),
+            subset,
+                <a href="../GETCOLS/">GETCOLS</a>(
+                    table,
+                    column_indexes),
+            IF(
+                <a href="../EQUAL/">EQUAL</a>(
+                    where_index,
+                    <span class="constant">0</span>),
+                subset,
+                LET(
+                    where_clause,
+                        TEXTSPLIT(
+                            TRIM(
+                                TEXTAFTER(
+                                    query,
+                                    <span class="constant">"where"</span>)),
+                            <span class="constant">" "</span>)
+                    column_header,
+                        <a href="../CAR/">CAR</a>(where_clause),
+                    condition,
+                        <a href="../CAR/">CAR</a>(<a href="../CDR/">CDR</a>(where_clause)),
+                    value,
+                        VALUE(<a href="../CAR/">CAR</a>(<a href="../CDR/">CDR</a>(<a href="../CDR/">CDR</a>(where_clause)))),
+                    column_index,
+                        <a href="../COLINDEXES/">COLINDEXES</a>(
+                            column_header,
+                            queried_columns),
+                    filtered_column,
+                        <a href="../GETCOLS/">GETCOLS</a>(
+                            subset,
+                            column_index),
+                    VSTACK(
+                        queried_columns,
+                        FILTER(
+                            subset,
+                            SWITCH(
+                                condition,
+                                <span class="constant">"="</span>,
+                                    <a href="../EQUAL/">EQUAL</a>(
+                                        filtered_column,
+                                        value),
+                                <span class="constant">">"</span>,
+                                    <a href="../GREATERTHAN/">GREATERTHAN</a>(
+                                        filtered_column,
+                                        value),
+                                <span class="constant">">="</span>,
+                                    <a href="../GTE/">GTE</a>(
+                                        filtered_column,
+                                        value),
+                                <span class="constant">"<"</span>,
+                                    <a href="../LESSTHAN/">LESSTHAN</a>(
+                                        filtered_column,
+                                        value),
+                                <span class="constant">"<="</span>,
+                                    <a href="../LTE/">LTE</a>(
+                                        filtered_column,
+                                        value)))))))))
         
         </pre>
         <br>
