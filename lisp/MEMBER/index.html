@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: MEMBER</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../MEMBER/">MEMBER</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../CONTAINS/">MEMBER</a>(3, {1;2;3;4;5})
+-> <span class="constant">TRUE</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../MEMBER/">MEMBER</a>,
+    LAMBDA(
+        needle,
+        haystack,
+        OR(EXACT(needle, haystack))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/MEMBER/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
