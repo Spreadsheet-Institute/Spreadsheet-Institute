@@ -20,8 +20,13 @@ DEFINE(
         IF(
             <a href="../EQUAL/">EQUAL</a>(
                 COUNTA(input),
-                <span class="centered">1</span>),
-            LEN(input),
+                <span class="constant">1</span>),
+            IF(
+                <a href="../EQUAL/">EQUAL</a>(
+                    input,
+                    <span class="constant">"()"</span>),
+                <span class="constant">0</span>,
+                LEN(input)),
             COUNTA(input))))
         
         </pre>
