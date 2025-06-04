@@ -79,3 +79,5 @@ DEFINE(IS,LAMBDA(argument,IF(ISOMITTED(argument), 0, 1)))
 DEFINE(SHEETNAME,LAMBDA([reference],LET(filename,FILENAME(reference),bracket_position,FIND("]",filename),RIGHT(filename,DECREMENT(LEN(filename),bracket_position)))))
 
 DEFINE(SQUAREROOT,LAMBDA(x,POWER(x,0.5)))
+
+DEFINE(VLIST,LAMBDA([_1], [_2], [_3], [_4], [_5],[_6], [_7], [_8], [_9], [_10],[_11], [_12], [_13], [_14], [_15],[_16], [_17], [_18], [_19], [_20],[_21], [_22], [_23], [_24], [_25],LET(row_count,SUM(IS(_1), IS(_2), IS(_3), IS(_4), IS(_5),IS(_6), IS(_7), IS(_8), IS(_9), IS(_10),IS(_11), IS(_12), IS(_13), IS(_14), IS(_15),IS(_16), IS(_17), IS(_18), IS(_19), IS(_20),IS(_21), IS(_22), IS(_23), IS(_24), IS(_25)),MAKEARRAY(row_count,1,LAMBDA(row,_col,CHOOSE(row,_1, _2, _3, _4, _5,_6, _7, _8, _9, _10,_11, _12, _13, _14, _15,_16, _17, _18, _19, _20,_21, _22, _23, _24, _25))))))

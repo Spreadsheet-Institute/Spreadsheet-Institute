@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: VLIST</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../VLIST/">VLIST</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../VLIST/">VLIST</a>(<span class="constant">1</span>, <span class="constant">2</span>, <span class="constant">3</span>, <span class="constant">4</span>)
+-> {<span class="constant">1</span>;<span class="constant">2</span>;<span class="constant">3</span>;<span class="constant">4</span>}
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../VLIST/">VLIST</a>,
+    LAMBDA(
+        [_1], [_2], [_3], [_4], [_5],
+        [_6], [_7], [_8], [_9], [_10],
+        [_11], [_12], [_13], [_14], [_15],
+        [_16], [_17], [_18], [_19], [_20],
+        [_21], [_22], [_23], [_24], [_25],
+        LET(
+            row_count,
+                SUM(
+                    IS(_1), IS(_2), IS(_3), IS(_4), IS(_5),
+                    IS(_6), IS(_7), IS(_8), IS(_9), IS(_10),
+                    IS(_11), IS(_12), IS(_13), IS(_14), IS(_15),
+                    IS(_16), IS(_17), IS(_18), IS(_19), IS(_20),
+                    IS(_21), IS(_22), IS(_23), IS(_24), IS(_25)),
+            MAKEARRAY(
+                row_count,
+                <span class="constant">1</span>,
+                LAMBDA(
+                    row,
+                    _col,
+                    CHOOSE(
+                        row,
+                        _1, _2, _3, _4, _5,
+                        _6, _7, _8, _9, _10,
+                        _11, _12, _13, _14, _15,
+                        _16, _17, _18, _19, _20,
+                        _21, _22, _23, _24, _25))))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/VLIST/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
