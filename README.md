@@ -10,9 +10,9 @@ Spreadsheet.Institute/ embodies a collaborative effort to seek, test, and break 
 
 Try it: [SpreadsheetLisp.xlsx](https://spreadsheet.institute/lisp/SpreadsheetLisp.xlsx)
 
-Or: [Install it yourself](https://spreadsheet.institute/lisp/install)
+Or [install it yourself](https://spreadsheet.institute/lisp/install)
 
-([List of Spreadsheet Lisp Functions](https://spreadsheet.institute/lisp/index.html#installation-link))
+([list of Spreadsheet Lisp functions](https://spreadsheet.institute/lisp/index.html#installation-link))
 
 With the introduction of *LET()* and *LAMBDA()*, modern spreadsheets can run a useful subset of the Lisp programming language directly in the Formula Bar. These "composite" functions simplify spreadsheets by shortening formulas down to a single function:
 
