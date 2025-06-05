@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: PROLOG</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../PROLOG/">PROLOG</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../PROLOG/">PROLOG</a>("Spreadsheet Lisp", "is", "fun to learn.")
+-> <span class="constant">"'{1} {2} {3}.'('Spreadsheet Lisp', 'is', 'fun to learn')."</span>
+
+=<a href="../PROLOG/">PROLOG</a>("Is", "Spreadsheet Lisp", "fun to learn?")
+-> <span class="constant">"Yes."</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../HTML/">PROLOG</a>,
+    LAMBDA(
+        fragment1,
+        [fragment2],
+        [fragment3],
+        [fragment4],
+        [fragment5],
+        [fragment6],
+        [fragment7],
+        [fragment8],
+        [fragment9],
+        [fragment10],
+        LET(
+            arity,
+                ARITY(
+                    fragment1,
+                    fragment2,
+                    fragment3,
+                    fragment4,
+                    fragment5,
+                    fragment6,
+                    fragment7,
+                    fragment8,
+                    fragment9,
+                    fragment10),
+            template,
+                CHOOSE(
+                    arity,
+                    "'{1}'('{1}').",
+                    "'{1} {2}'('{1}', '{2}').",
+                    "'{1} {2} {3}'('{1}', '{2}', '{3}').",
+                    "'{1} {2} {3} {4}'('{1}', '{2}', '{3}', '{4}').",
+                    "'{1} {2} {3} {4} {5}'('{1}', '{2}', '{3}', '{4}', '{5}').",
+                    "'{1} {2} {3} {4} {5} {6}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}').",
+                    "'{1} {2} {3} {4} {5} {6} {7}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}').",
+                    "'{1} {2} {3} {4} {5} {6} {7} {8}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}').",
+                    "'{1} {2} {3} {4} {5} {6} {7} {8} {9}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')."
+                    "'{1} {2} {3} {4} {5} {6} {7} {8} {9} {10}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')."
+            FORMAT(
+                template,
+                fragment1,
+                fragment2,
+                fragment3,
+                fragment4,
+                fragment5,
+                fragment6,
+                fragment7,
+                fragment8,
+                fragment9,
+                fragment10)))))
+
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/ID/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
