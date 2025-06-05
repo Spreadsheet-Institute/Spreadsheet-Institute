@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: ALPHABET</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../ALPHABET/">ALPHABET</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../ALPHABET/">ALPHABET</a>()
+-> {"A","B","C", ...}
+
+=<a href="../ALPHABET/">ALPHABET</a>(YES)
+-> {"A";"B";"C"; ...}
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../ALPHABET/">ALPHABET</a>,
+    LAMBDA(
+        [vertical],
+        LET(
+            alphabet,
+                HSTACK(
+                    {"A","B","C","D","E","F"},
+                    {"G","H","I","J","K","L"},
+                    {"M","N","O","P","Q","R"},
+                    {"S","T","U","V","W","X","Y","Z"}),
+            IF(
+                <a href="../DEFAULT/">DEFAULT</a>(vertical, <a href="../NO/">NO</a>),
+                TRANSPOSE(alphabet),
+                alphabet))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/ALPHABET/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

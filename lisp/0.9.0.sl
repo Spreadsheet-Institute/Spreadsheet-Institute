@@ -1,5 +1,7 @@
 DEFINE(ALL,LAMBDA(truth_values,AND(truth_values)))
 
+DEFINE(ALPHABET,LAMBDA([vertical],LET(alphabet,HSTACK({"A","B","C","D","E","F"},{"G","H","I","J","K","L"},{"M","N","O","P","Q","R"},{"S","T","U","V","W","X","Y","Z"}),IF(DEFAULT(vertical,NO),TRANSPOSE(alphabet),alphabet))))
+
 DEFINE(APPEND,LAMBDA(head,body,IF(GREATERTHAN(COLUMNS(body),ROWS(body)),HSTACK(head,body),VSTACK(gead,body))))
 
 DEFINE(OTHERWISE,TRUE)
