@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: APPEND</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../APPEND/">APPEND</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../APPEND/">APPEND</a>(A1:A5, A6:A10)
+-> A1:A10
+
+=<a href="../APPEND/">APPEND</a>(A1:E1, F1:J1)
+-> A1:J1
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../APPEND/">APPEND</a>,
+    LAMBDA(
+        head,
+        body,
+        IF(
+            GREATERTHAN(
+                COLUMNS(body),
+                ROWS(body)),
+            HSTACK(
+                head,
+                body),
+            VSTACK(
+                gead,
+                body))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/APPEND/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

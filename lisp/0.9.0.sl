@@ -1,5 +1,7 @@
 DEFINE(ALL,LAMBDA(truth_values,AND(truth_values)))
 
+DEFINE(APPEND,LAMBDA(head,body,IF(GREATERTHAN(COLUMNS(body),ROWS(body)),HSTACK(head,body),VSTACK(gead,body))))
+
 DEFINE(OTHERWISE,TRUE)
 
 DEFINE(NO,FALSE)
