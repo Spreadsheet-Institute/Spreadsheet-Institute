@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: QUESTION</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../QUESTION/">QUESTION</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+{A1}=<a href="../PROLOG/">STATEMENT</a>("Spreadsheet Lisp", "is", "fun to learn")
+-> <span class="constant">"'{1} {2} {3}.'('Spreadsheet Lisp', 'is', 'fun to learn')."</span>
+
+=<a href="../QUESTION/">QUESTION</a>(A1, "Is", "Spreadsheet Lisp", "fun to learn")
+-> <span class="constant">"Yes."</span>
+
+=<a href="../QUESTION/">QUESTION</a>(A1, "Is", "Spreadsheet Lisp", "boring?")
+-> <span class="constant">"No."</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../QUESTION/">QUESTION</a>,
+    LAMBDA(
+        knowledgebase,
+        fragment1,
+        [fragment2],
+        [fragment3],
+        [fragment4],
+        [fragment5],
+        [fragment6],
+        [fragment7],
+        [fragment8],
+        [fragment9],
+        [fragment10],
+        LET(
+            arity,
+                ARITY(
+                    fragment1,
+                    fragment2,
+                    fragment3,
+                    fragment4,
+                    fragment5,
+                    fragment6,
+                    fragment7,
+                    fragment8,
+                    fragment9,
+                    fragment10),
+            template,
+                CHOOSE(
+                    arity,
+                    "'{1}'('{1}').",
+                    "'{1} {2}'('{1}', '{2}').",
+                    "'{1} {2} {3}'('{1}', '{2}', '{3}').",
+                    "'{1} {2} {3} {4}'('{1}', '{2}', '{3}', '{4}').",
+                    "'{1} {2} {3} {4} {5}'('{1}', '{2}', '{3}', '{4}', '{5}').",
+                    "'{1} {2} {3} {4} {5} {6}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}').",
+                    "'{1} {2} {3} {4} {5} {6} {7}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}').",
+                    "'{1} {2} {3} {4} {5} {6} {7} {8}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}').",
+                    "'{1} {2} {3} {4} {5} {6} {7} {8} {9}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')."
+                    "'{1} {2} {3} {4} {5} {6} {7} {8} {9} {10}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')."
+            subject,
+                fragment2,
+            question_word,
+                LOWER(fragment1),
+            CONTAINS(
+                knowledgebase,
+                FORMAT(
+                    template,
+                    subject,
+                    question_word,
+                    fragment3,
+                    fragment4,
+                    fragment5,
+                    fragment6,
+                    fragment7,
+                    fragment8,
+                    fragment9,
+                    fragment10))))))
+
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/ID/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
