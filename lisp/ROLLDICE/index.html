@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: ROLLDICE</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../ROLLDICE/">ROLLDICE</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+            
+=<a href="../ROLLDICE/">ROLLDICE</a>()
+-> <span class="constant">4</span>
+            
+=<a href="../ROLLDICE/">ROLLDICE</a>(2)
+-> {<span class="constant">6</span>,<span class="constant">2</span>}
+
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../ROLLDICE/">ROLLDICE</a>,
+    LAMBDA(
+        [times],
+        IF(
+            <a href="../LTE/">LTE</a>(
+                <a href="../DEFAULT/">DEFAULT</a>(times, <span class="constant">1</span>),
+                <span class="constant">1</span>),
+            <a href="../DICEROLL/">DICEROLL</a>(),
+            <a href="../CONS/">CONS</a>(
+                <a href="../DICEROLL/">DICEROLL</a>(),
+                <a href="../ROLLDICE/">ROLLDICE</a>(
+                    <a href="../DECREMENT/">DECREMENT</a>(times))))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/ROLLDICE/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
