@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: ARITY</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../ARITY/">ARITY</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../ARITY/">ARITY</a>()
+-> <span class="constant">0</span>
+
+=<a href="../ARITY/">ARITY</a>("What is love?")
+-> <span class="constant">1</span>
+
+=<a href="../ARITY/">ARITY</a>(<span class="constant">1</span>,<span class="constant">2</span>,<span class="constant">3</span>,<span class="constant">4</span>,<span class="constant">5</span>)
+-> <span class="constant">5</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../ARITY/">ARITY</a>,
+    LAMBDA(
+        [arg1], [arg2], [arg3], [arg4], [arg5],
+        [arg6], [arg7], [arg8], [arg9], [arg10],
+        [arg11], [arg12], [arg13], [arg14], [arg15],
+        [arg16], [arg17], [arg18], [arg19], [arg20],
+        [arg21], [arg22], [arg23], [arg24], [arg25],
+        SUM(
+            IS(arg1), IS(arg2), IS(arg3), IS(arg4), IS(arg5),
+            IS(arg6), IS(arg7), IS(arg8), IS(arg9), IS(arg10),
+            IS(arg11), IS(arg12), IS(arg13), IS(arg14), IS(arg15),
+            IS(arg16), IS(arg17), IS(arg18), IS(arg19), IS(arg20),
+            IS(arg21), IS(arg22), IS(arg23), IS(arg24), IS(arg25))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/ARITY/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

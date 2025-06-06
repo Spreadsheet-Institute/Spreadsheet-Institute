@@ -4,6 +4,8 @@ DEFINE(ALPHABET,LAMBDA([vertical],LET(alphabet,HSTACK({"A","B","C","D","E","F"},
 
 DEFINE(APPEND,LAMBDA(head,body,IF(GREATERTHAN(COLUMNS(body),ROWS(body)),HSTACK(head,body),VSTACK(head,body))))
 
+DEFINE(ARITY,LAMBDA([arg1], [arg2], [arg3], [arg4], [arg5],[arg6], [arg7], [arg8], [arg9], [arg10],[arg11], [arg12], [arg13], [arg14], [arg15],[arg16], [arg17], [arg18], [arg19], [arg20],[arg21], [arg22], [arg23], [arg24], [arg25],SUM(IS(arg1), IS(arg2), IS(arg3), IS(arg4), IS(arg5),IS(arg6), IS(arg7), IS(arg8), IS(arg9), IS(arg10),IS(arg11), IS(arg12), IS(arg13), IS(arg14), IS(arg15),IS(arg16), IS(arg17), IS(arg18), IS(arg19), IS(arg20),IS(arg21), IS(arg22), IS(arg23), IS(arg24), IS(arg25))))
+
 DEFINE(OTHERWISE,TRUE)
 
 DEFINE(NO,FALSE)
@@ -102,7 +104,7 @@ DEFINE(SHEETNAME,LAMBDA([reference],LET(filename,FILENAME(reference),bracket_pos
 
 DEFINE(SQUAREROOT,LAMBDA(x,POWER(x,0.5)))
 
-DEFINE(STATEMENT,LAMBDA(fragment1,[fragment2],[fragment3],[fragment4],[fragment5],[fragment6],[fragment7],[fragment8],[fragment9],[fragment10],LET(arity,ARITY(fragment1,fragment2,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10),template,CHOOSE(arity,"'{1}'('{1}').","'{1} {2}'('{1}', '{2}').","'{1} {2} {3}'('{1}', '{2}', '{3}').","'{1} {2} {3} {4}'('{1}', '{2}', '{3}', '{4}').","'{1} {2} {3} {4} {5}'('{1}', '{2}', '{3}', '{4}', '{5}').","'{1} {2} {3} {4} {5} {6}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}').","'{1} {2} {3} {4} {5} {6} {7}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}').","'{1} {2} {3} {4} {5} {6} {7} {8}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}').","'{1} {2} {3} {4} {5} {6} {7} {8} {9}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}').""'{1} {2} {3} {4} {5} {6} {7} {8} {9} {10}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')."FORMAT(template,fragment1,fragment2,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10)))))
+DEFINE(STATEMENT,LAMBDA(fragment1,[fragment2],[fragment3],[fragment4],[fragment5],[fragment6],[fragment7],[fragment8],[fragment9],[fragment10],LET(arity,ARITY(fragment1,fragment2,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10),template,CHOOSE(arity,"'{1}'('{1}').","'{1} {2}'('{1}', '{2}').","'{1} {2} {3}'('{1}', '{2}', '{3}').","'{1} {2} {3} {4}'('{1}', '{2}', '{3}', '{4}').","'{1} {2} {3} {4} {5}'('{1}', '{2}', '{3}', '{4}', '{5}').","'{1} {2} {3} {4} {5} {6}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}').","'{1} {2} {3} {4} {5} {6} {7}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}').","'{1} {2} {3} {4} {5} {6} {7} {8}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}').","'{1} {2} {3} {4} {5} {6} {7} {8} {9}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}').","'{1} {2} {3} {4} {5} {6} {7} {8} {9} {10}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')."), FORMAT(template,fragment1,fragment2,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10))))
 
 DEFINE(TRIMALL,LAMBDA(range,MAKEARRAY(ROWS(range),COLUMNS(range),LAMBDA(row,col,TRIM(INDEX(range,row,col))))))
 
