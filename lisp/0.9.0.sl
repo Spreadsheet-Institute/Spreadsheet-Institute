@@ -102,6 +102,8 @@ DEFINE(SHEETNAME,LAMBDA([reference],LET(filename,FILENAME(reference),bracket_pos
 
 DEFINE(SQUAREROOT,LAMBDA(x,POWER(x,0.5)))
 
+DEFINE(STATEMENT,LAMBDA(fragment1,[fragment2],[fragment3],[fragment4],[fragment5],[fragment6],[fragment7],[fragment8],[fragment9],[fragment10],LET(arity,ARITY(fragment1,fragment2,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10),template,CHOOSE(arity,"'{1}'('{1}').","'{1} {2}'('{1}', '{2}').","'{1} {2} {3}'('{1}', '{2}', '{3}').","'{1} {2} {3} {4}'('{1}', '{2}', '{3}', '{4}').","'{1} {2} {3} {4} {5}'('{1}', '{2}', '{3}', '{4}', '{5}').","'{1} {2} {3} {4} {5} {6}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}').","'{1} {2} {3} {4} {5} {6} {7}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}').","'{1} {2} {3} {4} {5} {6} {7} {8}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}').","'{1} {2} {3} {4} {5} {6} {7} {8} {9}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}').""'{1} {2} {3} {4} {5} {6} {7} {8} {9} {10}'('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')."FORMAT(template,fragment1,fragment2,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10)))))
+
 DEFINE(TRIMALL,LAMBDA(range,MAKEARRAY(ROWS(range),COLUMNS(range),LAMBDA(row,col,TRIM(INDEX(range,row,col))))))
 
 DEFINE(TYPESTRING,LAMBDA(input,[recursive],SWITCH(TYPE(input),1,"Number",2,"String",4,"Boolean",16,"Error",64,IF(DEFAULT(recursive,FALSE),MAP(input,LAMBDA(each,TYPESTRING(each))),"Range"),128,"Function",OTHERWISE,"Unknown")))
