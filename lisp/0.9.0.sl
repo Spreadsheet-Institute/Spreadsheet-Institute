@@ -34,6 +34,8 @@ DEFINE(DEFAULT,LAMBDA(optional_argument,fallback_value,IF(PROVIDED(optional_argu
 
 DEFINE(DICEROLL,LAMBDA(PICK(1,2,3,4,5,6)))
 
+DEFINE(DIFFERENCE,LAMBDA(minuend,subtrahend,minuend-subtrahend))
+
 DEFINE(EQUAL,LAMBDA(a,b,a=b))
 
 DEFINE(FILENAME,LAMBDA([reference],CELL("filename",DEFAULT(reference,INDIRECT(CONCAT("A1"))))))
@@ -107,6 +109,8 @@ DEFINE(SHEETNAME,LAMBDA([reference],LET(filename,FILENAME(reference),bracket_pos
 DEFINE(SQUAREROOT,LAMBDA(x,POWER(x,0.5)))
 
 DEFINE(STATEMENT,LAMBDA(fragment1,[fragment2],[fragment3],[fragment4],[fragment5],[fragment6],[fragment7],[fragment8],[fragment9],[fragment10],LET(arity,ARITY(fragment1,fragment2,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10),template,CHOOSE(arity,"('{1}').","('{1}', '{2}').","('{1}', '{2}', '{3}').","('{1}', '{2}', '{3}', '{4}').","('{1}', '{2}', '{3}', '{4}', '{5}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')."),FORMAT(template,fragment1,fragment2,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10))))
+
+DEFINE(TEXTBETWEEN,LAMBDA(source_text,first_boundary,second_boundary,LET(text_after_first_boundary,RIGHT(source_text,DIFFERENCE(LEN(source_text),SUM(FIND(first_boundary,source_text),LEN(first_boundary))))LEFT(text_after_first_boundary,DECREMENT(FIND(second_boundary,text_after_first_boundary))))))
 
 DEFINE(TRIMALL,LAMBDA(range,MAKEARRAY(ROWS(range),COLUMNS(range),LAMBDA(row,col,TRIM(INDEX(range,row,col))))))
 

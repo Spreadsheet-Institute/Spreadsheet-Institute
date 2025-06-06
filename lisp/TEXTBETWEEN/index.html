@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: TEXTBETWEEN</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../TEXTBETWEEN/">TEXTBETWEEN</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../TEXTBETWEEN/">TEXTBETWEEN</a>(<span class="constant">"(123) 456 - 7890"</span>, <span class="constant">"("</span>, <span class="constant">")"</span>)
+-> <span class="constant">"123"</span>
+
+=<a href="../TEXTBETWEEN/">TEXTBETWEEN</a>(<span class="constant">"123-45-6789"</span>, <span class="constant">"("</span>, <span class="constant">")"</span>)
+-> <span class="constant">123</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../TEXTBETWEEN/">TEXTBETWEEN</a>,
+    LAMBDA(
+        source_text,
+        first_boundary,
+        second_boundary,
+        LET(
+            text_after_first_boundary,
+                RIGHT(
+                    source_text,
+                    <a href="../DIFFERENCE/">DIFFERENCE</a>(
+                        LEN(source_text),
+                        SUM(
+                            FIND(
+                                first_boundary,
+                                source_text),
+                            LEN(first_boundary))))
+            LEFT(
+                text_after_first_boundary,
+                <a href="../DECREMENT/">DECREMENT</a>(
+                    FIND(
+                        second_boundary,
+                        text_after_first_boundary))))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/TEXTBETWEEN/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
