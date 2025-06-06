@@ -64,6 +64,8 @@ DEFINE(HLIST,LAMBDA([_1], [_2], [_3], [_4], [_5],[_6], [_7], [_8], [_9], [_10],[
 
 DEFINE(ID,LAMBDA(input,input))
 
+DEFINE(IFBLANK,LAMBDA(cell_reference,value_if_blank,value_if_not_blank,IF(OR(ISBLANK(cell_reference),EQUAL(cell_reference,""),value_if_blank,value_if_not_blank))))
+
 DEFINE(IFOMITTED,LAMBDA(optional_argument,value_if_omitted,value_if_provided,IF(ISOMITTED(optional_argument),value_if_omitted,value_if_provided)))
 
 DEFINE(INCREMENT,LAMBDA(x,[times],SUM(x,PRODUCT(1,DEFAULT(times,1)))))

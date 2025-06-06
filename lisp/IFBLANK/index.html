@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: IFBLANK</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../IFBLANK/">IFBLANK</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+SET(<em>'Database'!A1</em>, <span class="constant">23</span>)
+
+=<a href="../IFBLANK/">IFBLANK</a>(<em>'Database'!A1</em>, "-")
+-> <span class="constant">23</span>
+
+=<a href="../IFBLANK/">IFBLANK</a>(<em>'Database'!B1</em>, "-")
+-> <span class="constant">"-"</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../IFBLANK/">IFBLANK</a>,
+    LAMBDA(
+        cell_reference,
+        value_if_blank,
+        value_if_not_blank,
+        IF(
+            OR(
+                ISBLANK(cell_reference),
+                EQUAL(
+                    cell_reference,
+                    ""),
+            value_if_blank,
+            value_if_not_blank))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/ID/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
