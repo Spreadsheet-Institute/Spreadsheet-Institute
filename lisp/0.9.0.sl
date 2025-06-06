@@ -4,6 +4,8 @@ DEFINE(ALPHABET,LAMBDA([vertical],LET(alphabet,HSTACK({"A","B","C","D","E","F"},
 
 DEFINE(APPEND,LAMBDA(head,body,IF(GREATERTHAN(COLUMNS(body),ROWS(body)),HSTACK(head,body),VSTACK(head,body))))
 
+DEFINE(APPLY,LAMBDA(function,[argument1],[argument2],[argument3],[argument4],[argument5],[argument6],[argument7],[argument8],[argument9],[argument10],SWITCH(ARITY(argument1,argument2,argument3,argument4,argument5,argument6,argument7,argument8,argument9,argument10),1,function(argument1),2,function(argument1, argument2),3,function(argument1, argument2, argument3),4,function(argument1, argument2, argument3, argument4),5,function(argument1, argument2, argument3, argument4, argument5),6,function(argument1, argument2, argument3, argument4, argument5, argument6),7,function(argument1, argument2, argument3, argument4, argument5, argument6, argument7),8,function(argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8),9,function(argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8, argument9),10,function(argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8, argument9, argument10),OTHERWISE,function())))
+
 DEFINE(ARITY,LAMBDA([_arg1], [_arg2], [_arg3], [_arg4], [_arg5],[_arg6], [_arg7], [_arg8], [_arg9], [_arg10],[_arg11], [_arg12], [_arg13], [_arg14], [_arg15],[_arg16], [_arg17], [_arg18], [_arg19], [_arg20],[_arg21], [_arg22], [_arg23], [_arg24], [_arg25],SUM(IS(_arg1), IS(_arg2), IS(_arg3), IS(_arg4), IS(_arg5),IS(_arg6), IS(_arg7), IS(_arg8), IS(_arg9), IS(_arg10),IS(_arg11), IS(_arg12), IS(_arg13), IS(_arg14), IS(_arg15),IS(_arg16), IS(_arg17), IS(_arg18), IS(_arg19), IS(_arg20),IS(_arg21), IS(_arg22), IS(_arg23), IS(_arg24), IS(_arg25))))
 
 DEFINE(OTHERWISE,TRUE)
