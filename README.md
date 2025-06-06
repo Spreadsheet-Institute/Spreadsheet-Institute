@@ -72,6 +72,16 @@ After:
 
 ```
 Before:
+=MID("(123) 456 - 7890", SEARCH("(", "(123) 456 - 7890") + 1, SEARCH(")", "(123) 456 - 7890") - 1)
+
+After:
+=TEXTBETWEEN("(123) 456 - 7890", "(", ")")
+```
+
+---
+
+```
+Before:
 =RIGHT(CELL("filename",INDIRECT(CONCAT("A1"))),LEN(CELL("filename",INDIRECT(CONCAT("A1"))))-FIND("]",CELL("filename",INDIRECT(CONCAT("A1")))))
 
 After:

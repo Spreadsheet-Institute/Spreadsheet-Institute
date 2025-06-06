@@ -34,11 +34,12 @@ DEFINE(
                     source_text,
                     <a href="../DIFFERENCE/">DIFFERENCE</a>(
                         LEN(source_text),
-                        SUM(
-                            FIND(
-                                first_boundary,
-                                source_text),
-                            LEN(first_boundary))))
+                        DECREMENT(
+                            SUM(
+                                FIND(
+                                    first_boundary,
+                                    source_text),
+                                LEN(first_boundary))))),
             LEFT(
                 text_after_first_boundary,
                 <a href="../DECREMENT/">DECREMENT</a>(
