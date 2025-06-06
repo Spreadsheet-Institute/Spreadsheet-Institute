@@ -29,7 +29,7 @@ DEFINE(
     LAMBDA(
         cell_reference,
         value_if_blank,
-        value_if_not_blank,
+        [value_if_not_blank],
         IF(
             OR(
                 ISBLANK(cell_reference),
@@ -37,7 +37,7 @@ DEFINE(
                     cell_reference,
                     ""),
             value_if_blank,
-            value_if_not_blank))))
+            DEFAULT(value_if_not_blank, cell_reference)))))
         </pre>
         <br>
         <hr>
