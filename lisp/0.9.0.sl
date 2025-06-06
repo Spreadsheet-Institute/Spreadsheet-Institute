@@ -2,7 +2,7 @@ DEFINE(ALL,LAMBDA(truth_values,AND(truth_values)))
 
 DEFINE(ALPHABET,LAMBDA([vertical],LET(alphabet,HSTACK({"A","B","C","D","E","F"},{"G","H","I","J","K","L"},{"M","N","O","P","Q","R"},{"S","T","U","V","W","X","Y","Z"}),IF(DEFAULT(vertical,NO),TRANSPOSE(alphabet),alphabet))))
 
-DEFINE(APPEND,LAMBDA(head,body,IF(GREATERTHAN(COLUMNS(body),ROWS(body)),HSTACK(head,body),VSTACK(gead,body))))
+DEFINE(APPEND,LAMBDA(head,body,IF(GREATERTHAN(COLUMNS(body),ROWS(body)),HSTACK(head,body),VSTACK(head,body))))
 
 DEFINE(OTHERWISE,TRUE)
 
@@ -47,6 +47,8 @@ DEFINE(FLIPCOIN,LAMBDA([times],LET(counter,DEFAULT(times, 1),IF(LTE(counter, 1),
 DEFINE(FOREACH,LAMBDA(range,function_to_apply,MAP(range,function_to_apply)))
 
 DEFINE(FORMAT,LAMBDA(template_text,first_value,[second_value],[third_value],[fourth_value],[fifth_value],LET(_after1,SUBSTITUTE(template_text,"{1}", first_value),_after2,IF(PROVIDED(second_value),SUBSTITUTE(_after1,"{2}", second_value),_after1),_after3,IF(PROVIDED(third_value),SUBSTITUTE(_after2,"{3}", third_value),_after2),_after4,IF(PROVIDED(fourth_value),SUBSTITUTE(_after3,"{4}", fourth_value),_after3),IF(PROVIDED(fifth_value),SUBSTITUTE(_after4,"{5}", fifth_value),_after4))))
+
+DEFINE(FULLDECK,LAMBDA([vertical],LET(full_deck,HSTACK({"AS","KS","QS","JS","XS","9S","8S","7S","6S","5S","4S","3S","2S"},{"AH","KH","QH","JH","XH","9H","8H","7H","6H","5H","4H","3H","2H"},{"AD","KD","QD","JD","XD","9D","8D","7D","6D","5D","4D","3D","2D"},{"AC","KC","QC","JC","XC","9C","8C","7C","6C","5C","4C","3C","2C"}),IF(DEFAULT(vertical,FALSE),TRANSPOSE(full_deck),full_deck))))
 
 DEFINE(GREATERTHAN,LAMBDA(x,y,IF(x > y,TRUE,FALSE)))
 
