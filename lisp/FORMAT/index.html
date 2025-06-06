@@ -37,6 +37,11 @@ DEFINE(
         [third_value],
         [fourth_value],
         [fifth_value],
+        [sixth_value],
+        [seventh_value],
+        [eigth_value],
+        [ninth_value],
+        [tenth_value],
         LET(
             _after1,
                 SUBSTITUTE(template_text, <span class="constant">"{1}"</span>, first_value),
@@ -55,10 +60,35 @@ DEFINE(
                     <a href="../PROVIDED/">PROVIDED</a>(fourth_value),
                     SUBSTITUTE(_after3, <span class="constant">"{4}"</span>, fourth_value),
                     _after3),
+            _after5,
+                IF(
+                    <a href="../PROVIDED/">PROVIDED</a>(fifth_value),
+                    SUBSTITUTE(_after4, <span class="constant">"{5}"</span>, fifth_value),
+                    _after4),
+            _after6,
+                IF(
+                    <a href="../PROVIDED/">PROVIDED</a>(sixth_value),
+                    SUBSTITUTE(_after5, <span class="constant">"{6}"</span>, sixth_value),
+                    _after5),
+            _after7,
+                IF(
+                    <a href="../PROVIDED/">PROVIDED</a>(seventh_value),
+                    SUBSTITUTE(_after6, <span class="constant">"{7}"</span>, seventh_value),
+                    _after6),
+            _after8,
+                IF(
+                    <a href="../PROVIDED/">PROVIDED</a>(eigth_value),
+                    SUBSTITUTE(_after7, <span class="constant">"{8}"</span>, eigth_value),
+                    _after7),
+            _after9,
+                IF(
+                    <a href="../PROVIDED/">PROVIDED</a>(ninth_value),
+                    SUBSTITUTE(_after8, <span class="constant">"{9}"</span>, ninth_value),
+                    _after8),
             IF(
-                <a href="../PROVIDED/">PROVIDED</a>(fifth_value),
-                SUBSTITUTE(_after4, <span class="constant">"{5}"</span>, fifth_value),
-                _after4))))
+                <a href="../PROVIDED/">PROVIDED</a>(tenth_value),
+                SUBSTITUTE(_after9, <span class="constant">"{10}"</span>, tenth_value),
+                _after9))))
         </pre>
         <br>
         <hr>
