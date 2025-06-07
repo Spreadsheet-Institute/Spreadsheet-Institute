@@ -8,12 +8,6 @@ DEFINE(APPLY,LAMBDA(function,[argument1],[argument2],[argument3],[argument4],[ar
 
 DEFINE(ARITY,LAMBDA([_arg1], [_arg2], [_arg3], [_arg4], [_arg5],[_arg6], [_arg7], [_arg8], [_arg9], [_arg10],[_arg11], [_arg12], [_arg13], [_arg14], [_arg15],[_arg16], [_arg17], [_arg18], [_arg19], [_arg20],[_arg21], [_arg22], [_arg23], [_arg24], [_arg25],SUM(IS(_arg1), IS(_arg2), IS(_arg3), IS(_arg4), IS(_arg5),IS(_arg6), IS(_arg7), IS(_arg8), IS(_arg9), IS(_arg10),IS(_arg11), IS(_arg12), IS(_arg13), IS(_arg14), IS(_arg15),IS(_arg16), IS(_arg17), IS(_arg18), IS(_arg19), IS(_arg20),IS(_arg21), IS(_arg22), IS(_arg23), IS(_arg24), IS(_arg25))))
 
-DEFINE(OTHERWISE,TRUE)
-
-DEFINE(NO,FALSE)
-
-DEFINE(YES,TRUE)
-
 DEFINE(CAPITALIZE,LAMBDA(text,CONCAT(UPPER(FIRSTLETTER(text)),RIGHT(text, DECREMENT(LEN(text))))))
 
 DEFINE(CAR,LAMBDA(range,INDEX(range,1,1)))
@@ -92,6 +86,16 @@ DEFINE(MAGIC8BALL,LAMBDA([yes_or_no_question],IF(PROVIDED(yes_or_no_question),PI
 
 DEFINE(MEMBER,LAMBDA(needle,haystack,OR(EXACT(needle, haystack))))
 
+DEFINE(NO,FALSE)
+
+DEFINE(OTHERWISE,TRUE)
+
+DEFINE(PICK,LAMBDA(_1, [_2], [_3], [_4], [_5],[_6], [_7], [_8], [_9], [_10],[_11], [_12], [_13], [_14], [_15],[_16], [_17], [_18], [_19], [_20],[_21], [_22], [_23], [_24], [_25],LET(count,SUM(IS(_1), IS(_2), IS(_3), IS(_4), IS(_5),IS(_6), IS(_7), IS(_8), IS(_9), IS(_10),IS(_11), IS(_12), IS(_13), IS(_14), IS(_15),IS(_16), IS(_17), IS(_18), IS(_19), IS(_20),IS(_21), IS(_22), IS(_23), IS(_24), IS(_25)),CHOOSE(RANDBETWEEN(1, count), _1, _2, _3, _4, _5, _6, _7, _8, _9, _10,_11, _12, _13, _14, _15,_16, _17, _18, _19, _20,_21, _22, _23, _24, _25))))
+
+DEFINE(PROVIDED,LAMBDA([argument],NOT(ISOMITTED(argument))))
+
+DEFINE(QUESTION,LAMBDA(knowledgebase,fragment1,[fragment2],[fragment3],[fragment4],[fragment5],[fragment6],[fragment7],[fragment8],[fragment9],[fragment10],LET(arity,ARITY(fragment1,fragment2,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10),template,CHOOSE(arity,"('{1}').","('{1}', '{2}').","('{1}', '{2}', '{3}').","('{1}', '{2}', '{3}', '{4}').","('{1}', '{2}', '{3}', '{4}', '{5}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')."),subject,fragment2,question_word,LOWER(fragment1),CONTAINS(knowledgebase,FORMAT(template,subject,question_word,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10)))))
+
 DEFINE(RATIO,LAMBDA(numerator,denominator,numerator / denominator))
 
 DEFINE(REST,LAMBDA(range,CDR(range)))
@@ -101,12 +105,6 @@ DEFINE(REVERSE,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),MAKEARRAY
 DEFINE(ROCKPAPERSCISSORS,LAMBDA(throw,LET(human,CAPITALIZE(LOWER(DEFAULT(throw,""))),robot,PICK("Rock","Paper","Scissors"),CONCAT(FORMAT("You threw {1}. SL threw {2}. ",human,robot),IFS(CASE(human,robot),FORMAT("It's a tie! {1} vs. {1}",human),CASE(human,"Paper",robot,"Rock"),"You win! Paper covers Rock.",CASE(human,"Paper",robot,"Scissors"),"You lose! Scissors cut Paper.",CASE(human,"Rock",robot,"Scissors"),"You win! Rock crushes Scissors.",CASE(human,"Rock",robot,"Paper"),"You lose! Paper covers Rock.",CASE(human,"Scissors",robot,"Paper"),"You win! Scissors cut Paper.",CASE(human,"Scissors",robot,"Rock"),"You lose! Rock crushes Scissors.",OTHERWISE,"Invalid throw. Please choose Rock, Paper, or Scissors.")))))
 
 DEFINE(ROLLDICE,LAMBDA([times],IF(LTE(DEFAULT(times,1),1),DICEROLL(),CONS(DICEROLL(),ROLLDICE(DECREMENT(times))))))
-
-DEFINE(PICK,LAMBDA(_1, [_2], [_3], [_4], [_5],[_6], [_7], [_8], [_9], [_10],[_11], [_12], [_13], [_14], [_15],[_16], [_17], [_18], [_19], [_20],[_21], [_22], [_23], [_24], [_25],LET(count,SUM(IS(_1), IS(_2), IS(_3), IS(_4), IS(_5),IS(_6), IS(_7), IS(_8), IS(_9), IS(_10),IS(_11), IS(_12), IS(_13), IS(_14), IS(_15),IS(_16), IS(_17), IS(_18), IS(_19), IS(_20),IS(_21), IS(_22), IS(_23), IS(_24), IS(_25)),CHOOSE(RANDBETWEEN(1, count), _1, _2, _3, _4, _5, _6, _7, _8, _9, _10,_11, _12, _13, _14, _15,_16, _17, _18, _19, _20,_21, _22, _23, _24, _25))))
-
-DEFINE(PROVIDED,LAMBDA([argument],NOT(ISOMITTED(argument))))
-
-DEFINE(QUESTION,LAMBDA(knowledgebase,fragment1,[fragment2],[fragment3],[fragment4],[fragment5],[fragment6],[fragment7],[fragment8],[fragment9],[fragment10],LET(arity,ARITY(fragment1,fragment2,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10),template,CHOOSE(arity,"('{1}').","('{1}', '{2}').","('{1}', '{2}', '{3}').","('{1}', '{2}', '{3}', '{4}').","('{1}', '{2}', '{3}', '{4}', '{5}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')."),subject,fragment2,question_word,LOWER(fragment1),CONTAINS(knowledgebase,FORMAT(template,subject,question_word,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10)))))
 
 DEFINE(SHEETNAME,LAMBDA([reference],LET(filename,FILENAME(reference),bracket_position,FIND("]",filename),RIGHT(filename,DECREMENT(LEN(filename),bracket_position)))))
 
@@ -121,3 +119,5 @@ DEFINE(TRIMALL,LAMBDA(range,MAKEARRAY(ROWS(range),COLUMNS(range),LAMBDA(row,col,
 DEFINE(TYPESTRING,LAMBDA(input,[recursive],SWITCH(TYPE(input),1,"Number",2,"String",4,"Boolean",16,"Error",64,IF(DEFAULT(recursive,FALSE),MAP(input,LAMBDA(each,TYPESTRING(each))),"Range"),128,"Function",OTHERWISE,"Unknown")))
 
 DEFINE(VLIST,LAMBDA([_1], [_2], [_3], [_4], [_5],[_6], [_7], [_8], [_9], [_10],[_11], [_12], [_13], [_14], [_15],[_16], [_17], [_18], [_19], [_20],[_21], [_22], [_23], [_24], [_25],LET(row_count,SUM(IS(_1), IS(_2), IS(_3), IS(_4), IS(_5),IS(_6), IS(_7), IS(_8), IS(_9), IS(_10),IS(_11), IS(_12), IS(_13), IS(_14), IS(_15),IS(_16), IS(_17), IS(_18), IS(_19), IS(_20),IS(_21), IS(_22), IS(_23), IS(_24), IS(_25)),IF(EQUAL(row_count,0),"()",MAKEARRAY(row_count,1,LAMBDA(row,_col,CHOOSE(row,_1, _2, _3, _4, _5,_6, _7, _8, _9, _10,_11, _12, _13, _14, _15,_16, _17, _18, _19, _20,_21, _22, _23, _24, _25)))))))
+
+DEFINE(YES,TRUE)
