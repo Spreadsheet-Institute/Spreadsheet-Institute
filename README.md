@@ -92,7 +92,7 @@ After:
 
 ```
 Before:
-=CHOOSE(RANDBETWEEN(1, 2),("Heads","Tails"))
+=CHOOSE(RANDBETWEEN(1, 2), "Heads", "Tails")
 
 After:
 =COINTOSS()
