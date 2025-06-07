@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: CURRY</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../CURRY/">CURRY</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=LET(partial, <a href="../CURRY/">CURRY</a>(SUM, <span class="constant">1</span>), partial(<span class="constant">2</span>))
+-> <span class="constant">3</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../CURRY/">CURRY</a>,
+    LAMBDA(
+        function,
+        argument1,
+        LAMBDA(
+            argument2,
+            function(
+                argument1,
+                argument2))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/CURRY/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

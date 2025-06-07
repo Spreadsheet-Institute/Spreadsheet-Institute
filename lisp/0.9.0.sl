@@ -24,6 +24,8 @@ DEFINE(CONS,LAMBDA(value,range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),HSTACK
 
 DEFINE(CONTAINS,LAMBDA(haystack,needle,IF(AND(EQUAL(COUNTA(haystack),1),EQUAL(COUNTA(needle),1)),ISNUMBER(SEARCH(needle,haystack)),OR(EXACT(needle,haystack)))))
 
+DEFINE(CURRY,LAMBDA(function,argument1,LAMBDA(argument2,function(argument1,argument2))))
+
 DEFINE(DECREMENT,LAMBDA(x,[times],SUM(x,PRODUCT(-1,DEFAULT(times,1)))))
 
 DEFINE(DEFAULT,LAMBDA(optional_argument,fallback_value,IF(PROVIDED(optional_argument),optional_argument,fallback_value)))
