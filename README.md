@@ -16,7 +16,7 @@ Or [install it yourself](https://spreadsheet.institute/lisp/install)
 
 [0.9.0.sl](./lisp/0.9.0.sl) source file
 
-With the introduction of *LET()* and *LAMBDA()*, modern spreadsheets can run a useful subset of the Lisp programming language directly in the Formula Bar. These "composite" functions simplify spreadsheets by shortening formulas down to a single function:
+With the introduction of *LET()* and *LAMBDA()*, modern spreadsheets can run a useful subset of the LISP programming language directly in the Formula Bar. These "composite" functions simplify spreadsheets by shortening formulas down to a single function:
 
 ---
 
