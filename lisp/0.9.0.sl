@@ -88,6 +88,8 @@ DEFINE(MAGIC8BALL,LAMBDA([yes_or_no_question],IF(PROVIDED(yes_or_no_question),PI
 
 DEFINE(MEMBER,LAMBDA(needle,haystack,OR(EXACT(needle, haystack))))
 
+DEFINE(NEGATIVE?,LAMBDA(x,LESSTHAN(x,0)))
+
 DEFINE(NO,FALSE)
 
 DEFINE(ONE?,LAMBDA(x,EQUAL(x,1)))
