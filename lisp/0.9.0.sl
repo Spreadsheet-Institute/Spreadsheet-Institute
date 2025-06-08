@@ -64,7 +64,7 @@ DEFINE(IFBLANK,LAMBDA(cell_reference,value_if_blank,[value_if_not_blank],IF(OR(I
 
 DEFINE(IFOMITTED,LAMBDA(optional_argument,value_if_omitted,value_if_provided,IF(ISOMITTED(optional_argument),value_if_omitted,value_if_provided)))
 
-DEFINE(INCREMENT,LAMBDA(x,[times],SUM(x,PRODUCT(1,DEFAULT(times,1)))))
+DEFINE(INCREMENT,LAMBDA(x,[times],SUM(x,DEFAULT(times,1))))
 
 DEFINE(IS,LAMBDA(argument,IF(ISOMITTED(argument), 0, 1)))
 
