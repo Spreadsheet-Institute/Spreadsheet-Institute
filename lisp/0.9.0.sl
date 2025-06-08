@@ -8,6 +8,8 @@ DEFINE(APPLY,LAMBDA(function,[argument1],[argument2],[argument3],[argument4],[ar
 
 DEFINE(ARITY,LAMBDA([_arg1], [_arg2], [_arg3], [_arg4], [_arg5],[_arg6], [_arg7], [_arg8], [_arg9], [_arg10],[_arg11], [_arg12], [_arg13], [_arg14], [_arg15],[_arg16], [_arg17], [_arg18], [_arg19], [_arg20],[_arg21], [_arg22], [_arg23], [_arg24], [_arg25],SUM(IS(_arg1), IS(_arg2), IS(_arg3), IS(_arg4), IS(_arg5),IS(_arg6), IS(_arg7), IS(_arg8), IS(_arg9), IS(_arg10),IS(_arg11), IS(_arg12), IS(_arg13), IS(_arg14), IS(_arg15),IS(_arg16), IS(_arg17), IS(_arg18), IS(_arg19), IS(_arg20),IS(_arg21), IS(_arg22), IS(_arg23), IS(_arg24), IS(_arg25))))
 
+DEFINE(ASSERT,LAMBDA(condition,[message],IF(condition,TRUE,DEFAULT(message,"Assertion failed"))))
+
 DEFINE(CAPITALIZE,LAMBDA(text,CONCAT(UPPER(FIRSTLETTER(text)),RIGHT(text, DECREMENT(LEN(text))))))
 
 DEFINE(CAR,LAMBDA(range,INDEX(range,1,1)))
