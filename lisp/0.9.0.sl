@@ -96,6 +96,8 @@ DEFINE(OTHERWISE,TRUE)
 
 DEFINE(PICK,LAMBDA(_1, [_2], [_3], [_4], [_5],[_6], [_7], [_8], [_9], [_10],[_11], [_12], [_13], [_14], [_15],[_16], [_17], [_18], [_19], [_20],[_21], [_22], [_23], [_24], [_25],LET(count,SUM(IS(_1), IS(_2), IS(_3), IS(_4), IS(_5),IS(_6), IS(_7), IS(_8), IS(_9), IS(_10),IS(_11), IS(_12), IS(_13), IS(_14), IS(_15),IS(_16), IS(_17), IS(_18), IS(_19), IS(_20),IS(_21), IS(_22), IS(_23), IS(_24), IS(_25)),CHOOSE(RANDBETWEEN(1, count), _1, _2, _3, _4, _5, _6, _7, _8, _9, _10,_11, _12, _13, _14, _15,_16, _17, _18, _19, _20,_21, _22, _23, _24, _25))))
 
+DEFINE(POSITIVE?,LAMBDA(x,GREATERTHAN(x,0)))
+
 DEFINE(PROVIDED,LAMBDA([argument],NOT(ISOMITTED(argument))))
 
 DEFINE(QUESTION,LAMBDA(knowledgebase,fragment1,[fragment2],[fragment3],[fragment4],[fragment5],[fragment6],[fragment7],[fragment8],[fragment9],[fragment10],LET(arity,ARITY(fragment1,fragment2,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10),template,CHOOSE(arity,"('{1}').","('{1}', '{2}').","('{1}', '{2}', '{3}').","('{1}', '{2}', '{3}', '{4}').","('{1}', '{2}', '{3}', '{4}', '{5}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')."),subject,fragment2,question_word,LOWER(fragment1),CONTAINS(knowledgebase,FORMAT(template,subject,question_word,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10)))))
