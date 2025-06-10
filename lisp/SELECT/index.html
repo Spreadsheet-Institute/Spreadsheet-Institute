@@ -16,32 +16,32 @@
 DEFINE(
     <a href="../SELECT/">SELECT</a>,
     LAMBDA(
-        columns,
-        source_range,
-        [conditions],
+        <span class="variable">columns</span>,
+        <span class="variable">source_range</span>,
+        [<span class="variable">conditions</span>],
         LET(
-            column_names,
+            <span class="variable">column_names</span>,
                 IF(
-                    <a href="../RANGE?/">RANGE?</a>(columns),
-                    columns,
+                    <a href="../RANGE?/">RANGE?</a>(<span class="variable">columns</span>),
+                    <span class="variable">columns</span>,
                     <a href="../TRIMALL/">TRIMALL</a>(
                         TEXTSPLIT(
-                            columns,
+                            <span class="variable">columns</span>,
                             <span class="constant">","</span>))),
-            column_indices,
+            <span class="variable">column_indices</span>,
                 <a href="../INDICES/">INDICES</a>(
-                    column_names,
-                    <a href="../FIRSTROW/">FIRSTROW</a>(source_range)),
-            column_subset,
+                    <span class="variable">column_names</span>,
+                    <a href="../FIRSTROW/">FIRSTROW</a>(<span class="variable">source_range</span>)),
+            <span class="variable">column_subset</span>,
                 <a href="../FILTERCOLUMNS/">FILTERCOLUMNS</a>(
-                    source_range,
-                    column_indices),
+                    <span class="variable">source_range</span>,
+                    <span class="variable">column_indices</span>),
             <a href="../IFOMITTED/">IFOMITTED</a>(
-                conditions,
-                column_subset,
+                <span class="variable">conditions</span>,
+                <span class="variable">column_subset</span>,
                 <a href="../FILTERROWS/">FILTERROWS</a>(
-                    column_subset,
-                    conditions)))))
+                    <span class="variable">column_subset</span>,
+                    <span class="variable">conditions</span>)))))
         
         </pre>
         <br>

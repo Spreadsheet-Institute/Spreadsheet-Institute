@@ -34,6 +34,12 @@ a {
     font-weight: bold;
 }
 
+.variable {
+    color: #FFFFFF;
+
+    font-style: italic;
+}
+
 pre {
     overflow-x: auto;
 }
