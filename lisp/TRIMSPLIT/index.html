@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: TRIMSPLIT</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../TRIMSPLIT/">TRIMSPLIT</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../TRIMSPLIT/">TRIMSPLIT</a>(<span class="constant">"   a , b  ,    c    "</span>, <span class="constant">","</span>)
+-> {<span class="constant">"a"</span>,<span class="constant">"b"</span>,<span class="constant">"c"</span>}
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../TRIMSPLIT/">TRIMSPLIT</a>,
+    LAMBDA(
+        <span class="variable">source_text</span>,
+        <span class="variable">split_at</span>,
+        [<span class="variable">display_vertically</span>],
+        LET(
+            result,
+                <a href="../TRIMALL/">TRIMALL</a>(
+                    TEXTSPLIT(
+                        <span class="variable">source_text</span>,
+                        <span class="variable">split_at</span>)),
+            IF(
+                <a href="../DEFAULT/">DEFAULT</a>(<span class="variable">display_vertically</span>, <span class="constant">FALSE</span>),
+                TRANSPOSE(result),
+                result))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/TRIMSPLIT/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
