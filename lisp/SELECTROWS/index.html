@@ -27,12 +27,71 @@ DEFINE(
     LAMBDA(
         <span class="variable">range</span>,
         <span class="variable">row_conditions</span>,
-        LET(
-            conditions_list,
-                TRIMSPLIT(
-                    row_conditions,
-                    ","),
-            conditions_list)))
+        IFOMITTED(
+            row_conditions,
+            range,
+            LET(
+                column_names,
+                    FIRSTROW(range),
+                list_of_condition_strings,
+                    TRIMSPLIT(
+                        row_conditions,
+                        ","),
+                condition_count,
+                    COUNTA(list_of_condition_strings),
+                filter_columns,
+                    MAKEARRAY(
+                        condition_count,
+                        1,
+                        LAMBDA(
+                            row,
+                            _col,
+                            TEXTBEFORE(MATCH(list_of_condition_strings, row, 1)))),
+                filter_functions,
+                    MAKEARRAY(
+                        condition_count,
+                        1,
+                        LAMBDA(
+                            row,
+                            _col,
+                            OPERATOR(TEXTBETWEEN(MATCH(list_of_condition_strings, row, 1), " ", " ")))),
+                filter_thresholds,
+                    MAKEARRAY(
+                        condition_count,
+                        1,
+                        LAMBDA(
+                            row,
+                            _col,
+                            TEXTAFTER(MATCH(list_of_condition_strings, row, 1), " ", 2))),
+                filter_table,
+                    HSTACK(
+                        filter_columns,
+                        filter_functions,
+                        filter_thresholds),
+                MEETSCRITERIA,
+                    LAMBDA(
+                        row,
+                        IF(
+                            ALL(
+                                MAKEARRAY(
+                                    condition_count,
+                                    1,
+                                    LAMBDA(
+                                        row,
+                                        _col,
+                                        LET(
+                                            filter_column,
+                                                INDEX(filter_table, row, 1),
+                                            filter_function,
+                                                INDEX(filter_table, row, 2),
+                                            filter_threshold,
+                                                INDEX(filter_table, row, 3),
+                                            filter_function(filter_column, filter_threshold))))))),
+                VSTACK(
+                    FIRSTROW(range),
+                    BYROW(
+                        range,
+                        MEETSCRITERIA()))))))
         
         </pre>
         <br>
