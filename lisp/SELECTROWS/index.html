@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: SELECTROWS</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../SELECTROWS/">SELECTROWS</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../SELECTROWS/">SELECTROWS</a>(<span class="variable">A1:Z100</span>, <span class="constant">"A > 10"</span>)
+-> A1:Z75
+
+=<a href="../SELECTROWS/">SELECTROWS</a>(<span class="variable">A1:Z100</span>, <span class="constant">"Salary > 100000, Department = IT"</span>)
+-> A1:Z10
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../SELECTROWS/">SELECTROWS</a>,
+    LAMBDA(
+        <span class="variable">range</span>,
+        <span class="variable">row_conditions</span>,
+        LET(
+            conditions_list,
+                TRIMSPLIT(
+                    row_conditions,
+                    ","),
+            conditions_list)))
+        
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/SELECTROWS/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

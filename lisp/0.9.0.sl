@@ -122,6 +122,8 @@ DEFINE(ROCKPAPERSCISSORS,LAMBDA(throw,LET(human,CAPITALIZE(LOWER(DEFAULT(throw,"
 
 DEFINE(ROLLDICE,LAMBDA([times],IF(LTE(DEFAULT(times,1),1),DICEROLL(),CONS(DICEROLL(),ROLLDICE(DECREMENT(times))))))
 
+DEFINE(SELECTFROM,LAMBDA(columns,source_range,[row_conditions],LET(column_names,IF(RANGE?(columns),columns,TRIMSPLIT(columns,",")),column_indices,INDICES(column_names,FIRSTROW(source_range)),SELECTCOLUMNS(source_range,column_indices))))
+
 DEFINE(SELECTCOLUMNS,LAMBDA(range,column_indices,IF(ONE?(LENGTH(column_indices)),CHOOSECOLS(range,column_indices),HSTACK(CHOOSECOLS(range,FIRST(column_indices)),SELECTCOLUMNS(range,REST(column_indices))))))
 
 DEFINE(SHEETNAME,LAMBDA([reference],LET(filename,FILENAME(reference),bracket_position,FIND("]",filename),RIGHT(filename,DECREMENT(LEN(filename),bracket_position)))))
