@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: FIRSTLETTER</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../FIRSTROW/">FIRSTROW</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../FIRSTROW/">FIRSTROW</a>(A1:Z100)
+-> A1:Z1
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../FIRSTROW/">FIRSTROW</a>,
+    LAMBDA(
+        <span class="variable">range</span>,
+        INDEX(
+            <span class="variable">range</span>,
+            <span class="constant">1</span>,
+            <span class="constant">0</span>)))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/FIRSTROW/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
