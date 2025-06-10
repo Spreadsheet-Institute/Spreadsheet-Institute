@@ -72,15 +72,17 @@ DEFINE(IFOMITTED,LAMBDA(optional_argument,value_if_omitted,value_if_provided,IF(
 
 DEFINE(INCREMENT,LAMBDA(x,[times],SUM(x,DEFAULT(times,1))))
 
+DEFINE(INDICES,LAMBDA(subset,superset,LET(horizontal_subset,IF(VERTICAL?(subset),TRANSPOSE(subset),subset),horizontal_superset,IF(VERTICAL?(superset),TRANSPOSE(superset),superset),MAKEARRAY(1,LENGTH(horizontal_subset),LAMBDA(_row,col,MATCH(INDEX(horizontal_subset,1,col),horizontal_superset,FALSE))))))
+
 DEFINE(IS,LAMBDA(argument,IF(ISOMITTED(argument), 0, 1)))
 
 DEFINE(ISATOM,LAMBDA(input,MEMBER(TYPESTRING(input),VLIST("Number","String","Error"))))
 
-DEFINE(ISHORIZONTAL,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),TRUE,FALSE)))
+DEFINE(HORIZONTAL?,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),TRUE,FALSE)))
 
 DEFINE(RANGE?,LAMBDA(input,EQUAL(TYPESTRING(input),"Range")))
 
-DEFINE(ISVERTICAL,LAMBDA(range,IF(GREATERTHAN(ROWS(range),COLUMNS(range)),TRUE,FALSE)))
+DEFINE(VERTICAL?,LAMBDA(range,IF(GREATERTHAN(ROWS(range),COLUMNS(range)),TRUE,FALSE)))
 
 DEFINE(LAST,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),INDEX(range,1,COUNTA(range)),INDEX(range,COUNTA(range),1))))
 

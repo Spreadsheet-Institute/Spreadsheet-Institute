@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: INDICES</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../INDICES/">INDICES</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../INDICES/">INDICES</a>({<span class="constant">"a"</span>,<span class="constant">"c"</span>}, {<span class="constant">"a"</span>,<span class="constant">"b"</span>,<span class="constant">"c"</span>})
+-> {<span class="constant">1</span>,<span class="constant">3</span>}
+
+=<a href="../INDICES/">INDICES</a>({<span class="constant">"a"</span>;<span class="constant">"c"</span>}, {<span class="constant">"a"</span>;<span class="constant">"b"</span>;<span class="constant">"c"</span>})
+-> {<span class="constant">1</span>;<span class="constant">3</span>}
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../INDICES/">INDICES</a>,
+    LAMBDA(
+        <span class="variable">subset</span>,
+        <span class="variable">superset</span>,
+        LET(
+            <span class="variable">horizontal_subset</span>,
+                IF(
+                    <a href="../VERTICAL?/">VERTICAL?</a>(<span class="variable">subset</span>),
+                    TRANSPOSE(<span class="variable">subset</span>),
+                    <span class="variable">subset</span>),
+            <span class="variable">horizontal_superset</span>,
+                IF(
+                    <a href="../VERTICAL?/">VERTICAL?</a>(<span class="variable">superset</span>),
+                    TRANSPOSE(<span class="variable">superset</span>),
+                    <span class="variable">superset</span>),
+            MAKEARRAY(
+                <span class="constant">1</span>,
+                <a href="../LENGTH/">LENGTH</a>(<span class="variable">horizontal_subset</span>),
+                LAMBDA(
+                    <span class="variable">_row</span>,
+                    <span class="variable">col</span>,
+                    MATCH(
+                        INDEX(
+                            <span class="variable">horizontal_subset</span>,
+                            <span class="constant">1</span>,
+                            <span class="variable">col</span>),
+                        <span class="variable">horizontal_superset</span>,
+                        <span class="constant">FALSE</span>))))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/ID/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
