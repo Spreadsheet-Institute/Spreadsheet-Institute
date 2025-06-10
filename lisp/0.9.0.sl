@@ -72,7 +72,7 @@ DEFINE(IFOMITTED,LAMBDA(optional_argument,value_if_omitted,value_if_provided,IF(
 
 DEFINE(INCREMENT,LAMBDA(x,[times],SUM(x,DEFAULT(times,1))))
 
-DEFINE(INDICES,LAMBDA(subset,superset,LET(horizontal_subset,IF(VERTICAL?(subset),TRANSPOSE(subset),subset),horizontal_superset,IF(VERTICAL?(superset),TRANSPOSE(superset),superset),MAKEARRAY(1,LENGTH(horizontal_subset),LAMBDA(_row,col,MATCH(INDEX(horizontal_subset,1,col),horizontal_superset,FALSE))))))
+DEFINE(INDICES,LAMBDA(subset,superset,LET(horizontal_subset,IF(VERTICAL?(subset),TRANSPOSE(subset),subset),horizontal_superset,IF(VERTICAL?(superset),TRANSPOSE(superset),superset),MAKEARRAY(1,IF(RANGE?(horizontal_subset),LENGTH(horizontal_subset),1),LAMBDA(_row,col,MATCH(INDEX(horizontal_subset,1,col),horizontal_superset,FALSE))))))
 
 DEFINE(IS,LAMBDA(argument,IF(ISOMITTED(argument), 0, 1)))
 
@@ -121,6 +121,8 @@ DEFINE(REVERSE,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),MAKEARRAY
 DEFINE(ROCKPAPERSCISSORS,LAMBDA(throw,LET(human,CAPITALIZE(LOWER(DEFAULT(throw,""))),robot,PICK("Rock","Paper","Scissors"),CONCAT(FORMAT("You threw {1}. SL threw {2}. ",human,robot),IFS(CASE(human,robot),FORMAT("It's a tie! {1} vs. {1}",human),CASE(human,"Paper",robot,"Rock"),"You win! Paper covers Rock.",CASE(human,"Paper",robot,"Scissors"),"You lose! Scissors cut Paper.",CASE(human,"Rock",robot,"Scissors"),"You win! Rock crushes Scissors.",CASE(human,"Rock",robot,"Paper"),"You lose! Paper covers Rock.",CASE(human,"Scissors",robot,"Paper"),"You win! Scissors cut Paper.",CASE(human,"Scissors",robot,"Rock"),"You lose! Rock crushes Scissors.",OTHERWISE,"Invalid throw. Please choose Rock, Paper, or Scissors.")))))
 
 DEFINE(ROLLDICE,LAMBDA([times],IF(LTE(DEFAULT(times,1),1),DICEROLL(),CONS(DICEROLL(),ROLLDICE(DECREMENT(times))))))
+
+DEFINE(SELECTCOLUMNS,LAMBDA(range,column_indices,IF(ONE?(LENGTH(column_indices)),CHOOSECOLS(range,column_indices),HSTACK(CHOOSECOLS(range,FIRST(column_indices)),SELECTCOLUMNS(range,REST(column_indices))))))
 
 DEFINE(SHEETNAME,LAMBDA([reference],LET(filename,FILENAME(reference),bracket_position,FIND("]",filename),RIGHT(filename,DECREMENT(LEN(filename),bracket_position)))))
 

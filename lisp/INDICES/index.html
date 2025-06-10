@@ -40,7 +40,10 @@ DEFINE(
                     <span class="variable">superset</span>),
             MAKEARRAY(
                 <span class="constant">1</span>,
-                <a href="../LENGTH/">LENGTH</a>(<span class="variable">horizontal_subset</span>),
+                IF(
+                    <a href="../LENGTH/">RANGE?</a>(<span class="variable">horizontal_subset</span>),
+                    <a href="../LENGTH/">LENGTH</a>(<span class="variable">horizontal_subset</span>),
+                    <span class="constant">1</span>),
                 LAMBDA(
                     <span class="variable">_row</span>,
                     <span class="variable">col</span>,

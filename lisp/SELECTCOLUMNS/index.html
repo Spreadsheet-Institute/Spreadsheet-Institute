@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: SELECTCOLUMNS</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../SELECTCOLUMNS/">SELECTCOLUMNS</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../SELECTCOLUMNS/">SELECTCOLUMNS</a>(A1:Z100, <span class="constant">2</span>)
+-> B1:B100
+
+=<a href="../SELECTCOLUMNS/">SELECTCOLUMNS</a>(A1:Z100, {<span class="constant">1</span>, <span class="constant">2</span>, <span class="constant">3</span>})
+-> A1:C100
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../SELECTCOLUMNS/">SELECTCOLUMNS</a>,
+    LAMBDA(
+        range,
+        column_indices,
+        IF(
+            ONE?(LENGTH(column_indices)),
+            CHOOSECOLS(
+                range,
+                column_indices),
+            HSTACK(
+                CHOOSECOLS(
+                    range,
+                    FIRST(column_indices)),
+                SELECTCOLUMNS(
+                    range,
+                    REST(column_indices))))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/ID/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
