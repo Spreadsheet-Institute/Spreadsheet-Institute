@@ -86,7 +86,9 @@ DEFINE(
                                                 INDEX(filter_table, row, 2),
                                             filter_threshold,
                                                 INDEX(filter_table, row, 3),
-                                            filter_function(filter_column, filter_threshold))))))),
+                                            row_value,
+                                                
+                                            APPLY(filter_function, INDEX(row, 1, MATCH(filter_column, column_names)), filter_threshold))))))),
                 VSTACK(
                     FIRSTROW(range),
                     BYROW(
