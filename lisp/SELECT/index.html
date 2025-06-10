@@ -24,10 +24,9 @@ DEFINE(
                 IF(
                     <a href="../RANGE?/">RANGE?</a>(<span class="variable">columns</span>),
                     <span class="variable">columns</span>,
-                    <a href="../TRIMALL/">TRIMALL</a>(
-                        TEXTSPLIT(
-                            <span class="variable">columns</span>,
-                            <span class="constant">","</span>))),
+                    <a href="../TRIMSPLIT/">TRIMSPLIT</a>(
+                        columns</span>,
+                        <span class="constant">","</span>)),
             <span class="variable">column_indices</span>,
                 <a href="../INDICES/">INDICES</a>(
                     <span class="variable">column_names</span>,
