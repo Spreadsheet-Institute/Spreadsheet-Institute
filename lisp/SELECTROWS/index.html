@@ -20,10 +20,10 @@
         <br>
         <pre>
 DEFINE(
-    <a href="../SELECTROWS/">SELECTROWS</a>,
+    SELECTROWS,
     LAMBDA(
-        <span class="variable">range</span>,
-        [<span class="variable">row_conditions</span>],
+        range,
+        [row_conditions],
         IFOMITTED(
             row_conditions,
             range,
@@ -38,7 +38,7 @@ DEFINE(
                 condition_count,
                     COUNTA(condition_strings),
                 condition_operators,
-                    EXTRACTOPERATORS(conditions_strings),
+                    EXTRACTOPERATORS(condition_strings),
                 condition_columns,
                     MAKEARRAY(
                         condition_count,
@@ -46,11 +46,22 @@ DEFINE(
                         LAMBDA(
                             row,
                             _col,
-                            TRIM(
-                                TEXTBEFORE(
-                                    MATCH(condition_strings, row, 1),
-                                    MATCH(condition_operators, row, 1))))),
-                condition_thresholds,
+                            LET(
+                                condition,
+                                    INDEX(
+                                        condition_strings,
+                                        row,
+                                        1),
+                                operator,
+                                    INDEX(
+                                        condition_operators,
+                                        row,
+                                        1),
+                                TRIM(
+                                    TEXTBEFORE(
+                                        condition,
+                                        operator))))),
+                condition_criteria,
                     MAKEARRAY(
                         condition_count,
                         1,
@@ -58,45 +69,34 @@ DEFINE(
                             row,
                             _col,
                             LET(
+                                condition,
+                                    INDEX(
+                                        condition_strings,
+                                        row,
+                                        1),
+                                operator,
+                                    INDEX(
+                                        condition_operators,
+                                        row,
+                                        1),
                                 result,
                                     TRIM(
                                         TEXTAFTER(
-                                            MATCH(condition_strings, row, 1),
-                                            MATCH(condition_operators, row, 1))),
-                                IF(
-                                    ISNUMBER(NUMBERVALUE(result)),
+                                            condition,
+                                            operator)),
+                                IFERROR(
                                     NUMBERVALUE(result),
                                     result)))),
                 filter_lookup_table,
                     HSTACK(
                         condition_operators,
                         condition_columns,
-                        condition_thresholds),
-                MEETSCRITERIA,
-                    LAMBDA(
-                        table_row,
-                        IF(
-                            ALL(
-                                MAKEARRAY(
-                                    condition_count,
-                                    1,
-                                    LAMBDA(
-                                        row,
-                                        _col,
-                                        LET(
-                                            filter_column,
-                                                INDEX(filter_table, row, 1),
-                                            filter_function,
-                                                INDEX(filter_table, row, 2),
-                                            filter_threshold,
-                                                INDEX(filter_table, row, 3),
-                                            APPLY(filter_function, INDEX(row, 1, MATCH(filter_column, column_names)), filter_threshold))))))),
+                        condition_criteria),
                 VSTACK(
                     FIRSTROW(range),
-                    BYROW(
-                        range,
-                        MEETSCRITERIA()))))))
-        
+                    SIEVE(
+                        TABLEDATA(range),
+                        filter_lookup_table))))))
         </pre>
         <br>
         <hr>

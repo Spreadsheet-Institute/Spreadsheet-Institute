@@ -26,19 +26,34 @@ DEFINE(
     <a href="../SELECTCOLUMNS/">SELECTCOLUMNS</a>,
     LAMBDA(
         <span class="variable">range</span>,
-        <span class="variable">column_indices</span>,
-        IF(
-            <a href="../ONE%3F/">ONE?</a>(<a href="../LENGTH/">LENGTH</a>(<span class="variable">column_indices</span>)),
-            CHOOSECOLS(
-                <span class="variable">range</span>,
-                <span class="variable">column_indices</span>),
-            HSTACK(
-                CHOOSECOLS(
-                    <span class="variable">range</span>,
-                    <a href="../FIRST/">FIRST</a>(<span class="variable">column_indices</span>)),
-                <a href="../SELECTCOLUMNS/">SELECTCOLUMNS</a>(
-                    <span class="variable">range</span>,
-                    <a href="../REST/">REST</a>(<span class="variable">column_indices</span>))))))
+        [<span class="variable">columns</span>],
+        IFOMITTED(
+            <span class="variable">columns</span>,
+            <span class="variable">range</span>,
+            LET(
+                <span class="variable">column_names</span>,
+                    IF(
+                        <a href="../RANGE%3F/">RANGE?</a>(<span class="variable">columns</span>),
+                        <span class="variable">columns</span>,
+                        <a href="../TRIMSPLIT/">TRIMSPLIT</a>(
+                            <span class="variable">columns</span>,
+                            <span class="constant">","</span>)),
+                <span class="variable">column_indices</span>,
+                    <a href="../INDICES/">INDICES</a>(
+                        <span class="variable">column_names</span>,
+                        <a href="../FIRSTROW/">FIRSTROW</a>(<span class="variable">table_range</span>)),
+                IF(
+                    <a href="../ONE%3F/">ONE?</a>(<a href="../LENGTH/">LENGTH</a>(<span class="variable">column_indices</span>)),
+                    CHOOSECOLS(
+                        <span class="variable">range</span>,
+                        <span class="variable">column_indices</span>),
+                    HSTACK(
+                        CHOOSECOLS(
+                            <span class="variable">range</span>,
+                            <a href="../FIRST/">FIRST</a>(<span class="variable">column_indices</span>)),
+                        <a href="../SELECTCOLUMNS/">SELECTCOLUMNS</a>(
+                            <span class="variable">range</span>,
+                            <a href="../REST/">REST</a>(<span class="variable">column_indices</span>))))))))
         </pre>
         <br>
         <hr>
