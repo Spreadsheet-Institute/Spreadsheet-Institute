@@ -142,6 +142,8 @@ DEFINE(SELECTROWS,LAMBDA(range,[row_conditions],IFOMITTED(row_conditions,range,L
 
 DEFINE(SHEETNAME,LAMBDA([reference],LET(filename,FILENAME(reference),bracket_position,FIND("]",filename),RIGHT(filename,DECREMENT(LEN(filename),bracket_position)))))
 
+DEFINE(SL,LAMBDA("0.9.0"))
+
 DEFINE(SQUAREROOT,LAMBDA(x,POWER(x,0.5)))
 
 DEFINE(STATEMENT,LAMBDA(fragment1,[fragment2],[fragment3],[fragment4],[fragment5],[fragment6],[fragment7],[fragment8],[fragment9],[fragment10],LET(arity,ARITY(fragment1,fragment2,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10),template,CHOOSE(arity,"('{1}').","('{1}', '{2}').","('{1}', '{2}', '{3}').","('{1}', '{2}', '{3}', '{4}').","('{1}', '{2}', '{3}', '{4}', '{5}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')."),FORMAT(template,fragment1,fragment2,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10))))
