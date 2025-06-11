@@ -15,7 +15,7 @@
 =<a href="../EMPTYLIST%3F/">EMPTYLIST?</a>(<span class="constant">"()"</span>)
 -> <span class="constant">TRUE</span>
 
-=<a href="../EQUAL/">EQUAL</a>(<span class="constant">"SL"</span>, <span class="constant">"sl"</span>)
+=<a href="../EMPTYLIST%3F/">EMPTYLIST?</a>({})
 -> <span class="constant">TRUE</span>
         </pre>
         <br>
@@ -26,19 +26,27 @@ DEFINE(
     <a href="../EMPTYLIST%3F/">EMPTYLIST?</a>,
     LAMBDA(
         <span class="variable">input</span>,
-        IF(
-            AND(
-                <a href="../ONE%3F/">ONE?</a>(COUNTA(<span class="variable">input</span>)),
-                <a href="../EQUAL/">EQUAL</a>(
-                    <span class="variable">input</span>,
-                    <span class="constant">"()"</span>)),
-            <span class="constant">TRUE</span>,
-            <span class="constant">FALSE</span>)))
+        LET(
+            <span class="variable">occupied_cells</span>,
+                COUNTA(<span class="variable">input</span>),
+            <span class="variable">blank_cells</span>,
+                COUNTBLANK(<span class="variable">input</span>),
+            IF(
+                <a href="../ONE%3F/">ONE?</a>(
+                    SUM(
+                        <span class="variable">occupied_cells</span>,
+                        <span class="variable">blank_cells</span>)),
+                OR(
+                    ISBLANK(<span class="variable">input</span>),
+                    <a href="../EQUAL/">EQUAL</a>(
+                        <span class="variable">input</span>,
+                        <span class="constant">"()"</span>),
+                <span class="constant">NO</span>)))))
         </pre>
         <br>
         <hr>
         <br>
-        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/EQUAL/index.html">optimize this function</a></p>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/EMPTYLIST%3F/index.html">optimize this function</a></p>
         <br>
     </body>
 </html>

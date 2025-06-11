@@ -36,7 +36,7 @@ DEFINE(DICEROLL,LAMBDA(PICK(1,2,3,4,5,6)))
 
 DEFINE(DIFFERENCE,LAMBDA(minuend,subtrahend,minuend-subtrahend))
 
-DEFINE(EMPTYLIST?,LAMBDA(input,IF(AND(ONE?(COUNTA(input)),EQUAL(input,"()")),TRUE,FALSE)))
+DEFINE(EMPTYLIST?,LAMBDA(input,LET(occupied_cells,COUNTA(input),blank_cells,COUNTBLANK(input),IF(ONE?(SUM(occupied_cells,blank_cells)),OR(ISBLANK(input),EQUAL(input,"()"),NO)))))
 
 DEFINE(EQUAL,LAMBDA(a,b,a=b))
 
