@@ -15,10 +15,13 @@
 DEFINE(
     <a href="../LENGTH/">LENGTH</a>,
     LAMBDA(
-        <span class="variable">input</span>,
+        <span class="variable">[input]</span>,
         LET(
             <span class="variable">cell_count</span>,
-                COUNTA(<span class="variable">input</span>),
+                IFOMITTED(
+                    input,
+                    0,
+                    COUNTALL(<span class="variable">input</span>)),
             IF(
                 <a href="../ONE%3F/">ONE?</a>(<span class="variable">cell_count</span>),
                 IF(

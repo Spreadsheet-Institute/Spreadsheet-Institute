@@ -26,6 +26,8 @@ DEFINE(CONS,LAMBDA(value,range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),HSTACK
 
 DEFINE(CONTAINS,LAMBDA(haystack,needle,IF(AND(EQUAL(COUNTA(haystack),1),EQUAL(COUNTA(needle),1)),ISNUMBER(SEARCH(needle,haystack)),OR(EXACT(needle,haystack)))))
 
+DEFINE(COUNTALL,LAMBDA(range,SUM(COUNTA(range),COUNTBLANK(range))))
+
 DEFINE(CURRY,LAMBDA(function,argument1,LAMBDA(argument2,function(argument1,argument2))))
 
 DEFINE(DECREMENT,LAMBDA(x,[times],SUM(x,PRODUCT(-1,DEFAULT(times,1)))))
@@ -92,7 +94,7 @@ DEFINE(VERTICAL?,LAMBDA(range,IF(GREATERTHAN(ROWS(range),COLUMNS(range)),TRUE,FA
 
 DEFINE(LAST,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),INDEX(range,1,COUNTA(range)),INDEX(range,COUNTA(range),1))))
 
-DEFINE(LENGTH,LAMBDA(input,LET(cell_count,COUNTA(input),IF(ONE?(cell_count),IF(EMPTYLIST?(input),0,LEN(input)),cell_count))))
+DEFINE(LENGTH,LAMBDA([input],LET(cell_count,IFOMITTED(input,0,COUNTALL(input)),IF(ONE?(cell_count),IF(EMPTYLIST?(input),0,LEN(input)),cell_count))))
 
 DEFINE(LESSTHAN,LAMBDA(x,y,IF(x < y,TRUE,FALSE)))
 
