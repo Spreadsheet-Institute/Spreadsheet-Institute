@@ -28,12 +28,12 @@ DEFINE(
         <span class="variable">input</span>,
         IF(
             AND(
-                ONE?(COUNTA(input)),
-                EQUAL(
-                    input,
-                    "()")),
-            TRUE,
-            FALSE)))
+                <a href="../ONE%3F/">ONE?</a>(COUNTA(<span class="variable">input</span>)),
+                <a href="../EQUAL/">EQUAL</a>(
+                    <span class="variable">input</span>,
+                    <span class="constant">"()"</span>)),
+            <span class="constant">TRUE</span>,
+            <span class="constant">FALSE</span>)))
         </pre>
         <br>
         <hr>
