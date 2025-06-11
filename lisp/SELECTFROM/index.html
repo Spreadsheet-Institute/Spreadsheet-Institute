@@ -12,13 +12,15 @@
         <hr>
         <br>
         <pre>
-=<a href="../SELECTFROM/">SELECTFROM</a>(<span class="constant">"Name, ID"</span>, <span class="variable">A1:Z100</span>, <span class="constant">"Salary > 100000, Department = IT"</span>)
+=<a href="../SELECTFROM/">SELECTFROM</a>(
+    <span class="constant">"Name, ID"</span>,
+    <span class="variable">A1:Z100</span>,
+    <span class="constant">"Salary > 100000, Department = IT"</span>)
         </pre>
         <br>
         <hr>
         <br>
-        <pre>
-            
+        <pre>        
 DEFINE(
     <a href="../SELECTFROM/">SELECTFROM</a>,
     LAMBDA(
@@ -44,7 +46,6 @@ DEFINE(
             <a href="../SELECTCOLUMNS/">SELECTCOLUMNS</a>(
                 <span class="variable">row_subset</span>,
                 <span class="variable">column_indices</span>))))
-        
         </pre>
         <br>
         <hr>
