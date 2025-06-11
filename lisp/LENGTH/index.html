@@ -12,23 +12,20 @@
         <hr>
         <br>
         <pre>
-
 DEFINE(
     <a href="../LENGTH/">LENGTH</a>,
     LAMBDA(
-        input,
-        IF(
-            <a href="../EQUAL/">EQUAL</a>(
-                COUNTA(input),
-                <span class="constant">1</span>),
+        <span class="variable">input</span>,
+        LET(
+            <span class="variable">cell_count</span>,
+                COUNTA(<span class="variable">input</span>),
             IF(
-                <a href="../EQUAL/">EQUAL</a>(
-                    input,
-                    <span class="constant">"()"</span>),
-                <span class="constant">0</span>,
-                LEN(input)),
-            COUNTA(input))))
-        
+                <a href="../ONE%3F/">ONE?</a>(cell_count)
+                IF(
+                    <a href="../EMPTYLIST%3F/">EMPTYLIST?</a>(<span class="variable">input</span>),
+                    <span class="constant">0</span>,
+                    LEN(<span class="variable">input</span>)),
+                <span class="variable">cell_count</span>))))
         </pre>
         <br>
         <hr>

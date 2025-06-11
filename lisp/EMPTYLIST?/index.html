@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: EMPTYLIST?</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../EMPTYLIST%3F/">EMPTYLIST?</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../EMPTYLIST%3F/">EMPTYLIST?</a>(<span class="constant">"()"</span>)
+-> <span class="constant">TRUE</span>
+
+=<a href="../EQUAL/">EQUAL</a>(<span class="constant">"SL"</span>, <span class="constant">"sl"</span>)
+-> <span class="constant">TRUE</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../EMPTYLIST%3F/">EMPTYLIST?</a>,
+    LAMBDA(
+        <span class="variable">input</span>,
+        IF(
+            AND(
+                ONE?(COUNTA(input)),
+                EQUAL(
+                    input,
+                    "()")),
+            TRUE,
+            FALSE)))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/EQUAL/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

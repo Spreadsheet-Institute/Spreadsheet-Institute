@@ -36,6 +36,8 @@ DEFINE(DICEROLL,LAMBDA(PICK(1,2,3,4,5,6)))
 
 DEFINE(DIFFERENCE,LAMBDA(minuend,subtrahend,minuend-subtrahend))
 
+DEFINE(EMPTYLIST?,LAMBDA(input,IF(AND(ONE?(COUNTA(input)),EQUAL(input,"()")),TRUE,FALSE)))
+
 DEFINE(EQUAL,LAMBDA(a,b,a=b))
 
 DEFINE(EXTRACTOPERATOR,LAMBDA(condition_string,IFS(ISNUMBER(FIND("<>", condition_string)),HSTACK("<>", NOTEQUAL),ISNUMBER(FIND("<=", condition_string)),HSTACK("<=", LTE),ISNUMBER(FIND(">=", condition_string)),HSTACK(">=", GTE),ISNUMBER(FIND("<", condition_string)),HSTACK("<", LESSTHAN),ISNUMBER(FIND(">", condition_string)),HSTACK(">", GREATERTHAN),ISNUMBER(FIND("!=", condition_string)),HSTACK("!=", NOTEQUAL),ISNUMBER(FIND("=", condition_string)),HSTACK("=", EQUAL),OTHERWISE,NA())))
@@ -90,7 +92,7 @@ DEFINE(VERTICAL?,LAMBDA(range,IF(GREATERTHAN(ROWS(range),COLUMNS(range)),TRUE,FA
 
 DEFINE(LAST,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),INDEX(range,1,COUNTA(range)),INDEX(range,COUNTA(range),1))))
 
-DEFINE(LENGTH,LAMBDA(input,IF(EQUAL(COUNTA(input),1),IF(EQUAL(input,"()"),0,LEN(input)),COUNTA(input))))
+DEFINE(LENGTH,LAMBDA(input,LET(cell_count,COUNTA(input),IF(ONE?(cell_count),IF(EMPTYLIST?(input),0,LEN(input)),cell_count))))
 
 DEFINE(LESSTHAN,LAMBDA(x,y,IF(x < y,TRUE,FALSE)))
 
