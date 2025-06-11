@@ -23,27 +23,43 @@ DEFINE(
     <a href="../SELECTROWS/">SELECTROWS</a>,
     LAMBDA(
         <span class="variable">range</span>,
-        <span class="variable">row_conditions</span>,
+        [<span class="variable">row_conditions</span>],
         IFOMITTED(
             row_conditions,
             range,
             LET(
                 column_names,
                     FIRSTROW(range),
-                list_of_condition_strings,
+                condition_strings,
                     TRIMSPLIT(
                         row_conditions,
                         ","),
                 condition_count,
-                    COUNTA(list_of_condition_strings),
-                filter_columns,
+                    COUNTA(condition_strings),
+                OPERATOR,
+                    LAMBDA(
+                        condition,
+                        IFS(
+                            FIND("<=", condition),
+                                HSTACK("<=", LTE),
+                            FIND(">=", condition),
+                                HSTACK(">=", GTE),
+                            FIND("<", condition),
+                                HSTACK("<", LESSTHAN),
+                            FIND(">", condition),
+                                HSTACK(">", GREATERTHAN),
+                            FIND("=", condition),
+                                HSTACK("=", EQUAL),
+                            OTHERWISE,
+                                NA())),
+                condition_columns,
                     MAKEARRAY(
                         condition_count,
                         1,
                         LAMBDA(
                             row,
                             _col,
-                            TEXTBEFORE(MATCH(list_of_condition_strings, row, 1)))),
+                            TEXTBEFORE(MATCH(condition_strings, row, 1)))),
                 filter_functions,
                     MAKEARRAY(
                         condition_count,
