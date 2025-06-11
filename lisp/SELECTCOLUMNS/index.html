@@ -27,8 +27,14 @@ DEFINE(
     LAMBDA(
         <span class="variable">range</span>,
         [<span class="variable">columns</span>],
-        IFOMITTED(
-            <span class="variable">columns</span>,
+        IF(
+            OR(
+                ISOMITTED(<span class="variable">columns</span>),
+                <a href="../TRIMSPLIT/">MEMBER</a>(
+                    UPPER(<a href="../DEFAULT/">DEFAULT</a>(<span class="variable">columns</span>, <span class="constant">""</span>)),
+                    VLIST(
+                        <span class="constant">"*"</span>,
+                        <span class="constant">"ALL"</span>))),
             <span class="variable">range</span>,
             LET(
                 <span class="variable">column_names</span>,
@@ -58,7 +64,7 @@ DEFINE(
         <br>
         <hr>
         <br>
-        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/ID/index.html">optimize this function</a></p>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/SELECTCOLUMNS/index.html">optimize this function</a></p>
         <br>
     </body>
 </html>
