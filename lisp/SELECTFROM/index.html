@@ -17,7 +17,7 @@ DEFINE(
     <a href="../SELECTFROM/">SELECTFROM</a>,
     LAMBDA(
         <span class="variable">columns</span>,
-        <span class="variable">source_range</span>,
+        <span class="variable">table_range</span>,
         [<span class="variable">row_conditions</span>],
         LET(
             <span class="variable">column_names</span>,
@@ -30,10 +30,10 @@ DEFINE(
             <span class="variable">column_indices</span>,
                 <a href="../INDICES/">INDICES</a>(
                     <span class="variable">column_names</span>,
-                    <a href="../FIRSTROW/">FIRSTROW</a>(<span class="variable">source_range</span>)),
+                    <a href="../FIRSTROW/">FIRSTROW</a>(<span class="variable">table_range</span>)),
             <span class="variable">row_subset</span>,
                 <a href="../SELECTROWS/">SELECTROWS</a>(
-                    <span class="variable">source_range</span>,
+                    <span class="variable">table_range</span>,
                     <span class="variable">row_conditions</span>),
             <a href="../SELECTCOLUMNS/">SELECTCOLUMNS</a>(
                 <span class="variable">column_subset</span>,
