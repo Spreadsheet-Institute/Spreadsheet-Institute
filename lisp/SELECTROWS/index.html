@@ -33,25 +33,12 @@ DEFINE(
                 condition_strings,
                     TRIMSPLIT(
                         row_conditions,
-                        ","),
+                        ",",
+                        YES),
                 condition_count,
                     COUNTA(condition_strings),
-                OPERATOR,
-                    LAMBDA(
-                        condition,
-                        IFS(
-                            FIND("<=", condition),
-                                HSTACK("<=", LTE),
-                            FIND(">=", condition),
-                                HSTACK(">=", GTE),
-                            FIND("<", condition),
-                                HSTACK("<", LESSTHAN),
-                            FIND(">", condition),
-                                HSTACK(">", GREATERTHAN),
-                            FIND("=", condition),
-                                HSTACK("=", EQUAL),
-                            OTHERWISE,
-                                NA())),
+                condition_operators,
+                    EXTRACTOPERATORS(conditions_strings),
                 condition_columns,
                     MAKEARRAY(
                         condition_count,
@@ -59,31 +46,35 @@ DEFINE(
                         LAMBDA(
                             row,
                             _col,
-                            TEXTBEFORE(MATCH(condition_strings, row, 1)))),
-                filter_functions,
+                            TRIM(
+                                TEXTBEFORE(
+                                    MATCH(condition_strings, row, 1),
+                                    MATCH(condition_operators, row, 1))))),
+                condition_thresholds,
                     MAKEARRAY(
                         condition_count,
                         1,
                         LAMBDA(
                             row,
                             _col,
-                            OPERATOR(TEXTBETWEEN(MATCH(list_of_condition_strings, row, 1), " ", " ")))),
-                filter_thresholds,
-                    MAKEARRAY(
-                        condition_count,
-                        1,
-                        LAMBDA(
-                            row,
-                            _col,
-                            TEXTAFTER(MATCH(list_of_condition_strings, row, 1), " ", 2))),
-                filter_table,
+                            LET(
+                                result,
+                                    TRIM(
+                                        TEXTAFTER(
+                                            MATCH(condition_strings, row, 1),
+                                            MATCH(condition_operators, row, 1))),
+                                IF(
+                                    ISNUMBER(NUMBERVALUE(result)),
+                                    NUMBERVALUE(result),
+                                    result)))),
+                filter_lookup_table,
                     HSTACK(
-                        filter_columns,
-                        filter_functions,
-                        filter_thresholds),
+                        condition_operators,
+                        condition_columns,
+                        condition_thresholds),
                 MEETSCRITERIA,
                     LAMBDA(
-                        row,
+                        table_row,
                         IF(
                             ALL(
                                 MAKEARRAY(

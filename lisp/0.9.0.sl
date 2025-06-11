@@ -38,6 +38,10 @@ DEFINE(DIFFERENCE,LAMBDA(minuend,subtrahend,minuend-subtrahend))
 
 DEFINE(EQUAL,LAMBDA(a,b,a=b))
 
+DEFINE(EXTRACTOPERATOR,LAMBDA(condition_string,IFS(ISNUMBER(FIND("<>", condition_string)),HSTACK("<>", NOTEQUAL),ISNUMBER(FIND("<=", condition_string)),HSTACK("<=", LTE),ISNUMBER(FIND(">=", condition_string)),HSTACK(">=", GTE),ISNUMBER(FIND("<", condition_string)),HSTACK("<", LESSTHAN),ISNUMBER(FIND(">", condition_string)),HSTACK(">", GREATERTHAN),ISNUMBER(FIND("!=", condition_string)),HSTACK("!=", NOTEQUAL),ISNUMBER(FIND("=", condition_string)),HSTACK("=", EQUAL),OTHERWISE,NA())))
+
+DEFINE(EXTRACTOPERATORS,LAMBDA(condition_strings,IF(ONE?(COUNTA(condition_strings)),EXTRACTOPERATOR(condition_strings),VSTACK(EXTRACTOPERATOR(FIRST(condition_strings)),EXTRACTOPERATORS(REST(condition_strings))))))
+
 DEFINE(FILENAME,LAMBDA([reference],CELL("filename",DEFAULT(reference,INDIRECT(CONCAT("A1"))))))
 
 DEFINE(FIRST,LAMBDA(range,CAR(range)))
@@ -99,6 +103,8 @@ DEFINE(MEMBER,LAMBDA(needle,haystack,OR(EXACT(needle, haystack))))
 DEFINE(NEGATIVE?,LAMBDA(x,LESSTHAN(x,0)))
 
 DEFINE(NO,FALSE)
+
+DEFINE(NOTEQUAL,LAMBDA(a,b,NOT(EQUAL(a,b))))
 
 DEFINE(ONE?,LAMBDA(x,EQUAL(x,1)))
 
