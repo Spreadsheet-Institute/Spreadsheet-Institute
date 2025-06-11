@@ -70,6 +70,8 @@ DEFINE(GREATERTHAN,LAMBDA(x,y,IF(x > y,TRUE,FALSE)))
 
 DEFINE(GTE,LAMBDA(x,y,IF(x >= y,TRUE,FALSE)))
 
+DEFINE(HEADLESS,LAMBDA(range,MAKEARRAY(DECREMENT(ROWS(range)),COLUMNS(range),LAMBDA(row,col,INDEX(range,INCREMENT(row),col)))))
+
 DEFINE(HLIST,LAMBDA([_1], [_2], [_3], [_4], [_5],[_6], [_7], [_8], [_9], [_10],[_11], [_12], [_13], [_14], [_15],[_16], [_17], [_18], [_19], [_20],[_21], [_22], [_23], [_24], [_25],LET(column_count,SUM(IS(_1), IS(_2), IS(_3), IS(_4), IS(_5),IS(_6), IS(_7), IS(_8), IS(_9), IS(_10),IS(_11), IS(_12), IS(_13), IS(_14), IS(_15),IS(_16), IS(_17), IS(_18), IS(_19), IS(_20),IS(_21), IS(_22), IS(_23), IS(_24), IS(_25)),IF(EQUAL(column_count,0),"()",MAKEARRAY(1,column_count,LAMBDA(_row,col,CHOOSE(col,_1, _2, _3, _4, _5,_6, _7, _8, _9, _10,_11, _12, _13, _14, _15,_16, _17, _18, _19, _20,_21, _22, _23, _24, _25)))))))
 
 DEFINE(ID,LAMBDA(input,input))
@@ -135,6 +137,8 @@ DEFINE(ROLLDICE,LAMBDA([times],IF(LTE(DEFAULT(times,1),1),DICEROLL(),CONS(DICERO
 DEFINE(SELECTFROM,LAMBDA(columns,source_range,[row_conditions],LET(column_names,IF(RANGE?(columns),columns,TRIMSPLIT(columns,",")),column_indices,INDICES(column_names,FIRSTROW(source_range)),SELECTCOLUMNS(source_range,column_indices))))
 
 DEFINE(SELECTCOLUMNS,LAMBDA(range,column_indices,IF(ONE?(LENGTH(column_indices)),CHOOSECOLS(range,column_indices),HSTACK(CHOOSECOLS(range,FIRST(column_indices)),SELECTCOLUMNS(range,REST(column_indices))))))
+
+DEFINE(SELECTROWS,LAMBDA(range,[row_conditions],IFOMITTED(row_conditions,range,LET(column_names,FIRSTROW(range),condition_strings,TRIMSPLIT(row_conditions,",",YES),condition_count,COUNTA(condition_strings),condition_operators,EXTRACTOPERATORS(condition_strings),condition_column_indices,MAKEARRAY(condition_count,1,LAMBDA(row,_col,LET(condition,INDEX(condition_strings,row,1),operator,INDEX(condition_operators,row,1),MATCH(TRIM(TEXTBEFORE(condition,operator)),column_names)))),condition_criteria,MAKEARRAY(condition_count,1,LAMBDA(row,_col,LET(condition,INDEX(condition_strings,row,1),operator,INDEX(condition_operators,row,1),result,TRIM(TEXTAFTER(condition,operator)),IFERROR(NUMBERVALUE(result),result)))),filter_lookup_table,HSTACK(condition_operators,condition_columns,condition_criteria),HEADLESS,LAMBDA(range,MAKEARRAY(DECREMENT(ROWS(range)),COLUMNS(range),LAMBDA(row,col,INDEX(range,INCREMENT(row),col)))),MATCHESCRITERIA,LAMBDA(row_data,criteria_table,ALL(MAKEARRAY(ROWS(criteria_table),1,LAMBDA(r,c,LET(function,INDEX(criteria_table,r,2),value,INDEX(row_data,1,INDEX(criteria_table,r,3)),criterion,INDEX(criteria_table,r,4),APPLY(function,value,criterion)))))),SIEVE,LAMBDA(table_data,filter_lookup_table,IF(MATCHESCRITERIA(FIRSTROW(table_data),filter_lookup_table),VSTACK(FIRSTROW(table_data),SIEVE(HEADLESS(table_data),filter_lookup_table),VSTACK(SIEVE(HEADLESS(table_data),filter_lookup_table))))),VSTACK(FIRSTROW(range),SIEVE(HEADLESS(range),filter_lookup_table))))))
 
 DEFINE(SHEETNAME,LAMBDA([reference],LET(filename,FILENAME(reference),bracket_position,FIND("]",filename),RIGHT(filename,DECREMENT(LEN(filename),bracket_position)))))
 

@@ -39,7 +39,7 @@ DEFINE(
                     COUNTA(condition_strings),
                 condition_operators,
                     EXTRACTOPERATORS(condition_strings),
-                condition_columns,
+                condition_column_indices,
                     MAKEARRAY(
                         condition_count,
                         1,
@@ -57,10 +57,12 @@ DEFINE(
                                         condition_operators,
                                         row,
                                         1),
-                                TRIM(
-                                    TEXTBEFORE(
-                                        condition,
-                                        operator))))),
+                                MATCH(
+                                    TRIM(
+                                        TEXTBEFORE(
+                                            condition,
+                                            operator)),
+                                    column_names)))),
                 condition_criteria,
                     MAKEARRAY(
                         condition_count,
@@ -92,10 +94,61 @@ DEFINE(
                         condition_operators,
                         condition_columns,
                         condition_criteria),
+                MATCHESCRITERIA,
+                    LAMBDA(
+                        row_data,
+                        criteria_table,
+                        ALL(
+                            MAKEARRAY(
+                                ROWS(criteria_table),
+                                1,
+                                LAMBDA(
+                                    r,
+                                    c,
+                                    LET(
+                                        function,
+                                            INDEX(
+                                                criteria_table,
+                                                r,
+                                                2),
+                                        value,
+                                            INDEX(
+                                                row_data,
+                                                1,
+                                                INDEX(
+                                                    criteria_table,
+                                                    r,
+                                                    3)),
+                                        criterion,
+                                            INDEX(
+                                                criteria_table,
+                                                r,
+                                                4),
+                                        APPLY(
+                                            function,
+                                            value,
+                                            criterion)))))),
+                SIEVE,
+                    LAMBDA(
+                        table_data,
+                        filter_lookup_table,
+                        IF(
+                            MATCHESCRITERIA(
+                                FIRSTROW(table_data),
+                                filter_lookup_table),
+                            VSTACK(
+                                FIRSTROW(table_data),
+                                SIEVE(
+                                    HEADLESS(table_data),
+                                    filter_lookup_table),
+                            VSTACK(
+                                SIEVE(
+                                    HEADLESS(table_data),
+                                    filter_lookup_table))))),
                 VSTACK(
                     FIRSTROW(range),
                     SIEVE(
-                        TABLEDATA(range),
+                        HEADLESS(range),
                         filter_lookup_table))))))
         </pre>
         <br>
