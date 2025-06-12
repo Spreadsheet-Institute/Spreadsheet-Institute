@@ -18,12 +18,12 @@ Try it: [SpreadsheetLisp.xlsx](https://spreadsheet.institute/lisp/SpreadsheetLis
 
 Or [install it yourself](https://spreadsheet.institute/lisp/install)
 
-> [!IMPORTANT]
-> Spreadsheet Lisp (SL) version 0.9.0 is a beta release and is under active development. Functions will be updated frequently until a stable 1.0.0 release is finalized. Please report any unusual or unexpected behaviors to dev@spreadsheet.institute. Thank you!
-
 ([list of Spreadsheet Lisp functions](https://spreadsheet.institute/lisp/index.html#installation-link))
 
 [0.9.0.sl](./lisp/0.9.0.sl) source file
+
+> [!IMPORTANT]
+> Spreadsheet Lisp (SL) version 0.9.0 is a beta release and is under active development. Functions will be updated frequently until a stable 1.0.0 release is finalized. Please report any unusual or unexpected behaviors to dev@spreadsheet.institute. Thank you!
 
 ---
 
