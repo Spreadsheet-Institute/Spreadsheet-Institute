@@ -12,7 +12,7 @@ Spreadsheet.[Institute](https://spreadsheet.institute)/ embodies a collaborative
 
 <img src="./static/sl-logo.jpeg" width="100" height="100" alt="Spreadsheet Lisp logo">
 
-With the introduction of **LET()** and **LAMBDA()**, the modern spreadsheet can bootstrap a "pure" subset of the [LISP programming paradigm](https://en.wikipedia.org/wiki/Lisp_(programming_language)) directly in the Formula Bar. These "composite" functions simplify spreadsheets by shortening formulas down to a single function.
+With the introduction of **LET()** and **LAMBDA()**, modern spreadsheets can bootstrap a pure subset of the [LISP programming paradigm](https://en.wikipedia.org/wiki/Lisp_(programming_language)) directly in the Formula Bar. These "composite" functions simplify spreadsheets by shortening formulas down to a single function.
 
 Try it: [SpreadsheetLisp.xlsx](https://spreadsheet.institute/lisp/SpreadsheetLisp.xlsx)
 
