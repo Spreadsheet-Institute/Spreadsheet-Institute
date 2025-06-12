@@ -22,11 +22,15 @@ DEFINE(CDR,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),MAKEARRAY(1,D
 
 DEFINE(COINTOSS,LAMBDA(PICK("Heads","Tails")))
 
+DEFINE(COLUMNLETTER,LAMBDA([cell_reference],TEXTBETWEEN(IFOMITTED(cell_reference,ADDRESS(ROW(),COLUMN()),ADDRESS(ROW(cell_reference),COLUMN(cell_reference))),"$","$")))
+
 DEFINE(CONS,LAMBDA(value,range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),HSTACK(value,range),VSTACK(value,range))))
 
 DEFINE(CONTAINS,LAMBDA(haystack,needle,IF(AND(EQUAL(COUNTA(haystack),1),EQUAL(COUNTA(needle),1)),ISNUMBER(SEARCH(needle,haystack)),OR(EXACT(needle,haystack)))))
 
 DEFINE(COUNTALL,LAMBDA(range,SUM(COUNTA(range),COUNTBLANK(range))))
+
+DEFINE(CRITERIATABLE,LAMBDA(column_names,row_conditions,LET(condition_strings,TRIMSPLIT(row_conditions,",",YES),condition_count,COUNTA(condition_strings),condition_operators,EXTRACTOPERATORS(condition_strings),condition_column_indices,MAKEARRAY(condition_count,1,LAMBDA(row,_col,LET(condition,INDEX(condition_strings,row,1),operator,INDEX(condition_operators,row,1),MATCH(TRIM(TEXTBEFORE(condition,operator)),column_names)))),condition_criteria,MAKEARRAY(condition_count,1,LAMBDA(row,_col,LET(condition,INDEX(condition_strings,row,1),operator,INDEX(condition_operators,row,1),result,TRIM(TEXTAFTER(condition,operator)),IFERROR(NUMBERVALUE(result),result)))),HSTACK(condition_operators,condition_column_indices,condition_criteria))))
 
 DEFINE(CURRY,LAMBDA(function,argument1,LAMBDA(argument2,function(argument1,argument2))))
 
@@ -82,7 +86,7 @@ DEFINE(IFOMITTED,LAMBDA(optional_argument,value_if_omitted,value_if_provided,IF(
 
 DEFINE(INCREMENT,LAMBDA(x,[times],SUM(x,DEFAULT(times,1))))
 
-DEFINE(INDICES,LAMBDA(subset,superset,LET(horizontal_subset,IF(VERTICAL?(subset),TRANSPOSE(subset),subset),horizontal_superset,IF(VERTICAL?(superset),TRANSPOSE(superset),superset),MAKEARRAY(1,IF(RANGE?(horizontal_subset),LENGTH(horizontal_subset),1),LAMBDA(_row,col,MATCH(INDEX(horizontal_subset,1,col),horizontal_superset,FALSE))))))
+DEFINE(INDICES,LAMBDA(subset,superset,LET(vertical_subset,IF(HORIZONTAL?(subset),TRANSPOSE(subset),subset),vertical_superset,IF(HORIZONTAL?(superset),TRANSPOSE(superset),superset),MAKEARRAY(COUNTA(vertical_subset),1,LAMBDA(row,_col,MATCH(INDEX(vertical_subset,row,1),vertical_superset))))))
 
 DEFINE(IS,LAMBDA(argument,IF(ISOMITTED(argument), 0, 1)))
 
@@ -103,6 +107,8 @@ DEFINE(LESSTHAN,LAMBDA(x,y,IF(x < y,TRUE,FALSE)))
 DEFINE(LTE,LAMBDA(x,y,IF(x<=y,TRUE,FALSE)))
 
 DEFINE(MAGIC8BALL,LAMBDA([yes_or_no_question],IF(PROVIDED(yes_or_no_question),PICK("It is certain","Reply hazy, try again","It is decidedly so","Without a doubt","Don't count on it","Yes, definitely","Ask again later","You may rely on it","My reply is no","As I see it, yes","Better not tell you now","Most likely","My sources say no","Outlook good","Cannot predict now","Yes","Outlook not so good","Signs point to yes","Concentrate and ask again","Very doubtful"),"Ask, and you will be answered")))
+
+DEFINE(MEETSCRITERIA,LAMBDA(row_data,criteria_table,ALL(MAKEARRAY(ROWS(criteria_table),1,LAMBDA(row,_col,LET(function,INDEX(criteria_table,row,2),value,INDEX(row_data,1,INDEX(criteria_table,row,3)),criterion,INDEX(criteria_table,row,4),APPLY(function,value,criterion)))))))
 
 DEFINE(MEMBER,LAMBDA(needle,haystack,OR(EXACT(needle, haystack))))
 
@@ -134,13 +140,15 @@ DEFINE(ROCKPAPERSCISSORS,LAMBDA(throw,LET(human,CAPITALIZE(LOWER(DEFAULT(throw,"
 
 DEFINE(ROLLDICE,LAMBDA([times],IF(LTE(DEFAULT(times,1),1),DICEROLL(),CONS(DICEROLL(),ROLLDICE(DECREMENT(times))))))
 
-DEFINE(SELECTFROM,LAMBDA(columns,source_range,[row_conditions],LET(column_names,IF(RANGE?(columns),columns,TRIMSPLIT(columns,",")),column_indices,INDICES(column_names,FIRSTROW(source_range)),SELECTCOLUMNS(source_range,column_indices))))
+DEFINE(SELECTFROM,LAMBDA(columns,table_range,[row_conditions],LET(row_subset,SELECTROWS(table_range,row_conditions),SELECTCOLUMNS(row_subset,columns))))
 
-DEFINE(SELECTCOLUMNS,LAMBDA(range,column_indices,IF(ONE?(LENGTH(column_indices)),CHOOSECOLS(range,column_indices),HSTACK(CHOOSECOLS(range,FIRST(column_indices)),SELECTCOLUMNS(range,REST(column_indices))))))
+DEFINE(SELECTCOLUMNS,LAMBDA(table_range,[columns],IF(OR(ISOMITTED(columns),MEMBER(UPPER(DEFAULT(columns, "")),VLIST("*","ALL"))),table_range,LET(column_names,IF(ISTEXT(columns),TRIMSPLIT(columns,","),columns),column_indices,INDICES(column_names,FIRSTROW(table_range)),IF(ONE?(COUNT(column_indices)),CHOOSECOLS(table_range,column_indices),HSTACK(CHOOSECOLS(table_range,FIRST(column_indices)),SELECTCOLUMNS(table_range,REST(column_names))))))))
 
-DEFINE(SELECTROWS,LAMBDA(range,[row_conditions],IFOMITTED(row_conditions,range,LET(column_names,FIRSTROW(range),condition_strings,TRIMSPLIT(row_conditions,",",YES),condition_count,COUNTA(condition_strings),condition_operators,EXTRACTOPERATORS(condition_strings),condition_column_indices,MAKEARRAY(condition_count,1,LAMBDA(row,_col,LET(condition,INDEX(condition_strings,row,1),operator,INDEX(condition_operators,row,1),MATCH(TRIM(TEXTBEFORE(condition,operator)),column_names)))),condition_criteria,MAKEARRAY(condition_count,1,LAMBDA(row,_col,LET(condition,INDEX(condition_strings,row,1),operator,INDEX(condition_operators,row,1),result,TRIM(TEXTAFTER(condition,operator)),IFERROR(NUMBERVALUE(result),result)))),filter_lookup_table,HSTACK(condition_operators,condition_columns,condition_criteria),HEADLESS,LAMBDA(range,MAKEARRAY(DECREMENT(ROWS(range)),COLUMNS(range),LAMBDA(row,col,INDEX(range,INCREMENT(row),col)))),MATCHESCRITERIA,LAMBDA(row_data,criteria_table,ALL(MAKEARRAY(ROWS(criteria_table),1,LAMBDA(r,c,LET(function,INDEX(criteria_table,r,2),value,INDEX(row_data,1,INDEX(criteria_table,r,3)),criterion,INDEX(criteria_table,r,4),APPLY(function,value,criterion)))))),SIEVE,LAMBDA(table_data,filter_lookup_table,IF(MATCHESCRITERIA(FIRSTROW(table_data),filter_lookup_table),VSTACK(FIRSTROW(table_data),SIEVE(HEADLESS(table_data),filter_lookup_table),VSTACK(SIEVE(HEADLESS(table_data),filter_lookup_table))))),VSTACK(FIRSTROW(range),SIEVE(HEADLESS(range),filter_lookup_table))))))
+DEFINE(SELECTROWS,LAMBDA(table_range,[row_conditions],IFOMITTED(row_conditions,table_range,LET(column_names,FIRSTROW(table_range),VSTACK(column_names,SIEVE(HEADLESS(table_range),CRITERIATABLE(column_names,row_conditions)))))))
 
 DEFINE(SHEETNAME,LAMBDA([reference],LET(filename,FILENAME(reference),bracket_position,FIND("]",filename),RIGHT(filename,DECREMENT(LEN(filename),bracket_position)))))
+
+DEFINE(SIEVE,LAMBDA(table_data,filter_lookup_table,FILTER(table_data,EQUAL(TRUE,BYROW(table_data,LAMBDA(row,MEETSCRITERIA(row,filter_lookup_table)))))))
 
 DEFINE(SL,LAMBDA("0.9.0"))
 

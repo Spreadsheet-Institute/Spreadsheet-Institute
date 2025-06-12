@@ -28,37 +28,33 @@ DEFINE(
         <span class="variable">subset</span>,
         <span class="variable">superset</span>,
         LET(
-            <span class="variable">horizontal_subset</span>,
+            <span class="variable">vertical_subset</span>,
                 IF(
-                    <a href="../VERTICAL?/">VERTICAL?</a>(<span class="variable">subset</span>),
+                    <a href="../HORIZONTAL%3F/">HORIZONTAL?</a>(<span class="variable">subset</span>),
                     TRANSPOSE(<span class="variable">subset</span>),
                     <span class="variable">subset</span>),
-            <span class="variable">horizontal_superset</span>,
+            <span class="variable">vertical_superset</span>,
                 IF(
-                    <a href="../VERTICAL?/">VERTICAL?</a>(<span class="variable">superset</span>),
+                    <a href="../HORIZONTAL%3F/">HORIZONTAL?</a>(<span class="variable">superset</span>),
                     TRANSPOSE(<span class="variable">superset</span>),
                     <span class="variable">superset</span>),
             MAKEARRAY(
+                COUNTA(<span class="variable">vertical_subset</span>),
                 <span class="constant">1</span>,
-                IF(
-                    <a href="../LENGTH/">RANGE?</a>(<span class="variable">horizontal_subset</span>),
-                    <a href="../LENGTH/">LENGTH</a>(<span class="variable">horizontal_subset</span>),
-                    <span class="constant">1</span>),
                 LAMBDA(
-                    <span class="variable">_row</span>,
-                    <span class="variable">col</span>,
+                    <span class="variable">row</span>,
+                    <span class="variable">_col</span>,
                     MATCH(
                         INDEX(
-                            <span class="variable">horizontal_subset</span>,
-                            <span class="constant">1</span>,
-                            <span class="variable">col</span>),
-                        <span class="variable">horizontal_superset</span>,
-                        <span class="constant">FALSE</span>))))))
+                            <span class="variable">vertical_subset</span>,
+                            <span class="variable">row</span>,
+                            <span class="constant">1</span>),
+                        <span class="variable">vertical_superset</span>))))))
         </pre>
         <br>
         <hr>
         <br>
-        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/ID/index.html">optimize this function</a></p>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/INDICES/index.html">optimize this function</a></p>
         <br>
     </body>
 </html>

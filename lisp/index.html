@@ -138,7 +138,7 @@
         <h2 class="centered" id="sheet-functions">Sheet Functions</h2>
         <ul>
             <li><a href="./CELLNAME/">CELLNAME</a>([reference], [absolute])</li>
-            <!--<li><a href="./COLUMNLETTER/">COLUMNLETTER</a>([reference])</li>-->
+            <li><a href="./COLUMNLETTER/">COLUMNLETTER</a>([cell_reference])</li>
             <li><a href="./FILENAME/">FILENAME</a>([reference])</li>
             <!--<li><a href="./GET/">GET</a>(name|range, [sheet], [file|path])</li>-->
             <!--<li><a href="./GETCOLUMN/">GETCOLUMN</a>(column_number, range)</li>-->
@@ -166,11 +166,18 @@
             <li><a href="./ASSERT/">ASSERT</a>(condition, [message])</li>
             <li><a href="./CASE/">CASE</a>(case_1a, case_1b, ..., [case_10a], [case_10b])</li>
             <li><a href="./CONTAINS/">CONTAINS</a>(haystack, needle)</li>
+            <li><a href="./CRITERIATABLE/">CRITERIATABLE</a>(column_names, row_conditions)</li>
             <li><a href="./EXTRACTOPERATOR/">EXTRACTOPERATOR</a>(condition_string)</li>
             <li><a href="./EXTRACTOPERATORS/">EXTRACTOPERATORS</a>(condition_strings)</li>
             <li><a href="./HEADLESS/">HEADLESS</a>(range)</li>
+            <li><a href="./INDICES/">INDICES</a>(subset, superset)</li>
+            <li><a href="./MEETSCRITERIA/">MEETSCRITERIA</a>(row_data, criteria_table)</li>
             <li><a href="./IFOMITTED/">IFOMITTED</a>(optional_argument, value_if_omitted, value_if_provided)</li>
             <li><a href="./PICK/">PICK</a>(choice1, [choiceN], [choice25])</li>
+            <li><a href="./SELECTCOLUMNS/">SELECTCOLUMNS</a>(table_range, [columns])</li>
+            <li><a href="./SELECTFROM/">SELECTFROM</a>(columns, table_range, [row_conditions])</li>
+            <li><a href="./SELECTROWS/">SELECTROWS</a>(table_range, [row_conditions])</li>
+            <li><a href="./SIEVE/">SIEVE</a>(table_range, filter_lookup_table)</li>
             <li><a href="./SL/">SL</a>()</li>
         </ul>
         <br>
@@ -183,7 +190,6 @@
             <!--<li><a href="./FACTS/">PROLOG</a>(queries, terms)</li>-->
             <li><a href="./QUESTION/">QUESTION</a>(knowledgebase, [fragment1], ..., [fragment10])</li>
             <!--<li><a href="./SQL/">SQL</a>(table, query)</li>-->
-            <li><a href="./SELECTFROM/">SELECTFROM</a>(columns, source_range, [row_conditions])</li>
             <li><a href="./STATEMENT/">STATEMENT</a>(fragment1, ..., [fragment10])</li>
         </ul>
         <br>

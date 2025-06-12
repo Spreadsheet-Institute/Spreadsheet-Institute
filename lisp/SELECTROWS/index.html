@@ -13,143 +13,30 @@
         <br>
         <pre>
 =<a href="../SELECTROWS/">SELECTROWS</a>(<span class="variable">A1:Z100</span>, <span class="constant">"Salary > 100000, Department = IT"</span>)
--> A1:Z10
+-> <span class="variable">A1:Z10</span>
         </pre>
         <br>
         <hr>
         <br>
         <pre>
 DEFINE(
-    SELECTROWS,
+    <a href="../SELECTROWS/">SELECTROWS</a>,
     LAMBDA(
-        range,
-        [row_conditions],
-        IFOMITTED(
-            row_conditions,
-            range,
+        <span class="variable">table_range</span>,
+        [<span class="variable">row_conditions</span>],
+        <a href="../IFOMITTED/">IFOMITTED</a>(
+            <span class="variable">row_conditions</span>,
+            <span class="variable">table_range</span>,
             LET(
-                column_names,
-                    FIRSTROW(range),
-                condition_strings,
-                    TRIMSPLIT(
-                        row_conditions,
-                        ",",
-                        YES),
-                condition_count,
-                    COUNTA(condition_strings),
-                condition_operators,
-                    EXTRACTOPERATORS(condition_strings),
-                condition_column_indices,
-                    MAKEARRAY(
-                        condition_count,
-                        1,
-                        LAMBDA(
-                            row,
-                            _col,
-                            LET(
-                                condition,
-                                    INDEX(
-                                        condition_strings,
-                                        row,
-                                        1),
-                                operator,
-                                    INDEX(
-                                        condition_operators,
-                                        row,
-                                        1),
-                                MATCH(
-                                    TRIM(
-                                        TEXTBEFORE(
-                                            condition,
-                                            operator)),
-                                    column_names)))),
-                condition_criteria,
-                    MAKEARRAY(
-                        condition_count,
-                        1,
-                        LAMBDA(
-                            row,
-                            _col,
-                            LET(
-                                condition,
-                                    INDEX(
-                                        condition_strings,
-                                        row,
-                                        1),
-                                operator,
-                                    INDEX(
-                                        condition_operators,
-                                        row,
-                                        1),
-                                result,
-                                    TRIM(
-                                        TEXTAFTER(
-                                            condition,
-                                            operator)),
-                                IFERROR(
-                                    NUMBERVALUE(result),
-                                    result)))),
-                filter_lookup_table,
-                    HSTACK(
-                        condition_operators,
-                        condition_columns,
-                        condition_criteria),
-                MATCHESCRITERIA,
-                    LAMBDA(
-                        row_data,
-                        criteria_table,
-                        ALL(
-                            MAKEARRAY(
-                                ROWS(criteria_table),
-                                1,
-                                LAMBDA(
-                                    r,
-                                    c,
-                                    LET(
-                                        function,
-                                            INDEX(
-                                                criteria_table,
-                                                r,
-                                                2),
-                                        value,
-                                            INDEX(
-                                                row_data,
-                                                1,
-                                                INDEX(
-                                                    criteria_table,
-                                                    r,
-                                                    3)),
-                                        criterion,
-                                            INDEX(
-                                                criteria_table,
-                                                r,
-                                                4),
-                                        APPLY(
-                                            function,
-                                            value,
-                                            criterion)))))),
-                SIEVE,
-                    LAMBDA(
-                        table_data,
-                        filter_lookup_table,
-                        IF(
-                            MATCHESCRITERIA(
-                                FIRSTROW(table_data),
-                                filter_lookup_table),
-                            VSTACK(
-                                FIRSTROW(table_data),
-                                SIEVE(
-                                    HEADLESS(table_data),
-                                    filter_lookup_table),
-                            VSTACK(
-                                SIEVE(
-                                    HEADLESS(table_data),
-                                    filter_lookup_table))))),
+                <span class="variable">column_names</span>,
+                    <a href="../FIRSTROW/">FIRSTROW</a>(<span class="variable">table_range</span>),
                 VSTACK(
-                    FIRSTROW(range),
-                    SIEVE(
-                        HEADLESS(range),
-                        filter_lookup_table))))))
+                    <span class="variable">column_names</span>,
+                    <a href="../SIEVE/">SIEVE</a>(
+                        <a href="../HEADLESS/">HEADLESS</a>(<span class="variable">table_range</span>),
+                        <a href="../CRITERIATABLE/">CRITERIATABLE</a>(
+                            <span class="variable">column_names</span>,
+                            <span class="variable">row_conditions</span>)))))))
         </pre>
         <br>
         <hr>

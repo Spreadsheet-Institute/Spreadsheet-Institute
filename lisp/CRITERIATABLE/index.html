@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: CRITERIATABLE</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../CRITERIATABLE/">CRITERIATABLE</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../CRITERIATABLE/">CRITERIATABLE</a>,
+    LAMBDA(
+        <span class="variable">column_names</span>,
+        <span class="variable">row_conditions</span>,
+        LET(
+            <span class="variable">condition_strings</span>,
+                <a href="../TRIMSPLIT/">TRIMSPLIT</a>(
+                    <span class="variable">row_conditions</span>,
+                    <span class="constant">","</span>,
+                    <span class="constant">YES</span>),
+            <span class="variable">condition_count</span>,
+                COUNTA(<span class="variable">condition_strings</span>),
+            <span class="variable">condition_operators</span>,
+                <a href="../EXTRACTOPERATORS/">EXTRACTOPERATORS</a>(<span class="variable">condition_strings</span>),
+            <span class="variable">condition_column_indices</span>,
+                MAKEARRAY(
+                    <span class="variable">condition_count</span>,
+                    <span class="constant">1</span>,
+                    LAMBDA(
+                        <span class="variable">row</span>,
+                        <span class="variable">_col</span>,
+                        LET(
+                            <span class="variable">condition</span>,
+                                INDEX(
+                                    <span class="variable">condition_strings</span>,
+                                    <span class="variable">row</span>,
+                                    <span class="constant">1</span>),
+                            <span class="variable">operator</span>,
+                                INDEX(
+                                    <span class="variable">condition_operators</span>,
+                                    <span class="variable">row</span>,
+                                    <span class="constant">1</span>),
+                            MATCH(
+                                TRIM(
+                                    TEXTBEFORE(
+                                        <span class="variable">condition</span>,
+                                        <span class="variable">operator</span>)),
+                                <span class="variable">column_names</span>)))),
+            <span class="variable">condition_criteria</span>,
+                MAKEARRAY(
+                    <span class="variable">condition_count</span>,
+                    <span class="constant">1</span>,
+                    LAMBDA(
+                        <span class="variable">row</span>,
+                        <span class="variable">_col</span>,
+                        LET(
+                            <span class="variable">condition</span>,
+                                INDEX(
+                                    <span class="variable">condition_strings</span>,
+                                    <span class="variable">row</span>,
+                                    <span class="constant">1</span>),
+                            <span class="variable">operator</span>,
+                                INDEX(
+                                    <span class="variable">condition_operators</span>,
+                                    <span class="variable">row</span>,
+                                    <span class="constant">1</span>),
+                            <span class="variable">result</span>,
+                                TRIM(
+                                    TEXTAFTER(
+                                        <span class="variable">condition</span>,
+                                        <span class="variable">operator</span>)),
+                            IFERROR(
+                                NUMBERVALUE(<span class="variable">result</span>),
+                                <span class="variable">result</span>)))),
+            HSTACK(
+                <span class="variable">condition_operators</span>,
+                <span class="variable">condition_column_indices</span>,
+                <span class="variable">condition_criteria</span>))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/ID/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
