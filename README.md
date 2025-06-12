@@ -12,15 +12,18 @@ Spreadsheet.Institute/ embodies a collaborative effort to seek, test, and break 
 
 <img src="./static/sl-logo.jpeg" width="100" height="100" alt="Spreadsheet Lisp logo">
 
+With the introduction of **LET()** and **LAMBDA()**, the modern spreadsheet can bootstrap a "pure" subset of the LISP programming language for use directly in the Formula Bar. These "composite" functions simplify spreadsheets by shortening formulas down to a single function.
+
 Try it: [SpreadsheetLisp.xlsx](https://spreadsheet.institute/lisp/SpreadsheetLisp.xlsx)
 
 Or [install it yourself](https://spreadsheet.institute/lisp/install)
 
+> [!IMPORTANT]
+> Spreadsheet Lisp (SL) version 0.9.0 is a beta release and is under active development. Functions will be updated frequently until a stable 1.0.0 release is finalized. Please report any unusual or unexpected behaviors to dev@spreadsheet.institute. Thank you!
+
 ([list of Spreadsheet Lisp functions](https://spreadsheet.institute/lisp/index.html#installation-link))
 
 [0.9.0.sl](./lisp/0.9.0.sl) source file
-
-With the introduction of *LET()* and *LAMBDA()*, modern spreadsheets can run a useful subset of the LISP programming language directly in the Formula Bar. These "composite" functions simplify spreadsheets by shortening formulas down to a single function:
 
 ---
 
@@ -90,6 +93,16 @@ Before:
 
 After:
 =SHEETNAME()
+```
+
+---
+
+```
+Before:
+=CHOOSECOLS(FILTER(A1:Z100, {E1:E100 > 100000} * {G1:G100 = "Active"}), 1, 2, 7)
+
+After:
+=SELECTFROM("ID, Name, Department", A1:Z100, "Salary > 100000, Status = Active")
 ```
 
 ---
