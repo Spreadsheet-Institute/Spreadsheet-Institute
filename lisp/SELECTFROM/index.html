@@ -13,6 +13,15 @@
         <br>
         <pre>
 =<a href="../SELECTFROM/">SELECTFROM</a>(
+    <span class="constant">"Name, ID"</span>,
+    <span class="variable">Sheet1!A1:D1000</span>)
+
+=<a href="../SELECTFROM/">SELECTFROM</a>(
+    <span class="constant">"*"</span>,
+    <span class="variable">Sheet2!A1:Z1000</span>,
+    <span class="constant">"Salary > 100000, Department = IT"</span>)
+    
+=<a href="../SELECTFROM/">SELECTFROM</a>(
     <span class="constant">"Title, Year, Runtime"</span>,
     <span class="variable">Data!A1:Z1000</span>,
     <span class="constant">"Score >= 0.7, Genre = Comedy"</span>)
