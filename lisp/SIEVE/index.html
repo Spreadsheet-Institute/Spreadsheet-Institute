@@ -19,15 +19,13 @@ DEFINE(
         <span class="variable">filter_lookup_table</span>,
         FILTER(
             <span class="variable">table_data</span>,
-            <a href="../EQUAL/">EQUAL</a>(
-                <span class="constant">TRUE</span>,
-                BYROW(
-                    <span class="variable">table_data</span>,
-                    LAMBDA(
+            BYROW(
+                <span class="variable">table_data</span>,
+                LAMBDA(
+                    <span class="variable">row</span>,
+                    <a href="../MEETSCRITERIA/">MEETSCRITERIA</a>(
                         <span class="variable">row</span>,
-                        <a href="../MEETSCRITERIA/">MEETSCRITERIA</a>(
-                            <span class="variable">row</span>,
-                            <span class="variable">filter_lookup_table</span>)))))))
+                        <span class="variable">filter_lookup_table</span>))))))
         </pre>
         <br>
         <hr>

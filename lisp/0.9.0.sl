@@ -148,7 +148,7 @@ DEFINE(SELECTROWS,LAMBDA(table_range,[row_conditions],IFOMITTED(row_conditions,t
 
 DEFINE(SHEETNAME,LAMBDA([reference],LET(filename,FILENAME(reference),bracket_position,FIND("]",filename),RIGHT(filename,DECREMENT(LEN(filename),bracket_position)))))
 
-DEFINE(SIEVE,LAMBDA(table_data,filter_lookup_table,FILTER(table_data,EQUAL(TRUE,BYROW(table_data,LAMBDA(row,MEETSCRITERIA(row,filter_lookup_table)))))))
+DEFINE(SIEVE,LAMBDA(table_data,filter_lookup_table,FILTER(table_data,BYROW(table_data,LAMBDA(row,MEETSCRITERIA(row,filter_lookup_table))))))
 
 DEFINE(SL,LAMBDA("0.9.0"))
 
