@@ -30,7 +30,7 @@ DEFINE(CONTAINS,LAMBDA(haystack,needle,IF(AND(EQUAL(COUNTA(haystack),1),EQUAL(CO
 
 DEFINE(COUNTALL,LAMBDA(range,SUM(COUNTA(range),COUNTBLANK(range))))
 
-DEFINE(CRITERIATABLE,LAMBDA(column_names,row_conditions,LET(condition_strings,TRIMSPLIT(row_conditions,",",YES),condition_count,COUNTA(condition_strings),condition_operators,EXTRACTOPERATORS(condition_strings),condition_column_indices,MAKEARRAY(condition_count,1,LAMBDA(row,_col,LET(condition,INDEX(condition_strings,row,1),operator,INDEX(condition_operators,row,1),MATCH(TRIM(TEXTBEFORE(condition,operator)),column_names)))),condition_criteria,MAKEARRAY(condition_count,1,LAMBDA(row,_col,LET(condition,INDEX(condition_strings,row,1),operator,INDEX(condition_operators,row,1),result,TRIM(TEXTAFTER(condition,operator)),IFERROR(NUMBERVALUE(result),result)))),HSTACK(condition_operators,condition_column_indices,condition_criteria))))
+DEFINE(CRITERIATABLE,LAMBDA(column_names,row_conditions,LET(condition_strings,TRIMSPLIT(row_conditions,",",YES),condition_count,COUNTA(condition_strings),condition_operators,EXTRACTOPERATORS(condition_strings),condition_column_indices,MAKEARRAY(condition_count,1,LAMBDA(row,_col,LET(condition,INDEX(condition_strings,row,1),operator,INDEX(condition_operators,row,1),MATCH(TRIM(TEXTBEFORE(condition,operator)),column_names,FALSE)))),condition_criteria,MAKEARRAY(condition_count,1,LAMBDA(row,_col,LET(condition,INDEX(condition_strings,row,1),operator,INDEX(condition_operators,row,1),result,TRIM(TEXTAFTER(condition,operator)),IFERROR(NUMBERVALUE(result),result)))),HSTACK(condition_operators,condition_column_indices,condition_criteria))))
 
 DEFINE(CURRY,LAMBDA(function,argument1,LAMBDA(argument2,function(argument1,argument2))))
 
@@ -86,7 +86,7 @@ DEFINE(IFOMITTED,LAMBDA(optional_argument,value_if_omitted,value_if_provided,IF(
 
 DEFINE(INCREMENT,LAMBDA(x,[times],SUM(x,DEFAULT(times,1))))
 
-DEFINE(INDICES,LAMBDA(subset,superset,LET(vertical_subset,IF(HORIZONTAL?(subset),TRANSPOSE(subset),subset),vertical_superset,IF(HORIZONTAL?(superset),TRANSPOSE(superset),superset),MAKEARRAY(COUNTA(vertical_subset),1,LAMBDA(row,_col,MATCH(INDEX(vertical_subset,row,1),vertical_superset))))))
+DEFINE(INDICES,LAMBDA(subset,superset,LET(vertical_subset,IF(HORIZONTAL?(subset),TRANSPOSE(subset),subset),vertical_superset,IF(HORIZONTAL?(superset),TRANSPOSE(superset),superset),MAKEARRAY(COUNTA(vertical_subset),1,LAMBDA(row,_col,MATCH(INDEX(vertical_subset,row,1),vertical_superset,FALSE))))))
 
 DEFINE(IS,LAMBDA(argument,IF(ISOMITTED(argument), 0, 1)))
 
@@ -140,7 +140,7 @@ DEFINE(ROCKPAPERSCISSORS,LAMBDA(throw,LET(human,CAPITALIZE(LOWER(DEFAULT(throw,"
 
 DEFINE(ROLLDICE,LAMBDA([times],IF(LTE(DEFAULT(times,1),1),DICEROLL(),CONS(DICEROLL(),ROLLDICE(DECREMENT(times))))))
 
-DEFINE(SELECTFROM,LAMBDA(columns,table_range,[row_conditions],LET(row_subset,SELECTROWS(table_range,row_conditions),SELECTCOLUMNS(row_subset,columns))))
+DEFINE(SELECTFROM,LAMBDA(columns,table_range,[row_conditions],SELECTCOLUMNS(SELECTROWS(table_range,row_conditions),columns)))
 
 DEFINE(SELECTCOLUMNS,LAMBDA(table_range,[columns],IF(OR(ISOMITTED(columns),MEMBER(UPPER(DEFAULT(columns, "")),VLIST("*","ALL"))),table_range,LET(column_names,IF(ISTEXT(columns),TRIMSPLIT(columns,","),columns),column_indices,INDICES(column_names,FIRSTROW(table_range)),IF(ONE?(COUNT(column_indices)),CHOOSECOLS(table_range,column_indices),HSTACK(CHOOSECOLS(table_range,FIRST(column_indices)),SELECTCOLUMNS(table_range,REST(column_names))))))))
 
