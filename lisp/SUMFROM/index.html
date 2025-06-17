@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: SUMFROM</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../SUMFROM/">SUMFROM</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../SUMFROM/">SUMFROM</a>(
+    <span class="constant">"Sales"</span>,
+    <span class="variable">ProfitLoss!A1:D1000</span>)
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../SUMFROM/">SUMFROM</a>,
+    LAMBDA(
+        <span class="variable">column</span>,
+        <span class="variable">table_range</span>,
+        [<span class="variable">row_conditions</span>],
+        SUM(
+            <a href="../SUMFROM/">HEADLESS</a>(
+                <a href="../SELECTCOLUMNS/">SELECTCOLUMNS</a>(
+                    <a href="../SELECTROWS/">SELECTROWS</a>(
+                        <span class="variable">table_range</span>,
+                        <span class="variable">row_conditions</span>),
+                    <span class="variable">columns</span>)))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/SUMFROM/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
