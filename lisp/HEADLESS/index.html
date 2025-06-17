@@ -22,17 +22,17 @@
 DEFINE(
     <a href="../HEADLESS/">HEADLESS</a>,
     LAMBDA(
-        range,
+        <span class="variable">range</span>,
         MAKEARRAY(
-            DECREMENT(ROWS(range)),
-            COLUMNS(range),
+            <a href="../DECREMENT/">DECREMENT</a>(ROWS(<span class="variable">range</span>)),
+            COLUMNS(<span class="variable">range</span>),
             LAMBDA(
-                row,
-                col,
+                <span class="variable">row</span>,
+                <span class="variable">col</span>,
                 INDEX(
-                    range,
-                    INCREMENT(row),
-                    col)))))
+                    <span class="variable">range</span>,
+                    <a href="../INCREMENT/">INCREMENT</a>(<span class="variable">row</span>),
+                    <span class="variable">col</span>)))))
         </pre>
         <br>
         <hr>
