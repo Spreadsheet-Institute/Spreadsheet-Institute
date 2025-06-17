@@ -78,7 +78,7 @@ DEFINE(HEADLESS,LAMBDA(range,MAKEARRAY(DECREMENT(ROWS(range)),COLUMNS(range),LAM
 
 DEFINE(HLIST,LAMBDA([_1], [_2], [_3], [_4], [_5],[_6], [_7], [_8], [_9], [_10],[_11], [_12], [_13], [_14], [_15],[_16], [_17], [_18], [_19], [_20],[_21], [_22], [_23], [_24], [_25],LET(column_count,SUM(IS(_1), IS(_2), IS(_3), IS(_4), IS(_5),IS(_6), IS(_7), IS(_8), IS(_9), IS(_10),IS(_11), IS(_12), IS(_13), IS(_14), IS(_15),IS(_16), IS(_17), IS(_18), IS(_19), IS(_20),IS(_21), IS(_22), IS(_23), IS(_24), IS(_25)),IF(EQUAL(column_count,0),"()",MAKEARRAY(1,column_count,LAMBDA(_row,col,CHOOSE(col,_1, _2, _3, _4, _5,_6, _7, _8, _9, _10,_11, _12, _13, _14, _15,_16, _17, _18, _19, _20,_21, _22, _23, _24, _25)))))))
 
-DEFINE(ID,LAMBDA(input,input))
+DEFINE(IDENTITY,LAMBDA(x,x))
 
 DEFINE(IFBLANK,LAMBDA(cell_reference,value_if_blank,[value_if_not_blank],IF(OR(ISBLANK(cell_reference),EQUAL(cell_reference,""),value_if_blank,DEFAULT(value_if_not_blank, cell_reference)))))
 
