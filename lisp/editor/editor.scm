@@ -4,10 +4,12 @@
 
 (define
     <p>
-    (document.createElement "p"))
+    (lambda
+        ()
+        (document.createElement "p")))
 
 (define
     content
-    (.innerHTML <p> "Editor"))
+    (.innerHTML (<p>) "Editor"))
 
 (editor.appendChild content)
