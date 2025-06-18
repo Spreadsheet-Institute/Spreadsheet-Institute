@@ -1,2 +1,11 @@
-(define editor (document.getElementById "editor"))
-(.appendChild (document.createTextNode "Editor") editor)
+(define
+    editor
+    (document.getElementById "editor"))
+
+(define
+    content
+    (-->
+        (document.createElement "p")
+        (textContent "Editor")))
+
+(editor.appendChild content)
