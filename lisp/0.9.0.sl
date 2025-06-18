@@ -38,7 +38,7 @@ DEFINE(CURRY,LAMBDA(function,argument1,LAMBDA(argument2,function(argument1,argum
 
 DEFINE(DECREMENT,LAMBDA(x,[times],SUM(x,PRODUCT(-1,DEFAULT(times,1)))))
 
-DEFINE(DEFAULT,LAMBDA(optional_argument,fallback_value,IF(PROVIDED(optional_argument),optional_argument,fallback_value)))
+DEFINE(DEFAULT,LAMBDA(optional_argument,fallback_value,IF(PROVIDED?(optional_argument),optional_argument,fallback_value)))
 
 DEFINE(DICEROLL,LAMBDA(PICK(1,2,3,4,5,6)))
 
@@ -68,7 +68,7 @@ DEFINE(FLIPCOIN,LAMBDA([times],LET(counter,DEFAULT(times, 1),IF(LTE(counter, 1),
 
 DEFINE(FOREACH,LAMBDA(range,function_to_apply,MAP(range,function_to_apply)))
 
-DEFINE(FORMAT,LAMBDA(template_text,first_value,[second_value],[third_value],[fourth_value],[fifth_value],[sixth_value],[seventh_value],[eigth_value],[ninth_value],[tenth_value],LET(_after1,SUBSTITUTE(template_text,"{1}", first_value),_after2,IF(PROVIDED(second_value),SUBSTITUTE(_after1,"{2}", second_value),_after1),_after3,IF(PROVIDED(third_value),SUBSTITUTE(_after2,"{3}", third_value),_after2),_after4,IF(PROVIDED(fourth_value),SUBSTITUTE(_after3,"{4}", fourth_value),_after3),_after5,IF(PROVIDED(fifth_value),SUBSTITUTE(_after4,"{5}", fifth_value),_after4),_after6,IF(PROVIDED(sixth_value),SUBSTITUTE(_after5,"{6}", sixth_value),_after5),_after7,IF(PROVIDED(seventh_value),SUBSTITUTE(_after6,"{7}", seventh_value),_after6),_after8,IF(PROVIDED(eigth_value),SUBSTITUTE(_after7,"{8}", eigth_value),_after7),_after9,IF(PROVIDED(ninth_value),SUBSTITUTE(_after8,"{9}", ninth_value),_after8),IF(PROVIDED(tenth_value),SUBSTITUTE(_after9,"{10}", tenth_value),_after9))))
+DEFINE(FORMAT,LAMBDA(template_text,first_value,[second_value],[third_value],[fourth_value],[fifth_value],[sixth_value],[seventh_value],[eigth_value],[ninth_value],[tenth_value],LET(_after1,SUBSTITUTE(template_text,"{1}", first_value),_after2,IF(PROVIDED?(second_value),SUBSTITUTE(_after1,"{2}", second_value),_after1),_after3,IF(PROVIDED?(third_value),SUBSTITUTE(_after2,"{3}", third_value),_after2),_after4,IF(PROVIDED?(fourth_value),SUBSTITUTE(_after3,"{4}", fourth_value),_after3),_after5,IF(PROVIDED?(fifth_value),SUBSTITUTE(_after4,"{5}", fifth_value),_after4),_after6,IF(PROVIDED?(sixth_value),SUBSTITUTE(_after5,"{6}", sixth_value),_after5),_after7,IF(PROVIDED?(seventh_value),SUBSTITUTE(_after6,"{7}", seventh_value),_after6),_after8,IF(PROVIDED?(eigth_value),SUBSTITUTE(_after7,"{8}", eigth_value),_after7),_after9,IF(PROVIDED?(ninth_value),SUBSTITUTE(_after8,"{9}", ninth_value),_after8),IF(PROVIDED?(tenth_value),SUBSTITUTE(_after9,"{10}", tenth_value),_after9))))
 
 DEFINE(FULLDECK,LAMBDA([vertical],LET(full_deck,HSTACK({"AS","KS","QS","JS","XS","9S","8S","7S","6S","5S","4S","3S","2S"},{"AH","KH","QH","JH","XH","9H","8H","7H","6H","5H","4H","3H","2H"},{"AD","KD","QD","JD","XD","9D","8D","7D","6D","5D","4D","3D","2D"},{"AC","KC","QC","JC","XC","9C","8C","7C","6C","5C","4C","3C","2C"}),IF(DEFAULT(vertical,FALSE),TRANSPOSE(full_deck),full_deck))))
 
@@ -108,7 +108,7 @@ DEFINE(LESSTHAN,LAMBDA(x,y,IF(x < y,TRUE,FALSE)))
 
 DEFINE(LTE,LAMBDA(x,y,IF(x<=y,TRUE,FALSE)))
 
-DEFINE(MAGIC8BALL,LAMBDA([yes_or_no_question],IF(PROVIDED(yes_or_no_question),PICK("It is certain","Reply hazy, try again","It is decidedly so","Without a doubt","Don't count on it","Yes, definitely","Ask again later","You may rely on it","My reply is no","As I see it, yes","Better not tell you now","Most likely","My sources say no","Outlook good","Cannot predict now","Yes","Outlook not so good","Signs point to yes","Concentrate and ask again","Very doubtful"),"Ask, and you will be answered")))
+DEFINE(MAGIC8BALL,LAMBDA([yes_or_no_question],IF(PROVIDED?(yes_or_no_question),PICK("It is certain","Reply hazy, try again","It is decidedly so","Without a doubt","Don't count on it","Yes, definitely","Ask again later","You may rely on it","My reply is no","As I see it, yes","Better not tell you now","Most likely","My sources say no","Outlook good","Cannot predict now","Yes","Outlook not so good","Signs point to yes","Concentrate and ask again","Very doubtful"),"Ask, and you will be answered")))
 
 DEFINE(MEETSCRITERIA,LAMBDA(row_data,criteria_table,ALL(MAKEARRAY(ROWS(criteria_table),1,LAMBDA(row,_col,LET(function,INDEX(criteria_table,row,2),value,INDEX(row_data,1,INDEX(criteria_table,row,3)),criterion,INDEX(criteria_table,row,4),APPLY(function,value,criterion)))))))
 
