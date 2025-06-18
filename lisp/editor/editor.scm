@@ -3,9 +3,11 @@
     (document.getElementById "editor"))
 
 (define
+    <p>
+    (document.createElement "p"))
+
+(define
     content
-    (-->
-        (document.createElement "p")
-        (.textContent "Editor")))
+    (<p>.textContent "Editor"))
 
 (editor.appendChild content)
