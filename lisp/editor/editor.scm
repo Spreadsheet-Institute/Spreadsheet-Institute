@@ -6,6 +6,6 @@
     content
     (-->
         (document.createElement "p")
-        (textContent "Editor")))
+        (.textContent "Editor")))
 
 (editor.appendChild content)
