@@ -10,6 +10,6 @@
     content
     (-->
         (<p>)
-        (innerHTML "Editor")))
+        ('innerHTML "Editor")))
 
 (editor.appendChild content)
