@@ -26,6 +26,8 @@ DEFINE(COLUMNLETTER,LAMBDA([cell_reference],TEXTBETWEEN(IFOMITTED(cell_reference
 
 DEFINE(CONS,LAMBDA(value,range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),HSTACK(value,range),VSTACK(value,range))))
 
+DEFINE(CONSTANCY,LAMBDA(x,y,x))
+
 DEFINE(CONTAINS,LAMBDA(haystack,needle,IF(AND(EQUAL(COUNTA(haystack),1),EQUAL(COUNTA(needle),1)),ISNUMBER(SEARCH(needle,haystack)),OR(EXACT(needle,haystack)))))
 
 DEFINE(COUNTALL,LAMBDA(range,SUM(COUNTA(range),COUNTBLANK(range))))
