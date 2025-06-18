@@ -8,6 +8,6 @@
 
 (define
     content
-    (.textContent <p> "Editor"))
+    (.innerHTML <p> "Editor"))
 
 (editor.appendChild content)
