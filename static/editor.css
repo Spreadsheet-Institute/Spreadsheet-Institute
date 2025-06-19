@@ -46,9 +46,10 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 5vh;
-    min-height: 100px;
+    height: 100px;
     z-index: 100;
+    margin: 0;
+    border: 0;
     padding-left: 25px;
     
     font-family: "Source Code Pro", monospace;
@@ -62,10 +63,10 @@ body {
 #palette,
 #grid {
     position: absolute;
-    top: 10vh;
+    top: 100px;
     left: 0;
     width: 100%;
-    height: 95vh;
+    height: calc(100vh - 100px);
     z-index: 100;
     overflow-y: auto;
 }
