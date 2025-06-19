@@ -35,9 +35,9 @@
 (editor.appendChild (<input:id:placeholder> "cli" "Command Line"))
 (editor.appendChild (<div:id:innerHTML> "palette" "Command Palette"))
 (let ((cli (document.getElementById "cli")))
-    (cli.addEventListener "keyup" (console.log "CLI: " cli.value)))
+    (cli.addEventListener "keyup" (lambda (event) (console.log "CLI: " event.target.value))))
 
 (editor.appendChild (<input:id:placeholder> "buffer" "Buffer"))
 (editor.appendChild (<div:id:innerHTML> "grid" "Definition Editor"))
 (let ((buffer (document.getElementById "buffer")))
-    (buffer.addEventListener "keyup" (console.log "Buffer: " buffer.value)))
+    (buffer.addEventListener "keyup" (lambda (event) (console.log "Buffer: " event.target.value))))
