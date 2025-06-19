@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+body {
+    background-color: #0F0616;
+    color: #FFFFFF;
+    
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-size: 2rem;
+    font-style: normal;
+}
+
+.function {
+    color: #FF69B4;
+
+    font-weight: bold;
+}
+
+.constant {
+    color: #00FFFF;
+
+    font-style: italic;
+    font-weight: bold;
+}
+
+.variable {
+    color: #FFFFFF;
+
+    font-style: italic;
+}
+
+#cli {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    min-height: 100px;
+    z-index: 100;
+}
+
+#palette,
+#grid {
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    width: 100vw;
+    height: 90vh;
+    z-index: 100;
+    overflow-y: auto;
+}
+
+#palette {
+    z-index: 0;
+}

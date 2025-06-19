@@ -1,15 +1,25 @@
 (define
-    editor
-    (document.getElementById "editor"))
+    (<input>)
+    (document.createElement "input"))
 
 (define
-    (<p>)
-    (document.createElement "p"))
+    (<input:id:placeholder> identifier message)
+    (let ((element (<input>)))
+        (set! element.id identifier)
+        (set! element.placeholder message)
+        element))
 
 (define
-    (<p:innerHTML> content)
-    (let ((element (<p>)))
+    (<div>)
+    (document.createElement "div"))
+
+(define
+    (<div:id:innerHTML> identifier content)
+    (let ((element (<div>)))
+        (set! element.id identifier)
         (set! element.innerHTML content)
         element))
 
-(editor.appendChild (<p:innerHTML> "Editor"))
+(document.body.appendChild (<input:id:placeholder> "cli" "CLI"))
+(document.body.appendChild (<div:id:innerHTML> "palette" "Palette"))
+(document.body.appendChild (<div:id:innerHTML> "grid" "Grid"))
