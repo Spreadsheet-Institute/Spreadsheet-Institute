@@ -24,6 +24,6 @@
     editor
     (document.getElementById "editor"))
 
-(editor.appendChild (<input:id:placeholder> "cli" "CLI"))
-(editor.appendChild (<div:id:innerHTML> "palette" "Palette"))
-(editor.appendChild (<div:id:innerHTML> "grid" "Grid"))
+(editor.appendChild (<input:id:placeholder> "cli" "Command Line"))
+(editor.appendChild (<div:id:innerHTML> "palette" "Command Palette"))
+(editor.appendChild (<div:id:innerHTML> "grid" "Definition Editor"))
