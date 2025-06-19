@@ -39,6 +39,7 @@ body {
     z-index: 0;
     margin: 0;
     padding: 0;
+    overflow-y: hidden;
 }
 
 #cli {
@@ -70,7 +71,7 @@ body {
     z-index: 100;
     overflow-y: auto;
     text-align: center;
-    padding-top: 40vh;
+    line-height: calc(100vh - 100px);
 }
 
 #palette {
