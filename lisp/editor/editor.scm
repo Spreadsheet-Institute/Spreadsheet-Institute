@@ -32,12 +32,24 @@
     editor
     (document.getElementById "editor"))
 
+
+
 (editor.appendChild (<input:id:placeholder> "cli" "Command Line"))
 (editor.appendChild (<div:id:innerHTML> "palette" "Command Palette"))
+
+(define
+    (cli-handler event)
+    (console.log "CLI: " event.target.value))
+
 (let ((cli (document.getElementById "cli")))
-    (cli.addEventListener "keyup" (lambda (event) (console.log "CLI: " event.target.value))))
+    (cli.addEventListener "keyup" cli-handler))
 
 (editor.appendChild (<input:id:placeholder> "buffer" "Buffer"))
 (editor.appendChild (<div:id:innerHTML> "grid" "Definition Editor"))
+
+(define
+    (buffer-handler event)
+    (console.log "Buffer: " event.target.value))
+
 (let ((buffer (document.getElementById "buffer")))
-    (buffer.addEventListener "keyup" (lambda (event) (console.log "Buffer: " event.target.value))))
+    (buffer.addEventListener "keyup" buffer-handler))

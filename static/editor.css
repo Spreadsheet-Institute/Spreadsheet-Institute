@@ -76,13 +76,17 @@ body {
     z-index: 100;
     overflow-y: auto;
     text-align: center;
-    line-height: calc(100vh - 100px);
     opacity: 0.4;
 }
 
 #palette {
     z-index: 0;
     opacity: 0;
+    line-height: calc((100vh - 100px) / 2);
+}
+
+#grid {
+    line-height: calc(100vh - 100px);
 }
 
 #cli,
