@@ -44,9 +44,17 @@ body {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 10vh;
+    height: 5vh;
     min-height: 100px;
     z-index: 100;
+    padding-left: 25px;
+    
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-size: 2rem;
+    font-style: normal;
+
+    background-color: transparent;
 }
 
 #palette,
@@ -55,11 +63,12 @@ body {
     top: 10vh;
     left: 0;
     width: 100vw;
-    height: 90vh;
+    height: 95vh;
     z-index: 100;
     overflow-y: auto;
 }
 
 #palette {
     z-index: 0;
+    opacity: 0;
 }
