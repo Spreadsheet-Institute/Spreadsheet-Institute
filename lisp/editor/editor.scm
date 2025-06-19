@@ -20,6 +20,10 @@
         (set! element.innerHTML content)
         element))
 
-(document.body.appendChild (<input:id:placeholder> "cli" "CLI"))
-(document.body.appendChild (<div:id:innerHTML> "palette" "Palette"))
-(document.body.appendChild (<div:id:innerHTML> "grid" "Grid"))
+(define
+    editor
+    (document.getElementById "editor"))
+
+(editor.appendChild (<input:id:placeholder> "cli" "CLI"))
+(editor.appendChild (<div:id:innerHTML> "palette" "Palette"))
+(editor.appendChild (<div:id:innerHTML> "grid" "Grid"))
