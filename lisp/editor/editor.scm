@@ -3,15 +3,13 @@
     (document.getElementById "editor"))
 
 (define
-    <p>
-    (lambda
-        ()
-        (document.createElement "p")))
+    (<p>)
+    (document.createElement "p"))
 
 (define
-    content
-    (-->
-        (<p>)
-        'innerHTML "Editor"))
+    (<p:innerHTML> content)
+    (let ((element (<p>)))
+        (set! element.innerHTML content)
+        element))
 
-(editor.appendChild content)
+(editor.appendChild (<p:innerHTML> "Editor"))
