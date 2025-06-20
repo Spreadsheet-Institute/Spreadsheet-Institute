@@ -32,8 +32,6 @@
     editor
     (document.getElementById "editor"))
 
-
-
 (editor.appendChild (<input:id:placeholder> "cli" "Command Line"))
 (editor.appendChild (<div:id:innerHTML> "palette" "Command Palette"))
 
