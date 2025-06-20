@@ -122,4 +122,4 @@ After:
 In short: "named formulas".
 
 > [!NOTE]
-> Spreadsheet.[Institute](https://spreadsheet.institute/)/ currently offers [free](https://www.investopedia.com/terms/f/free-lunch.asp), NDA-optional formula audits, in which we optimize your team's least/favorite spreadsheets, making them quicker and easier to update while we forage for new functions to include within Spreadsheet Lisp ([SL](https://spreadsheet.institute/lisp/)). Contact: hq@spreadsheet.institute
+> Spreadsheet.[Institute](https://spreadsheet.institute/)/ currently offers [free](https://www.investopedia.com/terms/f/free-lunch.asp), NDA-optional formula audits, in which we optimize your team's least/favorite spreadsheets to make them quicker and easier to update as we forage for new functions to include within Spreadsheet Lisp ([SL](https://spreadsheet.institute/lisp/)). Contact: hq@spreadsheet.institute
