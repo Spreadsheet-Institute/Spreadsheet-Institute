@@ -30,7 +30,7 @@ DEFINE(CONSTANCY,LAMBDA(x,y,x))
 
 DEFINE(CONTAINS,LAMBDA(haystack,needle,IF(AND(EQUAL(COUNTA(haystack),1),EQUAL(COUNTA(needle),1)),ISNUMBER(SEARCH(needle,haystack)),OR(EXACT(needle,haystack)))))
 
-DEFINE(COUNTALL,LAMBDA(range,SUM(COUNTA(range),COUNTBLANK(range))))
+DEFINE(COUNTCELLS,LAMBDA(range,SUM(COUNTA(range),COUNTBLANK(range))))
 
 DEFINE(CRITERIATABLE,LAMBDA(column_names,row_conditions,LET(condition_strings,TRIMSPLIT(row_conditions,",",YES),condition_count,COUNTA(condition_strings),condition_operators,EXTRACTOPERATORS(condition_strings),condition_column_indices,MAKEARRAY(condition_count,1,LAMBDA(row,_col,LET(condition,INDEX(condition_strings,row,1),operator,INDEX(condition_operators,row,1),MATCH(TRIM(TEXTBEFORE(condition,operator)),column_names,FALSE)))),condition_criteria,MAKEARRAY(condition_count,1,LAMBDA(row,_col,LET(condition,INDEX(condition_strings,row,1),operator,INDEX(condition_operators,row,1),result,TRIM(TEXTAFTER(condition,operator)),IFERROR(NUMBERVALUE(result),result)))),HSTACK(condition_operators,condition_column_indices,condition_criteria))))
 
@@ -102,8 +102,6 @@ DEFINE(VERTICAL?,LAMBDA(range,IF(GREATERTHAN(ROWS(range),COLUMNS(range)),TRUE,FA
 
 DEFINE(LAST,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),INDEX(range,1,COUNTA(range)),INDEX(range,COUNTA(range),1))))
 
-DEFINE(LENGTH,LAMBDA([input],LET(cell_count,IFOMITTED(input,0,COUNTALL(input)),IF(ONE?(cell_count),IF(EMPTYLIST?(input),0,LEN(input)),cell_count))))
-
 DEFINE(LESSTHAN,LAMBDA(x,y,IF(x < y,TRUE,FALSE)))
 
 DEFINE(LTE,LAMBDA(x,y,IF(x<=y,TRUE,FALSE)))
@@ -136,7 +134,7 @@ DEFINE(RATIO,LAMBDA(numerator,denominator,numerator / denominator))
 
 DEFINE(REST,LAMBDA(range,CDR(range)))
 
-DEFINE(REVERSE,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),MAKEARRAY(1,COLUMNS(range),LAMBDA(_row,col,INDEX(range,1,DECREMENT(LENGTH(range),DECREMENT(col))))),MAKEARRAY(ROWS(range),1,LAMBDA(row,_col,INDEX(range,DECREMENT(LENGTH(range),DECREMENT(row)),1))))))
+DEFINE(REVERSE,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),MAKEARRAY(1,COLUMNS(range),LAMBDA(_row,col,INDEX(range,1,DECREMENT(COUNTCELLS(range),DECREMENT(col))))),MAKEARRAY(ROWS(range),1,LAMBDA(row,_col,INDEX(range,DECREMENT(COUNTCELLS(range),DECREMENT(row)),1))))))
 
 DEFINE(ROCKPAPERSCISSORS,LAMBDA(throw,LET(human,CAPITALIZE(LOWER(DEFAULT(throw,""))),robot,PICK("Rock","Paper","Scissors"),CONCAT(FORMAT("You threw {1}. SL threw {2}. ",human,robot),IFS(CASE(human,robot),FORMAT("It's a tie! {1} vs. {1}",human),CASE(human,"Paper",robot,"Rock"),"You win! Paper covers Rock.",CASE(human,"Paper",robot,"Scissors"),"You lose! Scissors cut Paper.",CASE(human,"Rock",robot,"Scissors"),"You win! Rock crushes Scissors.",CASE(human,"Rock",robot,"Paper"),"You lose! Paper covers Rock.",CASE(human,"Scissors",robot,"Paper"),"You win! Scissors cut Paper.",CASE(human,"Scissors",robot,"Rock"),"You lose! Rock crushes Scissors.",OTHERWISE,"Invalid throw. Please choose Rock, Paper, or Scissors.")))))
 
