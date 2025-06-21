@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: CUBEROOT</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../CUBEROOT/">CUBEROOT</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../CUBEROOT/">CUBEROOT</a>(<span class="constant">8</span>)
+-> <span class="constant">2</span>
+
+=<a href="../CUBEROOT/">CUBEROOT</a>(<span class="constant">-1000</span>)
+-> <span class="constant">-10</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../CUBEROOT/">CUBEROOT</a>,
+    LAMBDA(
+        <span class="variable">x</span>,
+        POWER(
+            <span class="variable">x</span>,
+            <a href="../RATIO/">RATIO</a>(
+                <span class="constant">1</span>,
+                <span class="constant">3</span>))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/CUBEROOT/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

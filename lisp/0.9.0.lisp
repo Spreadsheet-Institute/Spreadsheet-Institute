@@ -34,6 +34,8 @@ DEFINE(COUNTCELLS,LAMBDA(range,SUM(COUNTA(range),COUNTBLANK(range))))
 
 DEFINE(CRITERIATABLE,LAMBDA(column_names,row_conditions,LET(condition_strings,TRIMSPLIT(row_conditions,",",YES),condition_count,COUNTA(condition_strings),condition_operators,EXTRACTOPERATORS(condition_strings),condition_column_indices,MAKEARRAY(condition_count,1,LAMBDA(row,_col,LET(condition,INDEX(condition_strings,row,1),operator,INDEX(condition_operators,row,1),MATCH(TRIM(TEXTBEFORE(condition,operator)),column_names,FALSE)))),condition_criteria,MAKEARRAY(condition_count,1,LAMBDA(row,_col,LET(condition,INDEX(condition_strings,row,1),operator,INDEX(condition_operators,row,1),result,TRIM(TEXTAFTER(condition,operator)),IFERROR(NUMBERVALUE(result),result)))),HSTACK(condition_operators,condition_column_indices,condition_criteria))))
 
+DEFINE(CUBEROOT,LAMBDA(x,POWER(x,RATIO(1,3))))
+
 DEFINE(CURRY,LAMBDA(function,argument1,LAMBDA(argument2,function(argument1,argument2))))
 
 DEFINE(DECREMENT,LAMBDA(x,[times],SUM(x,PRODUCT(-1,DEFAULT(times,1)))))
