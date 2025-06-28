@@ -74,9 +74,9 @@ DEFINE(FORMAT,LAMBDA(template_text,first_value,[second_value],[third_value],[fou
 
 DEFINE(FULLDECK,LAMBDA([vertical],LET(full_deck,HSTACK({"AS","KS","QS","JS","XS","9S","8S","7S","6S","5S","4S","3S","2S"},{"AH","KH","QH","JH","XH","9H","8H","7H","6H","5H","4H","3H","2H"},{"AD","KD","QD","JD","XD","9D","8D","7D","6D","5D","4D","3D","2D"},{"AC","KC","QC","JC","XC","9C","8C","7C","6C","5C","4C","3C","2C"}),IF(DEFAULT(vertical,FALSE),TRANSPOSE(full_deck),full_deck))))
 
-DEFINE(GREATERTHAN,LAMBDA(x,y,IF(x > y,TRUE,FALSE)))
+DEFINE(GREATERTHAN,LAMBDA(x,y,x>y))
 
-DEFINE(GTE,LAMBDA(x,y,IF(x >= y,TRUE,FALSE)))
+DEFINE(GTE,LAMBDA(x,y,>=y))
 
 DEFINE(HEADLESS,LAMBDA(range,MAKEARRAY(DECREMENT(ROWS(range)),COLUMNS(range),LAMBDA(row,col,INDEX(range,INCREMENT(row),col)))))
 
@@ -104,9 +104,9 @@ DEFINE(VERTICAL?,LAMBDA(range,IF(GREATERTHAN(ROWS(range),COLUMNS(range)),TRUE,FA
 
 DEFINE(LAST,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),INDEX(range,1,COUNTA(range)),INDEX(range,COUNTA(range),1))))
 
-DEFINE(LESSTHAN,LAMBDA(x,y,IF(x < y,TRUE,FALSE)))
+DEFINE(LESSTHAN,LAMBDA(x,y,x<y))
 
-DEFINE(LTE,LAMBDA(x,y,IF(x<=y,TRUE,FALSE)))
+DEFINE(LTE,LAMBDA(x,y,x<=y))
 
 DEFINE(MAGIC8BALL,LAMBDA([yes_or_no_question],IF(PROVIDED?(yes_or_no_question),PICK("It is certain","Reply hazy, try again","It is decidedly so","Without a doubt","Don't count on it","Yes, definitely","Ask again later","You may rely on it","My reply is no","As I see it, yes","Better not tell you now","Most likely","My sources say no","Outlook good","Cannot predict now","Yes","Outlook not so good","Signs point to yes","Concentrate and ask again","Very doubtful"),"Ask, and you will be answered")))
 
