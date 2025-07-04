@@ -2,7 +2,7 @@ DEFINE(ALL,LAMBDA(truth_values,AND(truth_values)))
 
 DEFINE(ALPHABET,LAMBDA([vertical],LET(alphabet,HSTACK({"A","B","C","D","E","F"},{"G","H","I","J","K","L"},{"M","N","O","P","Q","R"},{"S","T","U","V","W","X","Y","Z"}),IF(DEFAULT(vertical,NO),TRANSPOSE(alphabet),alphabet))))
 
-DEFINE(APPEND,LAMBDA(head,body,IF(GREATERTHAN(COLUMNS(body),ROWS(body)),HSTACK(head,body),VSTACK(head,body))))
+DEFINE(APPEND,LAMBDA(head,body,IF(GREATERTHAN?(COLUMNS(body),ROWS(body)),HSTACK(head,body),VSTACK(head,body))))
 
 DEFINE(APPLY,LAMBDA(function,[argument1],[argument2],[argument3],[argument4],[argument5],[argument6],[argument7],[argument8],[argument9],[argument10],SWITCH(ARITY(argument1,argument2,argument3,argument4,argument5,argument6,argument7,argument8,argument9,argument10),0,function(),1,function(argument1),2,function(argument1, argument2),3,function(argument1, argument2, argument3),4,function(argument1, argument2, argument3, argument4),5,function(argument1, argument2, argument3, argument4, argument5),6,function(argument1, argument2, argument3, argument4, argument5, argument6),7,function(argument1, argument2, argument3, argument4, argument5, argument6, argument7),8,function(argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8),9,function(argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8, argument9),function(argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8, argument9, argument10))))
 
@@ -18,13 +18,13 @@ DEFINE(CASE,LAMBDA(_1a, _1b, [_2a], [_2b], [_3a], [_3b], [_4a], [_4b], [_5a], [_
 
 DEFINE(CELLNAME,LAMBDA([reference],[absolute],LET(address,IFOMITTED(reference,CELL("address"),CELL("address",reference)),display_absolute,DEFAULT(absolute,NO),IF(display_absolute,address,SUBSTITUTE(address,"$","")))))
 
-DEFINE(CDR,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),MAKEARRAY(1,DECREMENT(COLUMNS(range)),LAMBDA(_row,col,INDEX(range,1,INCREMENT(col)))),MAKEARRAY(DECREMENT(ROWS(range)),1,LAMBDA(row,_col,INDEX(range,INCREMENT(row),1))))))
+DEFINE(CDR,LAMBDA(range,IF(GREATERTHAN?(COLUMNS(range),ROWS(range)),MAKEARRAY(1,DECREMENT(COLUMNS(range)),LAMBDA(_row,col,INDEX(range,1,INCREMENT(col)))),MAKEARRAY(DECREMENT(ROWS(range)),1,LAMBDA(row,_col,INDEX(range,INCREMENT(row),1))))))
 
 DEFINE(COINTOSS,LAMBDA(PICK("Heads","Tails")))
 
 DEFINE(COLUMNLETTER,LAMBDA([cell_reference],TEXTBETWEEN(IFOMITTED(cell_reference,ADDRESS(ROW(),COLUMN()),ADDRESS(ROW(cell_reference),COLUMN(cell_reference))),"$","$")))
 
-DEFINE(CONS,LAMBDA(value,range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),HSTACK(value,range),VSTACK(value,range))))
+DEFINE(CONS,LAMBDA(value,range,IF(GREATERTHAN?(COLUMNS(range),ROWS(range)),HSTACK(value,range),VSTACK(value,range))))
 
 DEFINE(CONSTANCY,LAMBDA(x,y,x))
 
@@ -66,7 +66,7 @@ DEFINE(FIRSTROW,LAMBDA(range,INDEX(range,1,0)))
 
 DEFINE(FIRSTWORD,LAMBDA(text,LEFT(TRIM(text),DECREMENT(FIND(" ",TRIM(text))))))
 
-DEFINE(FLIPCOIN,LAMBDA([times],LET(counter,DEFAULT(times, 1),IF(LTE(counter, 1),COINTOSS(),VSTACK(COINTOSS(),FLIPCOIN(DECREMENT(counter)))))))
+DEFINE(FLIPCOIN,LAMBDA([times],LET(counter,DEFAULT(times, 1),IF(LTE?(counter, 1),COINTOSS(),VSTACK(COINTOSS(),FLIPCOIN(DECREMENT(counter)))))))
 
 DEFINE(FOREACH,LAMBDA(range,function_to_apply,MAP(range,function_to_apply)))
 
@@ -76,7 +76,7 @@ DEFINE(FULLDECK,LAMBDA([vertical],LET(full_deck,HSTACK({"AS","KS","QS","JS","XS"
 
 DEFINE(GREATERTHAN?,LAMBDA(x,y,x>y))
 
-DEFINE(GTE?,LAMBDA(x,y,>=y))
+DEFINE(GTE?,LAMBDA(x,y,x>=y))
 
 DEFINE(HEADLESS,LAMBDA(range,MAKEARRAY(DECREMENT(ROWS(range)),COLUMNS(range),LAMBDA(row,col,INDEX(range,INCREMENT(row),col)))))
 
@@ -96,13 +96,13 @@ DEFINE(IS,LAMBDA(argument,IF(ISOMITTED(argument), 0, 1)))
 
 DEFINE(ISATOM,LAMBDA(input,MEMBER(TYPESTRING(input),VLIST("Number","String","Error"))))
 
-DEFINE(HORIZONTAL?,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),TRUE,FALSE)))
+DEFINE(HORIZONTAL?,LAMBDA(range,IF(GREATERTHAN?(COLUMNS(range),ROWS(range)),TRUE,FALSE)))
 
 DEFINE(RANGE?,LAMBDA(input,EQUAL(TYPESTRING(input),"Range")))
 
-DEFINE(VERTICAL?,LAMBDA(range,IF(GREATERTHAN(ROWS(range),COLUMNS(range)),TRUE,FALSE)))
+DEFINE(VERTICAL?,LAMBDA(range,IF(GREATERTHAN?(ROWS(range),COLUMNS(range)),TRUE,FALSE)))
 
-DEFINE(LAST,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),INDEX(range,1,COUNTA(range)),INDEX(range,COUNTA(range),1))))
+DEFINE(LAST,LAMBDA(range,IF(GREATERTHAN?(COLUMNS(range),ROWS(range)),INDEX(range,1,COUNTA(range)),INDEX(range,COUNTA(range),1))))
 
 DEFINE(LESSTHAN?,LAMBDA(x,y,x<y))
 
@@ -114,7 +114,7 @@ DEFINE(MEETSCRITERIA,LAMBDA(row_data,criteria_table,ALL(MAKEARRAY(ROWS(criteria_
 
 DEFINE(MEMBER,LAMBDA(needle,haystack,OR(EXACT(needle, haystack))))
 
-DEFINE(NEGATIVE?,LAMBDA(x,LESSTHAN(x,0)))
+DEFINE(NEGATIVE?,LAMBDA(x,LESSTHAN?(x,0)))
 
 DEFINE(NO,FALSE)
 
@@ -126,9 +126,9 @@ DEFINE(OTHERWISE,TRUE)
 
 DEFINE(PICK,LAMBDA(_1, [_2], [_3], [_4], [_5],[_6], [_7], [_8], [_9], [_10],[_11], [_12], [_13], [_14], [_15],[_16], [_17], [_18], [_19], [_20],[_21], [_22], [_23], [_24], [_25],LET(count,SUM(IS(_1), IS(_2), IS(_3), IS(_4), IS(_5),IS(_6), IS(_7), IS(_8), IS(_9), IS(_10),IS(_11), IS(_12), IS(_13), IS(_14), IS(_15),IS(_16), IS(_17), IS(_18), IS(_19), IS(_20),IS(_21), IS(_22), IS(_23), IS(_24), IS(_25)),CHOOSE(RANDBETWEEN(1, count), _1, _2, _3, _4, _5, _6, _7, _8, _9, _10,_11, _12, _13, _14, _15,_16, _17, _18, _19, _20,_21, _22, _23, _24, _25))))
 
-DEFINE(POSITIVE?,LAMBDA(x,GREATERTHAN(x,0)))
+DEFINE(POSITIVE?,LAMBDA(x,GREATERTHAN?(x,0)))
 
-DEFINE(PROVIDED,LAMBDA([argument],NOT(ISOMITTED(argument))))
+DEFINE(PROVIDED?,LAMBDA([argument],NOT(ISOMITTED(argument))))
 
 DEFINE(QUESTION,LAMBDA(knowledgebase,fragment1,[fragment2],[fragment3],[fragment4],[fragment5],[fragment6],[fragment7],[fragment8],[fragment9],[fragment10],LET(arity,ARITY(fragment1,fragment2,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10),template,CHOOSE(arity,"('{1}').","('{1}', '{2}').","('{1}', '{2}', '{3}').","('{1}', '{2}', '{3}', '{4}').","('{1}', '{2}', '{3}', '{4}', '{5}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}').","('{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}')."),subject,fragment2,question_word,LOWER(fragment1),CONTAINS(knowledgebase,FORMAT(template,subject,question_word,fragment3,fragment4,fragment5,fragment6,fragment7,fragment8,fragment9,fragment10)))))
 
@@ -136,11 +136,11 @@ DEFINE(RATIO,LAMBDA(numerator,denominator,numerator / denominator))
 
 DEFINE(REST,LAMBDA(range,CDR(range)))
 
-DEFINE(REVERSE,LAMBDA(range,IF(GREATERTHAN(COLUMNS(range),ROWS(range)),MAKEARRAY(1,COLUMNS(range),LAMBDA(_row,col,INDEX(range,1,DECREMENT(COUNTCELLS(range),DECREMENT(col))))),MAKEARRAY(ROWS(range),1,LAMBDA(row,_col,INDEX(range,DECREMENT(COUNTCELLS(range),DECREMENT(row)),1))))))
+DEFINE(REVERSE,LAMBDA(range,IF(GREATERTHAN?(COLUMNS(range),ROWS(range)),MAKEARRAY(1,COLUMNS(range),LAMBDA(_row,col,INDEX(range,1,DECREMENT(COUNTCELLS(range),DECREMENT(col))))),MAKEARRAY(ROWS(range),1,LAMBDA(row,_col,INDEX(range,DECREMENT(COUNTCELLS(range),DECREMENT(row)),1))))))
 
 DEFINE(ROCKPAPERSCISSORS,LAMBDA(throw,LET(human,CAPITALIZE(LOWER(DEFAULT(throw,""))),robot,PICK("Rock","Paper","Scissors"),CONCAT(FORMAT("You threw {1}. SL threw {2}. ",human,robot),IFS(CASE(human,robot),FORMAT("It's a tie! {1} vs. {1}",human),CASE(human,"Paper",robot,"Rock"),"You win! Paper covers Rock.",CASE(human,"Paper",robot,"Scissors"),"You lose! Scissors cut Paper.",CASE(human,"Rock",robot,"Scissors"),"You win! Rock crushes Scissors.",CASE(human,"Rock",robot,"Paper"),"You lose! Paper covers Rock.",CASE(human,"Scissors",robot,"Paper"),"You win! Scissors cut Paper.",CASE(human,"Scissors",robot,"Rock"),"You lose! Rock crushes Scissors.",OTHERWISE,"Invalid throw. Please choose Rock, Paper, or Scissors.")))))
 
-DEFINE(ROLLDICE,LAMBDA([times],IF(LTE(DEFAULT(times,1),1),DICEROLL(),CONS(DICEROLL(),ROLLDICE(DECREMENT(times))))))
+DEFINE(ROLLDICE,LAMBDA([times],IF(LTE?(DEFAULT(times,1),1),DICEROLL(),CONS(DICEROLL(),ROLLDICE(DECREMENT(times))))))
 
 DEFINE(SELECTFROM,LAMBDA(columns,table_range,[row_conditions],SELECTCOLUMNS(SELECTROWS(table_range,row_conditions),columns)))
 
