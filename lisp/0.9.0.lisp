@@ -16,7 +16,7 @@ DEFINE(CAR,LAMBDA(range,INDEX(range,1,1)))
 
 DEFINE(CASE,LAMBDA(_1a, _1b, [_2a], [_2b], [_3a], [_3b], [_4a], [_4b], [_5a], [_5b],[_6a], [_6b], [_7a], [_7b], [_8a], [_8b], [_9a], [_9b], [_10a], [_10b],LET(case1,EQUAL(_1a, _1b),case2,IFOMITTED(_2a, TRUE, EQUAL(_2a, _2b)),case3,IFOMITTED(_3a, TRUE, EQUAL(_3a, _3b)),case4,IFOMITTED(_4a, TRUE, EQUAL(_4a, _4b)),case5,IFOMITTED(_5a, TRUE, EQUAL(_5a, _5b)),case6,IFOMITTED(_6a, TRUE, EQUAL(_6a, _6b)),case7,IFOMITTED(_7a, TRUE, EQUAL(_7a, _7b)),case8,IFOMITTED(_8a, TRUE, EQUAL(_8a, _8b)),case9,IFOMITTED(_9a, TRUE, EQUAL(_9a, _9b)),case10,IFOMITTED(_10a, TRUE, EQUAL(_10a, _10b)),AND(case1,case2,case3,case4,case5,case6,case7,case8,case9,case10))))
 
-DEFINE(CELLNAME,LAMBDA([reference],[absolute],LET(address,IFOMITTED(reference,CELL("address"),CELL("address",reference)),display_absolute,DEFAULT(absolute,NO),IF(display_absolute,address,SUBSTITUTE(address,"$","")))))
+DEFINE(CELLNAME,LAMBDA([reference],[absolute?],LET(address,IFOMITTED(reference,CELL("address"),CELL("address",reference)),display_absolute,DEFAULT(absolute?,NO),IF(display_absolute,address,SUBSTITUTE(address,"$","")))))
 
 DEFINE(CDR,LAMBDA(range,IF(GREATERTHAN?(COLUMNS(range),ROWS(range)),MAKEARRAY(1,DECREMENT(COLUMNS(range)),LAMBDA(_row,col,INDEX(range,1,INCREMENT(col)))),MAKEARRAY(DECREMENT(ROWS(range)),1,LAMBDA(row,_col,INDEX(range,INCREMENT(row),1))))))
 

@@ -26,7 +26,7 @@ DEFINE(
     <a href="../CELLNAME/">CELLNAME</a>,
     LAMBDA(
         [reference],
-        [absolute],
+        [absolute?],
         LET(
             address,
                 IFOMITTED(
@@ -37,7 +37,7 @@ DEFINE(
                         reference)),
             display_absolute,
                 <a href="../DEFAULT/">DEFAULT</a>(
-                    absolute,
+                    absolute?,
                     <span class="constant">NO</span>),
             IF(
                 display_absolute,
