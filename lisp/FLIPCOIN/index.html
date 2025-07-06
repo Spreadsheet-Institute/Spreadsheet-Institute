@@ -23,16 +23,16 @@
 DEFINE(
     <a href="../FLIPCOIN/">FLIPCOIN</a>,
     LAMBDA(
-        [times],
+        [<span class="variable">times</span>],
         LET(
-            counter,
-                <a href="../DEFAULT/">DEFAULT</a>(times, <span class="constant">1</span>),
+            <span class="variable">counter</span>,
+                <a href="../DEFAULT/">DEFAULT</a>(<span class="variable">times</span>, <span class="constant">1</span>),
             IF(
-                LTE(counter, <span class="constant">1</span>),
+                <a href="../LTE%3F/">LTE?</a>(<span class="variable">counter</span>, <span class="constant">1</span>),
                 <a href="../COINTOSS/">COINTOSS</a>(),
                 VSTACK(
                     <a href="../COINTOSS/">COINTOSS</a>(),
-                    <a href="../FLIPCOIN/">FLIPCOIN</a>(<a href="../DECREMENT/">DECREMENT</a>(counter)))))))
+                    <a href="../FLIPCOIN/">FLIPCOIN</a>(<a href="../DECREMENT/">DECREMENT</a>(<span class="variable">counter</span>)))))))
         
         </pre>
         <br>
