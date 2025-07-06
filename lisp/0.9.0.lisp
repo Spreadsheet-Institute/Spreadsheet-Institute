@@ -160,6 +160,10 @@ DEFINE(STATEMENT,LAMBDA(fragment1,[fragment2],[fragment3],[fragment4],[fragment5
 
 DEFINE(TEXTBETWEEN,LAMBDA(source_text,first_boundary,second_boundary,LET(text_after_first_boundary,RIGHT(source_text,DIFFERENCE(LEN(source_text),DECREMENT(SUM(FIND(first_boundary,source_text),LEN(first_boundary))))),LEFT(text_after_first_boundary,DECREMENT(FIND(second_boundary,text_after_first_boundary))))))
 
+DEFINE(TEXTTOCOLUMNS,LAMBDA(text,delimiter,TEXTSPLIT(text,delimiter)))
+
+DEFINE(TEXTTOROWS,LAMBDA(text,delimiter,TRANSPOSE(TEXTSPLIT(text,delimiter))))
+
 DEFINE(TRIMALL,LAMBDA(range,MAKEARRAY(ROWS(range),COLUMNS(range),LAMBDA(row,col,TRIM(INDEX(range,row,col))))))
 
 DEFINE(TRIMSPLIT,LAMBDA(source_text,split_at,[display_vertically],LET(result,TRIMALL(TEXTSPLIT(source_text,split_at)),IF(DEFAULT(display_vertically,FALSE),TRANSPOSE(result),result))))
