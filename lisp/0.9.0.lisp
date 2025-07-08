@@ -1,3 +1,5 @@
+DEFINE(_1_are_2.,LAMBDA(_1,_2,FORMAT("{1} are {2}.",CAPITALIZE(_1),_2)))
+
 DEFINE(_1_is_2.,LAMBDA(_1,_2,FORMAT("{1} is {2}.",CAPITALIZE(_1),_2)))
 
 DEFINE(ALL,LAMBDA(truth_values,AND(truth_values)))
