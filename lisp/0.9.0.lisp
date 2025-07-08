@@ -4,7 +4,7 @@ DEFINE(_1_is_2.,LAMBDA(_1,_2,FORMAT("{1} is {2}.",CAPITALIZE(_1),_2)))
 
 DEFINE(_1_is_not_2.,LAMBDA(_1,_2,FORMAT("{1} is not {2}.",CAPITALIZE(_1),_2)))
 
-DEFINE(_Is_1_2?,LAMBDA(_1,_2,knowledgebase,LET(affirmation,CONTAINS(knowledgebase,FORMAT("{1} is {2}.",CAPITALIZE(_1),_2)),negation,CONTAINS(knowledgebase,FORMAT("{1} is not {2}.",CAPITALIZE(_1),_2)),template,IFS(AND(affirmation,negation),"Yes and no. {1} simultaneously is and is not {2}.",affirmation,"Yes. {1} is {2}.",negation,"No. {1} is not {2}.",OTHERWISE,"Unknown."),FORMAT(template,_1,_2))))
+DEFINE(_Is_1_2?,LAMBDA(_1,_2,knowledgebase,LET(affirmation,CONTAINS(knowledgebase,FORMAT("{1} is {2}.",CAPITALIZE(_1),_2)),negation,CONTAINS(knowledgebase,FORMAT("{1} is not {2}.",CAPITALIZE(_1),_2)),template,IFS(AND(affirmation,negation),"Yes and no. {1} simultaneously is and is not {2}.",affirmation,"Yes. {1} is {2}.",negation,"No. {1} is not {2}.",OTHERWISE,"Unknown."),FORMAT(template,CAPITALIZE(_1),_2))))
 
 DEFINE(ALL,LAMBDA(truth_values,AND(truth_values)))
 
