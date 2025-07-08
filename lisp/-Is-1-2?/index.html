@@ -7,26 +7,26 @@
     <body>
         <br>
         <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
-        <p class="centered"><a href="../_Is_1_2%3F/">_Is_1_2?</a></p>
+        <p class="centered"><a href="../-Is-1-2%3F/">_Is_1_2?</a></p>
         <br>
         <hr>
         <br>
         <pre>
 <span class="variable">A1</span>=<a href="../_1_is_2./">_1_is_2.</a>(<span class="constant">"water"</span>, <span class="constant">"wet"</span>)
 -> <span class="constant">"Water is wet."</span>
-=<a href="../_Is_1_2%3F/">_Is_1_2?</a>(<span class="constant">"water"</span>, <span class="constant">"wet"</span>, <span class="variable">A1</span>)
+=<a href="../-Is-1-2%3F/">_Is_1_2?</a>(<span class="constant">"water"</span>, <span class="constant">"wet"</span>, <span class="variable">A1</span>)
 -> <span class="constant">"Yes. Water is wet."</span>
 
 <span class="variable">A2</span>=<a href="../_1_is_2./">_1_is_2.</a>(<span class="constant">"Spreadsheet Lisp"</span>, <span class="constant">"fun to use"</span>)
 -> <span class="constant">"Spreadsheet Lisp is fun to use."</span>
-=<a href="../_Is_1_2%3F/">_Is_1_2?</a>(<span class="constant">"Spreadsheet Lisp"</span>, <span class="constant">"fun to use"</span>, <span class="variable">A2</span>)
+=<a href="../-Is-1-2%3F/">_Is_1_2?</a>(<span class="constant">"Spreadsheet Lisp"</span>, <span class="constant">"fun to use"</span>, <span class="variable">A2</span>)
 -> <span class="constant">"Yes. Spreadsheet Lisp is fun to use."</span>
 
-=<a href="../_Is_1_2%3F/">_Is_1_2?</a>(<span class="constant">"Spreadsheet Lisp"</span>, <span class="constant">"sentient</span>, <span class="variable">A1:A2</span>)
+=<a href="../-Is-1-2%3F/">_Is_1_2?</a>(<span class="constant">"Spreadsheet Lisp"</span>, <span class="constant">"sentient</span>, <span class="variable">A1:A2</span>)
 -> <span class="constant">"Unknown."</span>
 <span class="variable">A3</span>=<a href="../_1_is_not_2./">_1_is_not_2.</a>(<span class="constant">"Spreadsheet Lisp"</span>, <span class="constant">"sentient"</span>)
 -> <span class="constant">"Spreadsheet Lisp is not sentient."</span>
-=<a href="../_Is_1_2%3F/">_Is_1_2?</a>(<span class="constant">"Spreadsheet Lisp"</span>, <span class="constant">"sentient</span>, <span class="variable">A1:A3</span>)
+=<a href="../-Is-1-2%3F/">_Is_1_2?</a>(<span class="constant">"Spreadsheet Lisp"</span>, <span class="constant">"sentient</span>, <span class="variable">A1:A3</span>)
 -> <span class="constant">"No. Spreadsheet Lisp is not sentient."</span>
         </pre>
         <br>
@@ -34,47 +34,47 @@
         <br>
         <pre>
 DEFINE(
-    <a href="../_Is_1_2%3F/">_Is_1_2?</a>,
+    <a href="../-Is-1-2%3F/">_Is_1_2?</a>,
     LAMBDA(
         <span class="variable">_1</span>,
         <span class="variable">_2</span>,
         <span class="variable">knowledgebase</span>,
         LET(
-            affirmation,
-                CONTAINS(
-                    knowledgebase,
+            <span class="variable">affirmation</span>,
+                <a href="../CONTAINS/">CONTAINS</a>(
+                    <span class="variable">knowledgebase</span>,
                     <a href="../FORMAT/">FORMAT</a>(
                         <span class="constant">"{1} is {2}."</span>,
                         <a href="../CAPITALIZE/">CAPITALIZE</a>(<span class="variable">_1</span>),
                         <span class="variable">_2</span>)),
-            negation,
-                CONTAINS(
-                    knowledgebase,
+            <span class="variable">negation</span>,
+                <a href="../CONTAINS/">CONTAINS</a>(
+                    <span class="variable">knowledgebase</span>,
                     <a href="../FORMAT/">FORMAT</a>(
                         <span class="constant">"{1} is not {2}."</span>,
                         <a href="../CAPITALIZE/">CAPITALIZE</a>(<span class="variable">_1</span>),
                         <span class="variable">_2</span>)),
-            template,
+            <span class="variable">template</span>,
                 IFS(
                     AND(
-                        affirmation,
-                        negation),
-                        "Yes and no. {1} simultaneously is and is not {2}.",
-                    affirmation,
-                        "Yes. {1} is {2}.",
-                    negation,
-                        "No. {1} is not {2}.",
-                    OTHERWISE,
-                        "Unknown."),
-            FORMAT(
-                template,
-                _1,
-                _2))))
+                        <span class="variable">affirmation</span>,
+                        <span class="variable">negation</span>),
+                        <span class="constant">"Yes and no. {1} simultaneously is and is not {2}."</span>,
+                    <span class="variable">affirmation</span>,
+                        <span class="constant">"Yes. {1} is {2}."</span>,
+                    <span class="variable">negation</span>,
+                        <span class="constant">"No. {1} is not {2}."</span>,
+                    <a href="../OTHERWISE/">OTHERWISE</a>,
+                        <span class="constant">"Unknown."</span>),
+            <a href="../FORMAT/">FORMAT</a>(
+                <span class="variable">template</span>,
+                <span class="variable">_1</span>,
+                <span class="variable">_2</span>))))
         </pre>
         <br>
         <hr>
         <br>
-        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/_1_is_2./index.html">optimize this function</a></p>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/-Is-1-2%3F/index.html">optimize this function</a></p>
         <br>
     </body>
 </html>
