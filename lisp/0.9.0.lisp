@@ -1,3 +1,5 @@
+DEFINE(_1_is_2.,LAMBDA(_1,_2,FORMAT("{1} is {2}.",CAPITALIZE(_1),_2)))
+
 DEFINE(ALL,LAMBDA(truth_values,AND(truth_values)))
 
 DEFINE(ALPHABET,LAMBDA([vertical],LET(alphabet,HSTACK({"A","B","C","D","E","F"},{"G","H","I","J","K","L"},{"M","N","O","P","Q","R"},{"S","T","U","V","W","X","Y","Z"}),IF(DEFAULT(vertical,NO),TRANSPOSE(alphabet),alphabet))))
