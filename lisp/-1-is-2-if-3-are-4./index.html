@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: _1_is_2_if_3_are_4.</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../-1-is-2-if-3-are-4%3F/">_1_is_2_if_3_are_4.</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+<span class="variable">A1</span>=<span class="constant">"Fish are friends."</span>
+
+=<a href="../-1-is-2-if-3-are-4%3F/">_1_is_2_if_3_are_4.</a>(<span class="constant">"water"</span>, <span class="constant">"wet"</span>, <span class="constant">"fish"</span>, <span class="constant">"friends"</span>, <span class="variable">A1</span>)
+-> <span class="constant">"Water is wet."</span>
+
+=<a href="../-1-is-2-if-3-are-4%3F/">_1_is_2_if_3_are_4.</a>(<span class="constant">"water"</span>, <span class="constant">"wet"</span>, <span class="constant">"fish"</span>, <span class="constant">"food"</span>, <span class="variable">A1</span>)
+-> <span class="constant">"Water is not wet."</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../-1-is-2-if-3-are-4%3F/">_1_is_2_if_3_are_4.</a>,
+    LAMBDA(
+        <span class="variable">_1</span>,
+        <span class="variable">_2</span>,
+        <span class="variable">_3</span>,
+        <span class="variable">_4</span>,
+        <span class="variable">knowledgebase</span>,
+        LET(
+            <span class="variable">affirmation</span>,
+                <a href="../CONTAINS/">CONTAINS</a>(
+                    <span class="variable">knowledgebase</span>,
+                    <a href="../FORMAT/">FORMAT</a>(
+                        <span class="constant">"{1} are {2}."</span>,
+                        <a href="../CAPITALIZE/">CAPITALIZE</a>(<span class="variable">_3</span>),
+                        <span class="variable">_4</span>)),
+            <span class="variable">negation</span>,
+                <a href="../CONTAINS/">CONTAINS</a>(
+                    <span class="variable">knowledgebase</span>,
+                    <a href="../FORMAT/">FORMAT</a>(
+                        <span class="constant">"{1} is not {2}."</span>,
+                        <a href="../CAPITALIZE/">CAPITALIZE</a>(<span class="variable">_3</span>),
+                        <span class="variable">_4</span>)),
+            <span class="variable">template</span>,
+                IFS(
+                    AND(
+                        <span class="variable">affirmation</span>,
+                        <span class="variable">negation</span>),
+                        <span class="constant">"{1} simultaneously is and is not {2}."</span>,
+                    <span class="variable">affirmation</span>,
+                        <span class="constant">"{1} is {2}."</span>,
+                    <span class="variable">negation</span>,
+                        <span class="constant">"{1} is not {2}."</span>,
+                    <a href="../OTHERWISE/">OTHERWISE</a>,
+                        <span class="constant">"Unknown."</span>),
+            <a href="../FORMAT/">FORMAT</a>(
+                <span class="variable">template</span>,
+                <a href="../CAPITALIZE/">CAPITALIZE</a>(<span class="variable">_1</span>),
+                <span class="variable">_2</span>))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/-1-is-2-if-3-are-4%3F/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
