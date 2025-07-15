@@ -26,6 +26,7 @@ document.addEventListener("Keydown", (event) => {
 
     if (control_or_command_is_down && shift_is_down && event.key === "s") {
         event.preventDefault();
+        console.log("Saving definition...");
         definition_download();
     }
 });
