@@ -124,3 +124,8 @@ body {
 #buffer:focus + #grid {
     opacity: 1;
 }
+
+.hljs-function,
+.hljs-keyword {
+    color: #FF69B4!important;
+}
