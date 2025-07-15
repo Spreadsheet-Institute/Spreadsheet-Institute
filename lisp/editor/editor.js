@@ -1,6 +1,7 @@
 // Add editor-to-plaintext file content convertor
 let definition_download = () => {
-    const definition_textline = quill.getText().replace(/(\r\n|\n|\r|\t)/gm, " ").trim();
+    const definition_text = quill.getText();
+    const minified_definition = definition_text.replace(/(\r\n|\n|\r)/gm, "\t").replace(/\t+/g, "").trim();
     const blob = new Blob([definition_textline], { type: "text/plain;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const downloadLink = document.createElement("a");
