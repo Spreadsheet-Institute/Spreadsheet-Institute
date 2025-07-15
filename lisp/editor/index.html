@@ -1,11 +1,11 @@
 <html>
     <head>
         <title>Spreadsheet Lisp Editor</title>
-        <link rel="stylesheet" href="/static/editor.css">
+        <link rel="stylesheet" href="./editor.css">
         <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16-papercolor-dark.min.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/wren.min.js"></script>
 
         <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
@@ -19,20 +19,6 @@
         </pre>
         <!-- <script src="https://cdn.jsdelivr.net/npm/lips@beta/dist/lips.min.js" bootstrap="https://cdn.jsdelivr.net/npm/lips@beta/dist/std.xcb"></script>-->
         <!-- <script type="text/x-scheme" bootstrap src="./editor.scm"></script> -->
-        <script>
-            const options = {
-                modules: {
-                    toolbar: false,
-                    syntax: true
-                },
-                theme: "snow"
-            };
-
-            const quill = new Quill("#editor", options);
-            quill.setText("DEFINE(\n\tIDENTITY,\n\tLAMBDA(\n\t\tx,\n\t\tx))");
-            quill.formatText(0, quill.getLength(), "size", "30px");
-            quill.focus();
-            quill.setSelection(quill.getLength()-4, quill.getLength()-3);
-        </script>
+        <script src="./editor.js"></script>
     </body>
 </html>
