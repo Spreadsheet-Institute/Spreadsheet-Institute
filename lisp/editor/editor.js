@@ -24,6 +24,7 @@ document.addEventListener("Keydown", (event) => {
     const control_command_is_down = event.ctrlKey || event.metaKey;
 
     if (control_command_is_down && event.key.toLowerCase() === "s") {
+        event.preventDefault();
         definition_download();
     }
 });

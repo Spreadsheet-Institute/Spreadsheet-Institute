@@ -129,3 +129,9 @@ body {
 .hljs-keyword {
     color: #FF69B4!important;
 }
+
+#download-link {
+    position: absolute;
+    bottom: 10px;
+    z-index: 1000;
+}
