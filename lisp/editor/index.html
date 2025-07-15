@@ -25,11 +25,12 @@
                     toolbar: false,
                     syntax: true
                 },
-                theme: "snow",
-                placeholder: "DEFINE(\n\tIDENTITY,\n\tLAMBDA(\n\t\tx,\n\t\tx))"
+                theme: "snow"
             };
 
             const quill = new Quill("#editor", options);
+            quill.setText("DEFINE(\n\tIDENTITY,\n\tLAMBDA(\n\t\tx,\n\t\tx))");
+            quill.formatText(0, quill.getLength(), "size", "30px");
         </script>
     </body>
 </html>
