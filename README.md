@@ -22,6 +22,8 @@ Or [install it yourself](https://spreadsheet.institute/lisp/install)
 
 [0.9.0.lisp](./lisp/0.9.0.lisp) source file
 
+[Editor](https://spreadsheet.institute/lisp/editor)
+
 Forum: [Spreadsheet Lisp subreddit](https://www.reddit.com/r/SpreadsheetLisp/)
 
 > [!IMPORTANT]
