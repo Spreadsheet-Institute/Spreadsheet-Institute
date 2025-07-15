@@ -133,6 +133,7 @@ body {
 #download-link {
     position: absolute;
     bottom: 10px;
+    left: 10px;
     z-index: 1000;
     font-size: 0.75rem!important;
 }

@@ -21,9 +21,10 @@ quill.setSelection(quill.getLength()-3);
 
 // Add "Control/Command + S" keyboard event override
 document.addEventListener("Keydown", (event) => {
-    const control_command_is_down = event.ctrlKey || event.metaKey;
+    const control_or_command_is_down = event.ctrlKey || event.metaKey;
+    const shift_is_down = event.shiftKey;
 
-    if (control_command_is_down && event.key.toLowerCase() === "s") {
+    if (control_or_command_is_down && shift_is_down && event.key === "s") {
         event.preventDefault();
         definition_download();
     }
