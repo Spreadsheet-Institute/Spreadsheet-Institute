@@ -23,12 +23,18 @@ hljs.configure({
 });
 
 const bindings = {
-    saveDefinition: {
+    saveDefinitionPC: {
         key: "S",
         shiftKey: true,
         ctrlKey: true,
         handler: definition_download
-    }
+    },
+    saveDefinitionMac: {
+        key: "S",
+        shiftKey: true,
+        metaKey: true,
+        handler: definition_download
+    },
 }
 
 // Quill.js editor initialization options
