@@ -19,9 +19,11 @@
     <span class="constant">"{1}% of {2} is {3}."</span>,
     <span class="constant">10</span>,
     <span class="constant">20</span>,
-    <a href="../PERCENTOF/">PERCENTOF</a>,
-        <span class="constant">10</span>,
-        <span class="constant">20</span>)
+    PRODUCT(
+        <span class="constant">20</span>,
+        <a href="../RATIO/">RATIO</a>(
+            <span class="constant">10</span>,
+            <span class="constant">100</span>)))
 -> <span class="constant">"10% of 20 is 2."</span>
         </pre>
         <br>
