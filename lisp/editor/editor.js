@@ -22,7 +22,7 @@ hljs.configure({
     languages: ["wren"]
 });
 
-const bindings = {
+const keybindings = {
     saveDefinitionPC: {
         key: "S",
         shiftKey: true,
@@ -43,7 +43,7 @@ const options = {
         toolbar: false,
         syntax: true,
         keyboard: {
-            bindings: bindings
+            bindings: keybindings
         }
     },
     theme: "snow"
@@ -55,5 +55,6 @@ quill.setText("DEFINE(\n\tIDENTITY,\n\tLAMBDA(\n\t\tx,\n\t\tx))");
 quill.formatText(0, quill.getLength(), "size", "30px");
 quill.focus();
 quill.setSelection(quill.getLength()-3);
+quill.root.setAttribute("spellcheck", "false");
 
 // const Delta = Quill.import("delta");
