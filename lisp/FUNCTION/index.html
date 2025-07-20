@@ -16,7 +16,7 @@
 -> <a href="../FUNCTION/">FUNCTION</a>
 
 =<a href="../FUNCTION/">FUNCTION</a>(<span class="constant">"INCREMENT"</span>)
--> <a href="../INCREMENT/">INCREMENT</a>()
+-> <a href="../INCREMENT/">INCREMENT</a>
 
 =<a href="../APPLY/">APPLY</a>(<a href="../FUNCTION/">FUNCTION</a>(<span class="constant">"INCREMENT"</span>), <span class="constant">1</span>)
 -> <span class="constant">2</span>
@@ -30,7 +30,7 @@ DEFINE(
     LAMBDA(
         [<span class="variable">name</span>],
         VLOOKUP(
-            UPPER(<a href="../DEFAULT/">DEFAULT</a>(<span class="variable">name</span>, <span class="constant">"FUNCTION"</span>)),
+            <a href="../DEFAULT/">DEFAULT</a>(<span class="variable">name</span>, <span class="constant">"FUNCTION"</span>),
             <a href="../FUNCTIONS/">FUNCTIONS</a>(),
             <span class="constant">2</span>,
             <span class="constant">0</span>)))

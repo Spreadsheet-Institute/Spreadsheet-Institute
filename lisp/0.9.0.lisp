@@ -134,7 +134,7 @@ DEFINE(FORMAT,LAMBDA(template_text,first_value,[second_value],[third_value],[fou
 
 DEFINE(FULLDECK,LAMBDA([vertical],LET(full_deck,HSTACK({"AS","KS","QS","JS","XS","9S","8S","7S","6S","5S","4S","3S","2S"},{"AH","KH","QH","JH","XH","9H","8H","7H","6H","5H","4H","3H","2H"},{"AD","KD","QD","JD","XD","9D","8D","7D","6D","5D","4D","3D","2D"},{"AC","KC","QC","JC","XC","9C","8C","7C","6C","5C","4C","3C","2C"}),IF(DEFAULT(vertical,FALSE),TRANSPOSE(full_deck),full_deck))))
 
-DEFINE(FUNCTION,LAMBDA([name],VLOOKUP(UPPER(DEFAULT(name, "FUNCTION")),FUNCTIONS(),2,0)))
+DEFINE(FUNCTION,LAMBDA([name],VLOOKUP(DEFAULT(name,"FUNCTION"),FUNCTIONS(),2,0)))
 
 DEFINE(FUNCTIONS,LAMBDA(SORT(VSTACK(BUILTINS(),SL()))))
 
