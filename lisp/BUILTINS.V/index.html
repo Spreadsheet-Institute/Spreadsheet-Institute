@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: BUILTINS.V</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../BUILTINS%2EV/">BUILTINS.V</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../BUILTINS%2EV/">BUILTINS.V</a>()
+-> {<span class="constant">"VALUE"</span>,VALUE;<span class="constant">"VALUETOTEXT"</span>,VALUETOTEXT;...}
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../BUILTINS%2EV/">BUILTINS.V</a>,
+    LAMBDA(
+        VSTACK(
+            HSTACK("VALUE", VALUE),
+            HSTACK("VALUETOTEXT", VALUETOTEXT),
+            HSTACK("VAR", VAR),
+            HSTACK("VAR.P", VAR.P),
+            HSTACK("VAR.S", VAR.S),
+            HSTACK("VARA", VARA),
+            HSTACK("VARP", VARP),
+            HSTACK("VARPA", VARPA),
+            HSTACK("VDB", VDB),
+            HSTACK("VLOOKUP", VLOOKUP),
+            HSTACK("VSTACK", VSTACK))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/BUILTINS%2EV/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

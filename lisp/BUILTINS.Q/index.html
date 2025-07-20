@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: BUILTINS.Q</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../BUILTINS%2EQ/">BUILTINS.Q</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../BUILTINS%2EQ/">BUILTINS.Q</a>()
+-> {<span class="constant">"QUARTILE"</span>,QUARTILE;<span class="constant">"QUARTILE.EXC"</span>,QUARTILE.EXC;...}
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../BUILTINS%2EQ/">BUILTINS.Q</a>,
+    LAMBDA(
+        VSTACK(
+            HSTACK("QUARTILE", QUARTILE),
+            HSTACK("QUARTILE.EXC", QUARTILE.EXC),
+            HSTACK("QUARTILE.INC", QUARTILE.INC),
+            HSTACK("QUOTIENT", QUOTIENT))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/BUILTINS%2EQ/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

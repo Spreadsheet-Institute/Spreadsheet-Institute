@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: BUILTINS.O</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../BUILTINS%2EO/">BUILTINS.O</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../BUILTINS%2EO/">BUILTINS.O</a>()
+-> {<span class="constant">"OCT2BIN"</span>,OCT2BIN;<span class="constant">"OCT2DEC"</span>,OCT2DEC;...}
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../BUILTINS%2EO/">BUILTINS.O</a>,
+    LAMBDA(
+        VSTACK(
+            HSTACK("OCT2BIN", OCT2BIN),
+            HSTACK("OCT2DEC", OCT2DEC),
+            HSTACK("OCT2HEX", OCT2HEX),
+            HSTACK("ODD", ODD),
+            HSTACK("ODDFPRICE", ODDFPRICE),
+            HSTACK("ODDFYIELD", ODDFYIELD),
+            HSTACK("ODDLPRICE", ODDLPRICE),
+            HSTACK("ODDLYIELD", ODDLYIELD),
+            HSTACK("OFFSET", OFFSET),
+            HSTACK("OR", OR))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/BUILTINS%2EO/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
