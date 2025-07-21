@@ -43,7 +43,9 @@ DEFINE(
                 <a href="../TRIMALL/">TRIMALL</a>(
                     REGEXEXTRACT(
                         <span class="variable">matches</span>,
-                        <a href="../FORMAT/">FORMAT</a>(<span class="constant">"^(.+) is {1}\.$"</span>, <span class="variable">_1</span>),
+                        <a href="../FORMAT/">FORMAT</a>(
+                            <span class="constant">"^(.+) is {1}\.$"</span>,
+                            <span class="variable">_1</span>),
                         <span class="constant">2</span>))))))
         </pre>
         <br>
