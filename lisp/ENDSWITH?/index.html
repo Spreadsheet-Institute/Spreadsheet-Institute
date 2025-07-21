@@ -27,11 +27,11 @@ DEFINE(
     LAMBDA(
         <span class="variable">text</span>,
         <span class="variable">ending</span>,
-        [<span class="variable">case_sensitive?</span>],
+        [<span class="variable">case_insensitive?</span>],
         REGEXTEST(
             <span class="variable">text</span>,
             <a href="../FORMAT/">FORMAT</a>(<span class="constant">"{1}$"</span>, <span class="variable">ending</span>),
-            <a href="../DEFAULT/">DEFAULT</a>(<span class="variable">case_sensitive?</span>, <span class="constant">FALSE</span>))))
+            <a href="../DEFAULT/">DEFAULT</a>(<span class="variable">case_insensitive?</span>, <span class="constant">YES</span>))))
         </pre>
         <br>
         <hr>

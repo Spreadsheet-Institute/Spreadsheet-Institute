@@ -18,7 +18,7 @@ DEFINE(ARITY,LAMBDA([_arg1], [_arg2], [_arg3], [_arg4], [_arg5],[_arg6], [_arg7]
 
 DEFINE(ASSERT,LAMBDA(condition,[message],IF(condition,TRUE,DEFAULT(message,"Assertion failed"))))
 
-DEFINE(BEGINSWITH?,LAMBDA(text,beginning,[case_insensitive?],REGEXTEST(text,FORMAT("^{1}",beginning),DEFAULT(case_insensitive?,TRUE))))
+DEFINE(BEGINSWITH?,LAMBDA(text,beginning,[case_insensitive?],REGEXTEST(text,FORMAT("^{1}",beginning),DEFAULT(case_insensitive?,YES))))
 
 DEFINE(BUILTINS,LAMBDA(VSTACK(BUILTINS.A(),BUILTINS.B(),BUILTINS.C(),BUILTINS.D(),BUILTINS.E(),BUILTINS.F(),BUILTINS.G(),BUILTINS.H(),BUILTINS.I(),BUILTINS.K(),BUILTINS.L(),BUILTINS.M(),BUILTINS.N(),BUILTINS.O(),BUILTINS.P(),BUILTINS.Q(),BUILTINS.R(),BUILTINS.S(),BUILTINS.T(),BUILTINS.U(),BUILTINS.V(),BUILTINS.W(),BUILTINS.X(),BUILTINS.Y(),BUILTINS.Z())))
 
@@ -110,7 +110,7 @@ DEFINE(DIFFERENCE,LAMBDA(minuend,subtrahend,minuend-subtrahend))
 
 DEFINE(EMPTYLIST?,LAMBDA(input,LET(occupied_cells,COUNTA(input),blank_cells,COUNTBLANK(input),IF(ONE?(SUM(occupied_cells,blank_cells)),OR(ISBLANK(input),EQUAL(input,"()"),NO)))))
 
-DEFINE(ENDSWITH?,LAMBDA(text,ending,[case_sensitive?],REGEXTEST(text,FORMAT("{1}$", ending),DEFAULT(case_sensitive?, FALSE))))
+DEFINE(ENDSWITH?,LAMBDA(text,ending,[case_insensitive?],REGEXTEST(text,FORMAT("{1}$", ending),DEFAULT(case_insensitive?, YES))))
 
 DEFINE(EQUAL,LAMBDA(a,b,a=b))
 
