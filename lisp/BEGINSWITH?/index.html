@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: BEGINSWITH?</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../BEGINSWITH%3F/">BEGINSWITH?</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../BEGINSWITH%3F/">BEGINSWITH?</a>(<span class="constant">"Spreadsheet"</span>, <span class="constant">"t"</span>)
+-> <span class="constant">FALSE</span>
+
+=<a href="../BEGINSWITH%3F/">BEGINSWITH?</a>(<span class="constant">"Sophroniscus is a sculptor."</span>, <span class="constant">"Sophroniscus"</span>)
+-> <span class="constant">TRUE</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../BEGINSWITH%3F/">BEGINSWITH?</a>,
+    LAMBDA(
+        <span class="variable">text</span>,
+        <span class="variable">beginning</span>,
+        [<span class="variable">case_insensitive?</span>],
+        REGEXTEST(
+            <span class="variable">text</span>,
+            <a href="../FORMAT/">FORMAT</a>(<span class="constant">"^{1}"</span>, <span class="variable">beginning</span>),
+            <a href="../DEFAULT/">DEFAULT</a>(<span class="variable">case_insensitive?</span>, <span class="constant">TRUE</span>))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/ENDSWITH%3F/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
