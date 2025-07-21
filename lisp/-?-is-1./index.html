@@ -24,9 +24,18 @@
 DEFINE(
     <a href="../-%3F-is-1%2E/">_?_is_1.</a>,
     LAMBDA(
-        <span class="variable">_1</span>,
-        <span class="variable">knowledgebase</span>,
-        TODO("Search knowledgebase for existential predicate (_1) and return all matching subjects")))
+        _1,
+        knowledgebase,
+        LET(
+            predicate,
+                FORMAT(
+                    "is {1}.",
+                    _1),
+            FILTER(
+                knowledgebase,
+                LAMBDA()
+            )
+        )
         </pre>
         <br>
         <hr>

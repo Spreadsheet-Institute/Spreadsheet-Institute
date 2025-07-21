@@ -108,6 +108,8 @@ DEFINE(DIFFERENCE,LAMBDA(minuend,subtrahend,minuend-subtrahend))
 
 DEFINE(EMPTYLIST?,LAMBDA(input,LET(occupied_cells,COUNTA(input),blank_cells,COUNTBLANK(input),IF(ONE?(SUM(occupied_cells,blank_cells)),OR(ISBLANK(input),EQUAL(input,"()"),NO)))))
 
+DEFINE(ENDSWITH?,LAMBDA(text,ending,[case_sensitive?],REGEXTEST(text,FORMAT("{1}$", ending),DEFAULT(case_sensitive?, FALSE))))
+
 DEFINE(EQUAL,LAMBDA(a,b,a=b))
 
 DEFINE(EXTRACTOPERATOR,LAMBDA(condition_string,IFS(ISNUMBER(FIND("<>", condition_string)),HSTACK("<>", NOTEQUAL),ISNUMBER(FIND("<=", condition_string)),HSTACK("<=", LTE),ISNUMBER(FIND(">=", condition_string)),HSTACK(">=", GTE),ISNUMBER(FIND("<", condition_string)),HSTACK("<", LESSTHAN),ISNUMBER(FIND(">", condition_string)),HSTACK(">", GREATERTHAN),ISNUMBER(FIND("!=", condition_string)),HSTACK("!=", NOTEQUAL),ISNUMBER(FIND("=", condition_string)),HSTACK("=", EQUAL),OTHERWISE,NA())))
