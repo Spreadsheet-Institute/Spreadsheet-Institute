@@ -24,18 +24,27 @@
 DEFINE(
     <a href="../-%3F-is-1%2E/">_?_is_1.</a>,
     LAMBDA(
-        _1,
-        knowledgebase,
+        <span class="variable">_1</span>,
+        <span class="variable">knowledgebase</span>,
         LET(
-            predicate,
-                FORMAT(
-                    "is {1}.",
-                    _1),
-            FILTER(
-                knowledgebase,
-                LAMBDA()
-            )
-        )
+            <span class="variable">predicate</span>,
+                <a href="../FORMAT/">FORMAT</a>(<span class="constant">"is {1}."</span>, <span class="variable">_1</span>),
+            <span class="variable">knowledgecolumn</span>,
+                TOCOL(<span class="variable">knowledgebase</span>),
+            <span class="variable">matches</span>,
+                FILTER(
+                    <span class="variable">knowledgecolumn</span>,
+                    <a href="../ENDSWITH%3F/">ENDSWITH?</a>(
+                        <span class="variable">knowledgecolumn</span>,
+                        <span class="variable">predicate</span>)),
+            IF(
+                ISERROR(<span class="variable">matches</span>),
+                <span class="constant">FALSE</span>,
+                <a href="../TRIMALL/">TRIMALL</a>(
+                    REGEXEXTRACT(
+                        <span class="variable">matches</span>,
+                        <a href="../FORMAT/">FORMAT</a>(<span class="constant">"^(.+) is {1}\.$"</span>, <span class="variable">_1</span>),
+                        <span class="constant">2</span>))))))
         </pre>
         <br>
         <hr>
