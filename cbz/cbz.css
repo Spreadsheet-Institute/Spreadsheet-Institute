@@ -10,13 +10,15 @@ body {
     
     font-family: "Inconsolata", monospace;
     font-optical-sizing: auto;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-style: normal;
 
-    padding-top: 2vh;
-    padding-left: 2vw;
-    padding-right: 2vw;
-    padding-bottom: 2vh;
+    padding-top: 1vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 1vh;
+
+    border: 1px solid #FFFFFF;
 }
 
 a {
@@ -42,4 +44,15 @@ a {
 
 pre {
     overflow-x: auto;
+}
+
+.cli {
+    width: 100%;
+
+    background-color: #000000;
+    color: #FFFFFF;
+
+    border: 0;
+    margin: 0;
+    padding: 0;
 }
