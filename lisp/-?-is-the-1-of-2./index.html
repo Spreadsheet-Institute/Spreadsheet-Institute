@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: _?_is_the_1_of_2.</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../-%3F-is-the-1-of-2%2E/">_?_is_the_1_of_2.</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+A1="Women is the plural of woman."
+A2="Up is the opposite of down."
+A3="Cain is the brother of Abel."
+
+=<a href="../-%3F-is-the-1-of-2%2E/">_?_is_the_1_of_2.</a>("plural", "woman", A1:A3)
+-> "Woman"
+
+=<a href="../-%3F-is-the-1-of-2%2E/">_?_is_the_1_of_2.</a>("opposite", "down", A1:A3)
+-> "Up"
+
+=<a href="../-%3F-is-the-1-of-2%2E/">_?_is_the_1_of_2.</a>("brother", "Abel", A1:A3)
+-> "Cain"
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../-%3F-is-the-1-of-2%2E/">_?_is_the_1_of_2.</a>,
+    LAMBDA(
+        _1,
+        _2,
+        knowledgebase,
+        LET(
+            predicate,
+                FORMAT(
+                    "is the {1} of {2}.",
+                    _1,
+                    _2),
+            knowledgecolumn,
+                TOCOL(knowledgebase),
+            matches,
+                FILTER(
+                    knowledgecolumn,
+                    ENDSWITH?(
+                        knowledgecolumn,
+                        predicate)),
+            IF(
+                ISERROR(matches),
+                FALSE,
+                TRIMALL(
+                    REGEXEXTRACT(
+                        matches,
+                        FORMAT(
+                            "^(.+) is the {1} of {2}\.$",
+                            _1),
+                            _2),
+                        2)))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/-1-is-the-2-of-3%2E/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

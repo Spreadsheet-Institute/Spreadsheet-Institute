@@ -12,11 +12,14 @@
         <hr>
         <br>
         <pre>
-=<a href="../-1-is-the-2-of-3%2E/">_1_is_the_2_of_3.</a>(<span class="constant">"men"</span>, <span class="constant">"plural", <span class="constant">"man"</span>)
--> <span class="constant">"Men is the plural of man."</span>
+=<a href="../-1-is-the-2-of-3%2E/">_1_is_the_2_of_3.</a>(<span class="constant">"women"</span>, <span class="constant">"plural", <span class="constant">"woman"</span>)
+-> <span class="constant">"Women is the plural of woman."</span>
 
 =<a href="../-1-is-the-2-of-3%2E/">_1_is_the_2_of_3.</a>(<span class="constant">"up"</span>, <span class="constant">"opposite"</span>, <span class="constant">"down"</span>)
 -> <span class="constant">"Up is the opposite of down."</span>
+
+=<a href="../-1-is-the-2-of-3%2E/">_1_is_the_2_of_3.</a>(<span class="constant">"Abraham"</span>, <span class="constant">"father"</span>, <span class="constant">"Isaac"</span>)
+-> <span class="constant">"Abraham is the father of Isaac."</span>
         </pre>
         <br>
         <hr>
@@ -30,9 +33,9 @@ DEFINE(
         <span class="variable">_2</span>,
         <a href="../FORMAT/">FORMAT</a>(
             <span class="constant">"{1} is the {2} of {3}."</span>,
-            <a href="../CAPITALIZE/">CAPITALIZE</a>(<span class="variable">_1</span>,
+            <a href="../CAPITALIZE/">CAPITALIZE</a>(<span class="variable">_1</span>),
             <span class="variable">_2</span>,
-            <span class="variable">_3</span>))))
+            <span class="variable">_3</span>)))
         </pre>
         <br>
         <hr>

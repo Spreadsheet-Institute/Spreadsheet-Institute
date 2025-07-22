@@ -1,8 +1,12 @@
 DEFINE(_?_is_1.,LAMBDA(_1,knowledgebase,LET(predicate,FORMAT("is {1}.", _1),knowledgecolumn,TOCOL(knowledgebase),matches,FILTER(knowledgecolumn,ENDSWITH?(knowledgecolumn,predicate)),IF(ISERROR(matches),FALSE,TRIMALL(REGEXEXTRACT(matches,FORMAT("^(.+) is {1}\.$", _1),2))))))
 
+DEFINE(_?_is_the_1_of_2.,LAMBDA(_1,_2,knowledgebase,LET(predicate,FORMAT("is the {1} of {2}.",_1,_2),knowledgecolumn,TOCOL(knowledgebase),matches,FILTER(knowledgecolumn,ENDSWITH?(knowledgecolumn,predicate)),IF(ISERROR(matches),FALSE,TRIMALL(REGEXEXTRACT(matches,FORMAT("^(.+) is the {1} of {2}\.$",_1),_2),2)))))
+
 DEFINE(_1_are_2.,LAMBDA(_1,_2,FORMAT("{1} are {2}.",CAPITALIZE(_1),_2)))
 
 DEFINE(_1_is_2.,LAMBDA(_1,_2,FORMAT("{1} is {2}.",CAPITALIZE(_1),_2)))
+
+DEFINE(_1_is_the_2_of_3.,LAMBDA(_1,_2,_3,FORMAT("{1} is the {2} of {3}.",CAPITALIZE(_1),_2,_3)))
 
 DEFINE(_1_is_not_2.,LAMBDA(_1,_2,FORMAT("{1} is not {2}.",CAPITALIZE(_1),_2)))
 
