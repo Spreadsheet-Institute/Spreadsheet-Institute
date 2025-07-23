@@ -12,18 +12,18 @@
         <hr>
         <br>
         <pre>
-A1="Women is the plural of woman."
-A2="Up is the opposite of down."
-A3="Cain is the brother of Abel."
+<span class="variable">A1</span>=<span class="constant">"Women is the plural of woman."</span>
+<span class="variable">A2</span>=<span class="constant">"Up is the opposite of down."</span>
+<span class="variable">A3</span>=<span class="constant">"Cain is the brother of Abel."</span>
 
-=<a href="../-%3F-is-the-1-of-2%2E/">_?_is_the_1_of_2.</a>("plural", "woman", A1:A3)
--> "Woman"
+=<a href="../-%3F-is-the-1-of-2%2E/">_?_is_the_1_of_2.</a>(<span class="constant">"plural"</span>, <span class="constant">"woman"</span>, <span class="variable">A1:A3</span>)
+-> <span class="constant">"Woman"</span>
 
-=<a href="../-%3F-is-the-1-of-2%2E/">_?_is_the_1_of_2.</a>("opposite", "down", A1:A3)
--> "Up"
+=<a href="../-%3F-is-the-1-of-2%2E/">_?_is_the_1_of_2.</a>(<span class="constant">"opposite"</span>, <span class="constant">"down"</span>, <span class="variable">A1:A3</span>)
+-> <span class="constant">"Up"</span>
 
-=<a href="../-%3F-is-the-1-of-2%2E/">_?_is_the_1_of_2.</a>("brother", "Abel", A1:A3)
--> "Cain"
+=<a href="../-%3F-is-the-1-of-2%2E/">_?_is_the_1_of_2.</a>(<span class="constant">"brother"</span>, <span class="constant">"Abel"</span>, <span class="variable">A1:A3</span>)
+-> <span class="constant">"Cain"</span>
         </pre>
         <br>
         <hr>
@@ -32,39 +32,39 @@ A3="Cain is the brother of Abel."
 DEFINE(
     <a href="../-%3F-is-the-1-of-2%2E/">_?_is_the_1_of_2.</a>,
     LAMBDA(
-        _1,
-        _2,
-        knowledgebase,
+        <span class="variable">_1</span>,
+        <span class="variable">_2</span>,
+        <span class="variable">knowledgebase</span>,
         LET(
-            predicate,
-                FORMAT(
-                    "is the {1} of {2}.",
-                    _1,
-                    _2),
-            knowledgecolumn,
-                TOCOL(knowledgebase),
-            matches,
+            <span class="variable">predicate</span>,
+                <a href="../FORMAT/">FORMAT</a>(
+                    <span class="constant">"is the {1} of {2}."</span>,
+                    <span class="variable">_1</span>,
+                    <span class="variable">_2</span>),
+            <span class="variable">knowledgecolumn</span>,
+                TOCOL(<span class="variable">knowledgebase</span>),
+            <span class="variable">matches</span>,
                 FILTER(
-                    knowledgecolumn,
-                    ENDSWITH?(
-                        knowledgecolumn,
-                        predicate)),
+                    <span class="variable">knowledgecolumn</span>,
+                    <a href="../ENDSWITH%3F/">ENDSWITH</a>(
+                        <span class="variable">knowledgecolumn</span>,
+                        <span class="variable">predicate</span>)),
             IF(
-                ISERROR(matches),
-                FALSE,
-                TRIMALL(
+                ISERROR(<span class="variable">matches</span>),
+                <span class="constant">FALSE</span>,
+                <a href="../TRIMALL/">TRIMALL</a>(
                     REGEXEXTRACT(
-                        matches,
-                        FORMAT(
-                            "^(.+) is the {1} of {2}\.$",
-                            _1),
-                            _2),
-                        2)))))
+                        <span class="variable">matches</span>,
+                        <a href="../FORMAT/">FORMAT</a>(
+                            <span class="constant">"^(.+) is the {1} of {2}\.$"</span>,
+                            <span class="variable">_1</span>,
+                            <span class="variable">_2</span>),
+                        <span class="constant">2</span>))))))
         </pre>
         <br>
         <hr>
         <br>
-        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/-1-is-the-2-of-3%2E/index.html">optimize this function</a></p>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/-%3F-is-the-1-of-2%2E/index.html">optimize this function</a></p>
         <br>
     </body>
 </html>
