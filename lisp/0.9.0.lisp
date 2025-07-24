@@ -6,6 +6,8 @@ DEFINE(_1_is_the_2_of_?.,LAMBDA(_1,_2,knowledgebase,LET(fragment,FORMAT("{1} is 
 
 DEFINE(_1_are_2.,LAMBDA(_1,_2,FORMAT("{1} are {2}.",CAPITALIZE(_1),_2)))
 
+DEFINE(_1_is_?.,LAMBDA(_1,knowledgebase,LET(fragment,FORMAT("{1} is ",_1),knowledgecolumn,TOCOL(knowledgebase),matches,FILTER(knowledgecolumn,BEGINSWITH?(knowledgecolumn,fragment)),IF(ISERROR(matches),FALSE,TRIMALL(REGEXEXTRACT(matches,FORMAT("^{1} is (.+)\.$",_1),2))))))
+
 DEFINE(_1_is_2.,LAMBDA(_1,_2,FORMAT("{1} is {2}.",CAPITALIZE(_1),_2)))
 
 DEFINE(_1_is_the_2_of_3.,LAMBDA(_1,_2,_3,FORMAT("{1} is the {2} of {3}.",CAPITALIZE(_1),_2,_3)))
@@ -16,7 +18,7 @@ DEFINE(_All_?_are_1.,LAMBDA(_1,knowledgebase,LET(predicate,FORMAT(" are {1}.",_1
 
 DEFINE(_All_1_are_?.,LAMBDA(_1,knowledgebase,LET(fragment,FORMAT("All {1} are ",_1),knowledgecolumn,TOCOL(knowledgebase),matches,FILTER(knowledgecolumn,BEGINSWITH?(knowledgecolumn,fragment)),IF(ISERROR(matches),FALSE,TRIMALL(REGEXEXTRACT(matches,FORMAT("^All {1} are (.+)\.$",_1),2))))))
 
-DEFINE(_Is_1_2?,LAMBDA(_1,_2,knowledgebase,LET(affirmation,CONTAINS(knowledgebase,FORMAT("{1} is {2}.",CAPITALIZE(_1),_2)),negation,CONTAINS(knowledgebase,FORMAT("{1} is not {2}.",CAPITALIZE(_1),_2)),template,IFS(AND(affirmation,negation),"Yes and no. {1} simultaneously is and is not {2}.",affirmation,"Yes. {1} is {2}.",negation,"No. {1} is not {2}.",OTHERWISE,"Unknown."),FORMAT(template,CAPITALIZE(_1),_2))))
+DEFINE(_Is_1_2?,LAMBDA(_1,_2,knowledgebase,LET(knowledgecolumn,TOCOL(knowledgebase),affirmation,OR(CONTAINS(knowledgecolumn,FORMAT("{1} is {2}.",CAPITALIZE(_1),_2)),NOTERROR?(MATCH(_?_is_the_1_of_2.("plural",TEXTAFTER(_1_is_?.(_1, knowledgecolumn)," "),knowledgecolumn),_All_?_are_1.(_2, knowledgecolumn)))),negation,CONTAINS(knowledgecolumn,FORMAT("{1} is not {2}.",CAPITALIZE(_1),_2)),template,IFS(AND(affirmation,negation),"Yes and no. {1} simultaneously is and is not {2}.",affirmation,"Yes. {1} is {2}.",negation,"No. {1} is not {2}.",OTHERWISE,"Unknown."),FORMAT(template,CAPITALIZE(_1),_2))))
 
 DEFINE(ALL,LAMBDA(truth_values,AND(truth_values)))
 
@@ -199,6 +201,8 @@ DEFINE(NEGATIVE?,LAMBDA(x,LESSTHAN?(x,0)))
 DEFINE(NO,FALSE)
 
 DEFINE(NOTEQUAL,LAMBDA(a,b,NOT(EQUAL(a,b))))
+
+DEFINE(NOTERROR?,LAMBDA(value,NOT(ISERROR(value))))
 
 DEFINE(ONE?,LAMBDA(x,EQUAL(x,1)))
 

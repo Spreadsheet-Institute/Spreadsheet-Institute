@@ -39,16 +39,28 @@ DEFINE(
         <span class="variable">_2</span>,
         <span class="variable">knowledgebase</span>,
         LET(
+            <span class="variable">knowledgecolumn</span>,
+                TOCOL(<span class="variable">knowledgebase</span>),
             <span class="variable">affirmation</span>,
-                <a href="../CONTAINS/">CONTAINS</a>(
-                    <span class="variable">knowledgebase</span>,
-                    <a href="../FORMAT/">FORMAT</a>(
-                        <span class="constant">"{1} is {2}."</span>,
-                        <a href="../CAPITALIZE/">CAPITALIZE</a>(<span class="variable">_1</span>),
-                        <span class="variable">_2</span>)),
+                OR(
+                    <a href="../CONTAINS/">CONTAINS</a>(
+                        <span class="variable">knowledgecolumn</span>,
+                        <a href="../FORMAT/">FORMAT</a>(
+                            <span class="constant">"{1} is {2}."</span>,
+                            <a href="../CAPITALIZE/">CAPITALIZE</a>(<span class="variable">_1</span>),
+                            <span class="variable">_2</span>)),
+                    <a href="../NOTERROR%3F/">NOTERROR?</a>(
+                        MATCH(
+                            <a href="../-%3F-is-the-1-of-2%2E/">_?_is_the_1_of_2.</a>(
+                                <span class="constant">"plural"</span>,
+                                TEXTAFTER(
+                                    <a href="../-1-is-%3F%2E/">_1_is_?.</a>(<span class="variable">_1</span>, <span class="variable">knowledgecolumn</span>),
+                                    <span class="constant">" "</span>),
+                                <span class="variable">knowledgecolumn</span>),
+                            <a href="../-All-%3F-are-1%2E/">_All_?_are_1.</a>(<span class="variable">_2</span>, <span class="variable">knowledgecolumn</span>)))),
             <span class="variable">negation</span>,
                 <a href="../CONTAINS/">CONTAINS</a>(
-                    <span class="variable">knowledgebase</span>,
+                    <span class="variable">knowledgecolumn</span>,
                     <a href="../FORMAT/">FORMAT</a>(
                         <span class="constant">"{1} is not {2}."</span>,
                         <a href="../CAPITALIZE/">CAPITALIZE</a>(<span class="variable">_1</span>),
