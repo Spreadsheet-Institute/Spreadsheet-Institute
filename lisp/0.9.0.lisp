@@ -248,6 +248,8 @@ DEFINE(TEXTTOCOLUMNS,LAMBDA(text,delimiter,TEXTSPLIT(text,delimiter)))
 
 DEFINE(TEXTTOROWS,LAMBDA(text,delimiter,TRANSPOSE(TEXTSPLIT(text,delimiter))))
 
+DEFINE(TODO,LAMBDA(description,description))
+
 DEFINE(TRIMALL,LAMBDA(range,MAKEARRAY(ROWS(range),COLUMNS(range),LAMBDA(row,col,TRIM(INDEX(range,row,col))))))
 
 DEFINE(TRIMSPLIT,LAMBDA(source_text,split_at,[display_vertically],LET(result,TRIMALL(TEXTSPLIT(source_text,split_at)),IF(DEFAULT(display_vertically,FALSE),TRANSPOSE(result),result))))
