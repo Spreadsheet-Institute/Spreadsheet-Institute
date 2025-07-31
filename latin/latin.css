@@ -45,7 +45,7 @@ pre {
     overflow-x: auto;
 }
 
-.io-textbox {
+.io-textarea {
     width: 90vw;
     height: 30vh;
     display: block;
