@@ -7,7 +7,7 @@
 
 (define
     (introitus)
-    (let ((input (input-textarea-element)))
-        (input.value)))
+    (let ((textarea (input-textarea-element)))
+        (textarea.value)))
 
 (console.log (introitus))
