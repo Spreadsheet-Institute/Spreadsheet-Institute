@@ -1,5 +1,5 @@
-(set! self.greet (lambda () "Salve Mundi"))
-; (console.log (greet))
+(set! self.saluto (lambda () "Salve Mundi"))
+; (console.log (saluto))
 
 (define
     (input-textarea-element)
