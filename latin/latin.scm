@@ -8,6 +8,6 @@
 (define
     (introitus)
     (let ((textarea (input-textarea-element)))
-        (textarea.value)))
+        textarea.value))
 
 (console.log (introitus))
