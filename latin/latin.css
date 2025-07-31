@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+
+.centered {
+    text-align: center;
+}
+
+body,
+.io-textbox {
+    background-color: #000000;
+    color: #FFFFFF;
+    
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-size: 1.25rem;
+    font-style: normal;
+
+    padding-top: 1vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 1vh;
+}
+
+a {
+    color: #FF69B4;
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+.constant {
+    color: #00FFFF;
+
+    font-style: italic;
+    font-weight: bold;
+}
+
+.variable {
+    color: #FFFFFF;
+
+    font-style: italic;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+.io-textbox {
+    width: 98vw;
+    height: 48vh;
+    display: block;
+}
