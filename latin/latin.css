@@ -45,8 +45,16 @@ pre {
     overflow-x: auto;
 }
 
-.io-textarea {
+#input-textarea {
     width: 90vw;
     height: 30vh;
     display: block;
+    font-weight: bold;
+}
+
+#output-textarea {
+    width: 90vw;
+    height: 30vh;
+    display: block;
+    font-style: italic;
 }
