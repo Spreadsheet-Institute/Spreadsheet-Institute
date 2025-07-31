@@ -1,5 +1,11 @@
+;;; latin.scm
+
 (set! self.saluto (lambda () "Salve Mundi"))
 ; (console.log (saluto))
+
+(define
+    (consolor consolamen)
+    (console.log consolamen))
 
 (define
     (input-textarea-element)
@@ -10,4 +16,4 @@
     (let ((textarea (input-textarea-element)))
         textarea.value))
 
-(console.log (introitus))
+(consolor (introitus))
