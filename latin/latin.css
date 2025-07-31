@@ -45,6 +45,11 @@ pre {
     overflow-x: auto;
 }
 
+textarea::selection {
+    background-color: #FF69B4;
+    color: #000000;
+}
+
 #input-textarea {
     width: 90vw;
     height: 30vh;
