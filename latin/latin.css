@@ -47,7 +47,7 @@ pre {
 
 textarea::selection {
     background-color: #FF69B4;
-    color: #000000;
+    color: #000000!important;
 }
 
 #input-textarea {
