@@ -9,12 +9,14 @@
         <br>
         <p>Latin Lisp (<a href="">I</a>) est interpretor litterarum Latinarum in <a href="https://lips.js.org/">LIPS</a>:</p>
         <br>
-        <textarea class="io-textbox" id="input-text"></textarea>
+        <textarea class="io-textbox" id="input-text" spellcheck="false"></textarea>
         <br>
-        <textarea class="io-textbox" id="output-text"></textarea>
+        <textarea class="io-textbox" id="output-text" spellcheck="false"></textarea>
         <br>
         <hr>
-        <script src="https://cdn.jsdelivr.net/npm/lips@beta/dist/lips.min.js" bootstrap></script>
+        <script src="https://cdn.jsdelivr.net/npm/lips@beta/dist/lips.min.js"
+                bootstrap="https://cdn.jsdelivr.net/npm/lips@beta/dist/std.xcb">
+        </script>
         <script type="text/x-scheme" bootstrap src="./latin.scm"></script>
         <script>
             console.log(latin());
