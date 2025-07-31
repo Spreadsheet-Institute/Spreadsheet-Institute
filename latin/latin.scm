@@ -10,4 +10,4 @@
     (let ((input (input-textarea-element)))
         (input.value)))
 
-(console.log (input-text))
+(console.log (introitus))
