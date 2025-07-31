@@ -1,3 +1,3 @@
 (set! self.greet (lambda () "Salve Mundi"))
 
-(greet)
+(console.log (greet))

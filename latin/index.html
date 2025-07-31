@@ -8,14 +8,14 @@
         <h1>S.<a href="/">I</a>/latin/</h1>
         <p>Latin Lisp <a href="">I</a> (<span class="constant">"unum"</span>) est interpretor litterarum Latinarum in <a target="_blank" href="https://lips.js.org/">LIPS</a>:</p>
         <br>
-        <textarea class="io-textarea" id="input-textarea" spellcheck="false"></textarea>
+        <textarea class="io-textarea" id="input-textarea" spellcheck="false">Lorem ipsum dolor sit amet.</textarea>
         <br>
         <textarea class="io-textarea" id="output-textarea" spellcheck="false"></textarea>
         <br>        
         <script src="https://cdn.jsdelivr.net/npm/lips@beta/dist/lips.min.js" bootstrap="https://cdn.jsdelivr.net/npm/lips@beta/dist/std.xcb"></script>
         <script type="text/x-scheme" src="./latin.scm"></script>
         <script type="text/javascript">
-            document.getElementById('input-textarea').focus();
+            document.getElementById('input-textarea').setSelectionRange(27, 27);
         </script>
         <script>
         </script>
