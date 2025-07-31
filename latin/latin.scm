@@ -6,8 +6,8 @@
     (document.getElementById "input-textarea"))
 
 (define
-    (input-text)
-    (let ((input-textarea (input-textarea-element)))
-        (input-textarea.value)))
+    (introitus)
+    (let ((input (input-textarea-element)))
+        (input.value)))
 
 (console.log (input-text))
