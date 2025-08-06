@@ -27,6 +27,10 @@
 (consolor! (sententias.))
 
 (define
+    (nihil? magnitudo)
+    (par? 0 magnitudo))
+
+(define
     (unum? magnitudo)
     (par? 1 magnitudo))
 
