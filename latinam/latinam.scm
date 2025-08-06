@@ -21,7 +21,7 @@
 
 (define
     (sententias.)
-    (let ((textarea (elementum "input-textarea")))
+    (let ((textarea (elementum. "input-textarea")))
         textarea.value))
 
 (consolor! (sententias.))
