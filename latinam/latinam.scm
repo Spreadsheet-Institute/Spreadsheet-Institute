@@ -9,7 +9,7 @@
 
 (define
     (par valoroI valoroII)
-    (= valoroI valoroII)
+    (= valoroI valoroII))
 
 (define
     (elementum. identitatis)
