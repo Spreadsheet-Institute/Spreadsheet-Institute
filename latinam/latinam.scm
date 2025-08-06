@@ -28,6 +28,6 @@
 
 (define
     (unum? magnitudo)
-    (par 1 magnitudo)
+    (par 1 magnitudo))
 
 (consolor! (unum? 2))
