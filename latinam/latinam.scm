@@ -4,20 +4,30 @@
 ; (console.log (saluto))
 
 (define
-    (consolor consolamen)
+    (consolor! consolamen)
     (console.log consolamen))
 
 (define
-    (elementum identitatis)
+    (par valoroI valoroII)
+    (= valoroI valoroII)
+
+(define
+    (elementum. identitatis)
     (document.getElementById identitatis))
 
 (define
-    (elementis species)
+    (elementis. species)
     (document.getElementsByClassName species))
 
 (define
-    (sententias)
+    (sententias.)
     (let ((textarea (elementum "input-textarea")))
         textarea.value))
 
-(consolor (sententias))
+(consolor! (sententias))
+
+(define
+    (unum? magnitudo)
+    (par 1 magnitudo)
+
+(consolor! (unum? 2))
