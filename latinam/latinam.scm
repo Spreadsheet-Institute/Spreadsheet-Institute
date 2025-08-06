@@ -24,7 +24,7 @@
     (let ((textarea (elementum "input-textarea")))
         textarea.value))
 
-(consolor! (sententias))
+(consolor! (sententias.))
 
 (define
     (unum? magnitudo)
