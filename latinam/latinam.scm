@@ -8,8 +8,8 @@
     (console.log consolamen))
 
 (define
-    (par? valoroI valoroII)
-    (= valoroI valoroII))
+    (par? valorI valorII)
+    (= valorI valorII))
 
 (define
     (elementum. identitatis)
