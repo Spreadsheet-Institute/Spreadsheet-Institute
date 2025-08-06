@@ -8,7 +8,7 @@
     (console.log consolamen))
 
 (define
-    (par valoroI valoroII)
+    (par? valoroI valoroII)
     (= valoroI valoroII))
 
 (define
@@ -28,6 +28,6 @@
 
 (define
     (unum? magnitudo)
-    (par 1 magnitudo))
+    (par? 1 magnitudo))
 
 (consolor! (unum? 2))
