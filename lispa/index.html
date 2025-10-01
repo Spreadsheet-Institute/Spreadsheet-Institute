@@ -1,0 +1,219 @@
+<html>
+    <head>
+        <title>Lispa Hoja</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/Lispa/</h1>
+        <p class="centered constant">"Fórmulas de función única."</p>
+        <p class="centered"><a target="_blank" href="./editor/">Editor de Definiciones</a></p>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Lispa Hoja (<a href="/lispa/index.html#list-of-contents">LH</a>) es un superconjunto de funciones de hoja de cálculo diseñadas para simplificar las fórmulas de la hoja de cálculo.<br><br>Al abordar (de manera asintótica) <span class="constant">"fórmulas de función única"</span>, Lispa Hoja (<a href="/lispa/index.html#list-of-contents">LH</a>) abstrae la complejidad innecesaria de las fórmulas para:<br><br>reducir las longitudes de las fórmulas, para<br>mejorando así la legibilidad de las fórmulas, lo que<br>minimiza los errores tipográficos y<br>multiplica las cargas de trabajo de las fórmulas.</p>
+        <br>
+        <hr>
+        <br>
+        <p id="download-link" class="centered">Either <a href="./SpreadsheetLisp.xlsx">download SpreadsheetLisp.xlsx</a></p>
+        <br>
+        <p id="installation-link" class="centered">or <a href="./install/">install Spreadsheet Lisp manually</a></p>
+        <br>
+        <hr>
+        <br>
+        <h2 id="list-of-contents" class="centered">List of Contents</h2>
+        <p class="centered"><a href="#aliases">Aliases</a></p>
+        <p class="centered"><a href="#fun-functions">Fun</a> Functions</p>
+        <p class="centered"><a href="#type-functions">Type</a> Functions</p>
+        <p class="centered"><a href="#list-functions">List</a> Functions</p>
+        <p class="centered"><a href="#text-functions">Text</a> Functions</p>
+        <p class="centered"><a href="#number-functions">Number</a> Functions</p>
+        <p class="centered"><a href="#sheet-functions">Sheet</a> Functions</p>
+        <p class="centered"><a href="#functional-functions">Functional</a> Functions</p>
+        <p class="centered"><a href="#sentential-functions">Sentential</a> Functions</p>
+        <p class="centered"><a href="#miscellaneous-functions">Miscellaneous</a> Functions</p>
+        <br>
+        <hr>
+        <br>
+        <h2 class="centered" id="aliases">Aliases</h2>
+        <ul>
+            <li><a href="./NO/">NO</a></li>
+            <li><a href="./OTHERWISE/">OTHERWISE</a></li>
+            <li><a href="./YES/">YES</a></li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <h2 class="centered" id="fun-functions">Fun Functions</h2>
+        <ul>
+            <li><a href="./COINTOSS/">COINTOSS</a>()</li>
+            <li><a href="./DICEROLL/">DICEROLL</a>()</li>
+            <li><a href="./FLIPCOIN/">FLIPCOIN</a>([<span class="variable">times</span>])</li>
+            <li><a href="./FULLDECK/">FULLDECK</a>([<span class="variable">vertical</span>])</li>
+            <li><a href="./MAGIC8BALL/">MAGIC8BALL</a>(<span class="variable">question</span>)</li>
+            <li><a href="./ROCKPAPERSCISSORS/">ROCKPAPERSCISSORS</a>(<span class="variable">throw</span>)</li>
+            <li><a href="./ROLLDICE/">ROLLDICE</a>([<span class="variable">times</span>])</li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <h2 class="centered" id="type-functions">Type Functions</h2>
+        <ul>
+            <li><a href="./EMPTYLIST%3F/">EMPTYLIST?</a>(<span class="variable">input</span>)</li>
+            <li><a href="./EQUAL/">EQUAL</a>(<span class="variable">a</span>, <span class="variable">b</span>)</li>
+            <li><a href="./ISATOM/">ISATOM</a>(<span class="variable">value</span>)</li>
+            <li><a href="./NOTEQUAL/">NOTEQUAL</a>(<span class="variable">a</span>, <span class="variable">b</span>)</li>
+            <li><a href="./RANGE%3F/">RANGE?</a>(<span class="variable">value</span>)</li>
+            <li><a href="./TYPESTRING/">TYPESTRING</a>(<span class="variable">value</span>)</li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <h2 class="centered" id="list-functions">List Functions</h2>
+        <ul>
+            <li><a href="./ALL/">ALL</a>(<span class="variable">truth_values</span>)</li>
+            <li><a href="./APPEND/">APPEND</a>(<span class="variable">head</span>, <span class="variable">body</span>)</li>
+            <li><a href="./CAR/">CAR</a>(<span class="variable">range</span>)</li>
+            <li><a href="./CDR/">CDR</a>(<span class="variable">range</span>)</li>
+            <li><a href="./CONS/">CONS</a>(<span class="variable">value</span>, <span class="variable">range</span>)</li>
+            <li><a href="./COUNTCELLS/">COUNTCELLS</a>(<span class="variable">range</span>)</li>
+            <li><a href="./FIRST/">FIRST</a>(<span class="variable">range</span>)</li>
+            <li><a href="./FIRST/">FIRSTCOLUMN</a>(<span class="variable">range</span>)</li>
+            <li><a href="./FIRST/">FIRSTROW</a>(<span class="variable">range</span>)</li>
+            <!--<li><a href="./HETEROGENOUS/">HETEROGENOUS</a>(range)</li>-->
+            <li><a href="./HLIST/">HLIST</a>([<span class="variable">value1</span>], [<span class="variable">valueN</span>], [<span class="variable">value25</span>])</li>
+            <!--<li><a href="./HOMOGENOUS/">HOMOGENOUS</a>(range)</li>-->
+            <li><a href="./HORIZONTAL%3F/">HORIZONTAL?</a>(<span class="variable">range</span>)</li>
+            <li><a href="./INDICES/">INDICES</a>(<span class="variable">subset</span>, <span class="variable">superset</span>)</li>
+            <li><a href="./LAST/">LAST</a>(<span class="variable">range</span>)</li>
+            <li><a href="./MEMBER/">MEMBER</a>(<span class="variable">needle</span>, <span class="variable">haystack</span>)</li>
+            <!--<li><a href="./NONE/">NONE</a>(truth_values)</li>-->
+            <li><a href="./REST/">REST</a>(<span class="variable">range</span>)</li>
+            <li><a href="./REVERSE/">REVERSE</a>(<span class="variable">range</span>)</li>
+            <li><a href="./VERTICAL%3F/">VERTICAL?</a>(<span class="variable">range</span>)</li>
+            <li><a href="./VLIST/">VLIST</a>([<span class="variable">value1</span>], [<span class="variable">valueN</span>], [<span class="variable">value25</span>])</li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <h2 class="centered" id="text-functions">Text Functions</h2>
+        <ul>
+            <li><a href="./ALPHABET/">ALPHABET</a>([<span class="variable">vertical</span>])</li>
+            <li><a href="./BEGINSWITH%3F/">BEGINSWITH?</a>(<span class="variable">text</span>, <span class="variable">beginning</span>, [<span class="variable">case_insensitive?</span>])</li>
+            <li><a href="./CAPITALIZE/">CAPITALIZE</a>(<span class="variable">text</span>)</li>
+            <li><a href="./ENDSWITH%3F/">ENDSWITH?</a>(<span class="variable">text</span>, <span class="variable">ending</span>, [<span class="variable">case_insensitive?</span>])</li>
+            <li><a href="./FIRSTLETTER/">FIRSTLETTER</a>(<span class="variable">text</span>)</li>
+            <li><a href="./FIRSTWORD/">FIRSTWORD</a>(<span class="variable">text</span>)</li>
+            <li><a href="./FORMAT/">FORMAT</a>(<span class="variable">template_text</span>, [<span class="variable">first_value</span>], <span class="variable">...</span>)</li>
+            <li><a href="./TEXTBETWEEN/">TEXTBETWEEN</a>(<span class="variable">source_text</span>, <span class="variable">first_boundary</span>, <span class="variable">second_boundary</span>)</li>
+            <li><a href="./TEXTTOCOLUMNS/">TEXTTOCOLUMNS</a>(<span class="variable">text</span>, <span class="variable">delimiter</span>)</li>
+            <li><a href="./TEXTTOROWS/">TEXTTOROWS</a>(<span class="variable">text</span>, <span class="variable">delimiter</span>)</li>
+            <li><a href="./TRIMALL/">TRIMALL</a>(<span class="variable">range</span>)</li>
+            <li><a href="./TRIMSPLIT/">TRIMSPLIT</a>(<span class="variable">source_text</span>, <span class="variable">split_at</span>, [<span class="variable">display_vertically</span>])</li>
+            <!--<li><a href="./ISSUBSTRING/">ISSUBSTRING</a>(needle, haystack, [case_sensitive])</li>-->
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <h2 class="centered" id="number-functions">Number Functions</h2>
+        <ul>
+            <li><a href="./CUBEROOT/">CUBEROOT</a>(<span class="variable">x</span>)</li>
+            <!--<li><a href="./CAGR/">CAGR</a>(start, end, [periods])</li>-->
+            <li><a href="./DECREMENT/">DECREMENT</a>(<span class="variable">number</span>)</li>
+            <li><a href="./DIFFERENCE/">DIFFERENCE</a>(<span class="variable">minuend</span>, <span class="variable">subtrahend</span>)</li>
+            <li><a href="./GREATERTHAN%3F/">GREATERTHAN?</a>(<span class="variable">x</span>, <span class="variable">y</span>)</li>
+            <li><a href="./GTE%3F/">GTE?</a>(<span class="variable">x</span>, <span class="variable">y</span>)</li>
+            <li><a href="./INCREMENT/">INCREMENT</a>(<span class="variable">number</span>)</li>
+            <!--<li><a href="./INVERSE/">INVERSE</a>(number)</li>-->
+            <!--<li><a href="./ISNEGATIVE/">ISNEGATIVE</a>(number)</li>-->
+            <!--<li><a href="./ISPOSITIVE/">ISPOSITIVE</a>(number)</li>-->
+            <li><a href="./LESSTHAN%3F/">LESSTHAN?</a>(<span class="variable">x</span>, <span class="variable">y</span>)</li>
+            <li><a href="./LTE%3F/">LTE?</a>(<span class="variable">x</span>, <span class="variable">y</span>)</li>
+            <li><a href="./NEGATIVE%3F/">NEGATIVE?</a>(<span class="variable">x</span>)</li>
+            <li><a href="./ONE%3F/">ONE?</a>(<span class="variable">x</span>)</li>
+            <li><a href="./POSITIVE%3F/">POSITIVE?</a>(<span class="variable">x</span>)</li>
+            <!--<li><a href="./NEGATE/">NEGATE</a>(number)</li>-->
+            <li><a href="./RATIO/">RATIO</a>(<span class="variable">numerator</span>, <span class="variable">denominator</span>)</li>
+            <li><a href="./SQUAREROOT/">SQUAREROOT</a>(<span class="variable">x</span>)</li>
+            <li><a href="./ZERO%3F/">ZERO?</a>(<span class="variable">x</span>)</li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <h2 class="centered" id="sheet-functions">Sheet Functions</h2>
+        <ul>
+            <li><a href="./CELLNAME/">CELLNAME</a>([<span class="variable">reference</span>], [<span class="variable">absolute?</span>])</li>
+            <li><a href="./COLUMNLETTER/">COLUMNLETTER</a>([<span class="variable">cell_reference</span>])</li>
+            <li><a href="./FILENAME/">FILENAME</a>([<span class="variable">reference</span>])</li>
+            <!--<li><a href="./GET/">GET</a>(name|range, [sheet], [file|path])</li>-->
+            <!--<li><a href="./GETCOLUMN/">GETCOLUMN</a>(column_number, range)</li>-->
+            <li><a href="./SHEETNAME/">SHEETNAME</a>([<span class="variable">reference</span>])</li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <h2 class="centered" id="functional-functions">Functional Functions</h2>
+        <ul>
+            <li><a href="./APPLY/">APPLY</a>(<span class="variable">function</span>, [<span class="variable">argument1</span>], ..., [<span class="variable">argument10</span>])</li>
+            <li><a href="./ARITY/">ARITY</a>([<span class="variable">arg1</span>], <span class="variable">...</span>, [<span class="variable">arg25</span>])</li>
+            <li><a href="./BUILTINS/">BUILTINS</a>()</li>
+            <li><a href="./CONSTANCY/">CONSTANCY</a>(<span class="variable">x</span>, <span class="variable">y</span>)</li>
+            <li><a href="./CURRY/">CURRY</a>(<span class="variable">function</span>, <span class="variable">argument1</span>)</li>
+            <li><a href="./DEFAULT/">DEFAULT</a>(<span class="variable">optional_argument</span>, <span class="variable">fallback_value</span>)</li>
+            <li><a href="./FOREACH/">FOREACH</a>(<span class="variable">range</span>, <span class="variable">function_to_apply</span>)</li>
+            <li><a href="./FUNCTION/">FUNCTION</a>([<span class="variable">name</span>])</li>
+            <li><a href="./FUNCTIONS/">FUNCTIONS</a>()</li>
+            <li><a href="./IDENTITY/">IDENTITY</a>(<span class="variable">x</span>)</li>
+            <li><a href="./IS/">IS</a>(<span class="variable">value</span>)</li>
+            <li><a href="./PROVIDED%3F/">PROVIDED?</a>(<span class="variable">value</span>)</li>
+            <li><a href="./SL/">SL</a>()</li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <h2 class="centered" id="sentential-functions">Sentential Functions</h2>
+        <ul>
+            <li><a href="./-%3F-is-1%2E/">_?_is_1.</a>(<span class="variable">_1</span>, <span class="variable">knowledgebase</span>)</li>
+            <li><a href="./-%3F-is-the-1-of-2%2E/">_?_is_the_1_of_2.</a>(<span class="variable">_1</span>, <span class="variable">_2</span>, <span class="variable">knowledgebase</span>)</li>
+            <li><a href="./-1-are-2%2E/">_1_are_2.</a>(<span class="variable">_1</span>, <span class="variable">_2</span>)</li>
+            <li><a href="./-1-is-2%2E/">_1_is_2.</a>(<span class="variable">_1</span>, <span class="variable">_2</span>)</li>
+            <li><a href="./-1-is-2-if-3-are-4%2E/">_1_is_2_if_3_are_4.</a>(<span class="variable">_1</span>, <span class="variable">_2</span>, <span class="variable">_3</span>, <span class="variable">_4</span>, <span class="variable">knowledgebase</span>)</li>
+            <li><a href="./-1-is-not-2%2E/">_1_is_not_2.</a>(<span class="variable">_1</span>, <span class="variable">_2</span>)</li>
+            <li><a href="./-1-is-the-2-of-%3F%2E/">_1_is_the_2_of_?.</a>(<span class="variable">_1</span>, <span class="variable">_2</span>, <span class="variable">knowledgebase</span>)</li>
+            <li><a href="./-1-is-the-2-of-3%2E/">_1_is_the_2_of_3.</a>(<span class="variable">_1</span>, <span class="variable">_2</span>, <span class="variable">_3</span>)</li>
+            <li><a href="./-All-%3F-are-1%2E/">_All_?_are_1.</a>(<span class="variable">_1</span>, <span class="variable">knowledgebase</span>)</li>
+            <li><a href="./-All-1-are-%3F%2E/">_All_1_are_?.</a>(<span class="variable">_1</span>, <span class="variable">knowledgebase</span>)</li>
+            <li><a href="./-Is-1-2%3F/">_Is_1_2?</a>(<span class="variable">_1</span>, <span class="variable">_2</span>, <span class="variable">knowledgebase</span>)</li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <h2 class="centered" id="miscellaneous-functions">Miscellaneous Functions</h2>
+        <ul>
+            <li><a href="./ASSERT/">ASSERT</a>(<span class="variable">condition</span>, [<span class="variable">message</span>])</li>
+            <li><a href="./CASE/">CASE</a>(<span class="variable">case_1a</span>, <span class="variable">case_1b</span>, ..., [<span class="variable">case_10a</span>], [<span class="variable">case_10b</span>])</li>
+            <li><a href="./CONTAINS/">CONTAINS</a>(<span class="variable">haystack</span>, <span class="variable">needle</span>)</li>
+            <li><a href="./CRITERIATABLE/">CRITERIATABLE</a>(<span class="variable">column_names</span>, <span class="variable">row_conditions</span>)</li>
+            <li><a href="./EXTRACTOPERATOR/">EXTRACTOPERATOR</a>(<span class="variable">condition_string</span>)</li>
+            <li><a href="./EXTRACTOPERATORS/">EXTRACTOPERATORS</a>(<span class="variable">condition_strings</span>)</li>
+            <li><a href="./HEADLESS/">HEADLESS</a>(<span class="variable">range</span>)</li>
+            <li><a href="./INDICES/">INDICES</a>(<span class="variable">subset</span>, <span class="variable">superset</span>)</li>
+            <li><a href="./MEETSCRITERIA/">MEETSCRITERIA</a>(<span class="variable">row_data</span>, <span class="variable">criteria_table</span>)</li>
+            <li><a href="./IFOMITTED/">IFOMITTED</a>(<span class="variable">optional_argument</span>, <span class="variable">value_if_omitted</span>, <span class="variable">value_if_provided</span>)</li>
+            <li><a href="./PICK/">PICK</a>(<span class="variable">choice1</span>, [<span class="variable">choiceN</span>], [<span class="variable">choice25</span>])</li>
+            <li><a href="./SELECTCOLUMNS/">SELECTCOLUMNS</a>(<span class="variable">table_range</span>, [<span class="variable">columns</span>])</li>
+            <li><a href="./SELECTFROM/">SELECTFROM</a>(<span class="variable">columns</span>, <span class="variable">table_range</span>, [<span class="variable">row_conditions</span>])</li>
+            <li><a href="./SELECTROWS/">SELECTROWS</a>(<span class="variable">table_range</span>, [<span class="variable">row_conditions</span>])</li>
+            <li><a href="./SIEVE/">SIEVE</a>(<span class="variable">table_range</span>, <span class="variable">filter_lookup_table</span>)</li>
+            <li><a href="./TODO/">TODO</a>(<span class="variable">description</span>)</li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <p class="centered"><a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute">Source (GitHub)</a></p>
+        <br>
+        <p class="centered"><a target="_blank" href="https://www.reddit.com/r/SpreadsheetLisp/">Forum (Reddit)</a></p>
+        <br>
+    </body>
+</html>
