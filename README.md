@@ -6,7 +6,7 @@
 
 Spreadsheet.[Institute](https://spreadsheet.institute)/ embodies a collaborative effort to seek, test, and break the boundaries of what can be accomplished by present & future spreadsheet technologies. Whether optimizing for performance, readability, extensibility, or mere aesthetics: our aim is to turn every user into a poweruser.
 
-## Spreadsheet Lisp
+## Spreadsheet Lisp / Lispa Hoja
 
 *"Single-function formulas."*
 
