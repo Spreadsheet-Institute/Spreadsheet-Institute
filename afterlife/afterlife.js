@@ -4,6 +4,7 @@ let submit_query = (event) => {
         event.preventDefault();
         let query_text = document.getElementById("input").value;
         console.log(query_text);
+        query_knowledgebase(query_text);
     }
 }
 
@@ -21,6 +22,8 @@ let query_knowledgebase = (query) => {
         let result_audio = knowledgebase[lowercase_query];
         let result_filepath = "./knowledgebase/" + result_audio;
         
+        console.log(result_filepath);
+
         let speaker_element = document.getElementById("speaker");
         speaker_element.src = result_filepath;
         speaker_element.play();
