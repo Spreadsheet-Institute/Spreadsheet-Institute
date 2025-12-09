@@ -4,7 +4,7 @@ let extract_q_parameter = () => {
 
     if (url_params.has("q")) {
         let url_query = url_params.get("q");
-        let spaced_query = url_query.replace("_", " ");
+        let spaced_query = url_query.replaceAll("_", " ");
         let formatted_query = spaced_query[0].toUpperCase() + spaced_query.slice(1) + "?";
         document.getElementById("input").value = formatted_query;
     }
