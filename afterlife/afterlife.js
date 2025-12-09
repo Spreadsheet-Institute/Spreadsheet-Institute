@@ -1,3 +1,16 @@
+// If URL parameter 'q' exists, then populate query textarea.
+let extract_q_parameter = () => {
+    const url_params = new URLSearchParams(window.location.search);
+
+    if (url_params.has("q")) {
+        let url_query = url_params.get("q");
+        let spaced_query = url_query.replace("_", " ");
+        let formatted_query = spaced_query[0].toUpperCase() + spaced_query.slice(1) + "?";
+        document.getElementById("input").value = formatted_query;
+    }
+}
+extract_q_parameter();
+
 // Submit query to Afterlife API when [Enter] key is pressed
 let submit_query = (event) => {
     if (event.keyCode === 13) {
@@ -7,9 +20,9 @@ let submit_query = (event) => {
         query_knowledgebase(query_text);
     }
 }
-
 document.getElementById("input").addEventListener("keydown", submit_query);
 
+// If query exists, then play resulting audio.
 let query_knowledgebase = (query) => {
     let lowercase_query = query.toLowerCase();
     
