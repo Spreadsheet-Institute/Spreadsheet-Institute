@@ -27,8 +27,10 @@ let query_knowledgebase = (query) => {
     let lowercase_query = query.toLowerCase();
     
     let knowledgebase = {
-        "what is your favorite color?": "My favorite color is lavender..m4a",
-        "what is your favourite colour?": "My favorite color is lavender..m4a",
+        "what is your favorite color?": "My favorite color is.m4a",
+        "what is your favourite colour?": "My favorite color is.m4a",
+        "what is your favorite childhood memory?": "My favorite childhood memory is.m4a",
+        "what is your favourite childhood memory?": "My favorite childhood memory is.m4a",
     };
 
     if (lowercase_query in knowledgebase) {
