@@ -8,3 +8,21 @@ let submit_query = (event) => {
 }
 
 document.getElementById("input").addEventListener("keydown", submit_query);
+
+let query_knowledgebase = (query) => {
+    let lowercase_query = query.toLowerCase();
+    
+    let knowledgebase = {
+        "what is your favorite color?": "My favorite color is lavender..m4a",
+        "what is your favourite colour?": "My favorite color is lavender..m4a",
+    };
+
+    if (lowercase_query in knowledgebase) {
+        let result_audio = knowledgebase[lowercase_query];
+        let result_filepath = "./knowledgebase/" + result_audio;
+        
+        let speaker_element = document.getElementById("speaker");
+        speaker_element.src = result_filepath;
+        speaker_element.play();
+    }
+}

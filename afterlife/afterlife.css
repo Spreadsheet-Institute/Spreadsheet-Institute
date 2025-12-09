@@ -32,3 +32,9 @@ a {
     display: block;
     width: 100%;
 }
+
+#speaker {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
