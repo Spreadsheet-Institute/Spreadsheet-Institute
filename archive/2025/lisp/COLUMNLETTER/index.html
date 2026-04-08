@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: COLUMNLETTER</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../COLUMNLETTER/">COLUMNLETTER</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../COLUMNLETTER/">COLUMNLETTER</a>(<span class="variable">A1</span>)
+-> <span class="constant">"A"</span>
+
+=<a href="../COLUMNLETTER/">COLUMNLETTER</a>(<span class="variable">AB100</span>)
+-> <span class="constant">"AB"</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../COLUMNLETTER/">COLUMNLETTER</a>,
+    LAMBDA(
+        [<span class="variable">cell_reference</span>],
+        <a href="../TEXTBETWEEN/">TEXTBETWEEN</a>(
+            <a href="../IFOMITTED/">IFOMITTED</a>(
+                <span class="variable">cell_reference</span>,
+                ADDRESS(
+                    ROW(),
+                    COLUMN()),
+                ADDRESS(
+                    ROW(<span class="variable">cell_reference</span>),
+                    COLUMN(<span class="variable">cell_reference</span>))),
+            <span class="constant">"$"</span>,
+            <span class="constant">"$"</span>)))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/COLUMNLETTER/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

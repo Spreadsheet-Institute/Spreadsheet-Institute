@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: MAGIC8BALL</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../MAGIC8BALL/">MAGIC8BALL</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../MAGIC8BALL/">MAGIC8BALL</a>(<span class="constant">"Is Spreadsheet Lisp fun to use?"</span>)
+-> <span class="constant">"It is decidedly so"</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../MAGIC8BALL/">MAGIC8BALL</a>,
+    LAMBDA(
+        [yes_or_no_question],
+        IF(
+            <a href="../PROVIDED%3F/">PROVIDED?</a>(yes_or_no_question),
+            <a href="../PICK/">PICK</a>(
+                <span class="constant">"It is certain"</span>,
+                <span class="constant">"Reply hazy, try again"</span>,
+                <span class="constant">"It is decidedly so"</span>,
+                <span class="constant">"Without a doubt"</span>,
+                <span class="constant">"Don't count on it"</span>,
+                <span class="constant">"Yes, definitely"</span>,
+                <span class="constant">"Ask again later"</span>,
+                <span class="constant">"You may rely on it"</span>,
+                <span class="constant">"My reply is no"</span>,
+                <span class="constant">"As I see it, yes"</span>,
+                <span class="constant">"Better not tell you now"</span>,
+                <span class="constant">"Most likely"</span>,
+                <span class="constant">"My sources say no"</span>,
+                <span class="constant">"Outlook good"</span>,
+                <span class="constant">"Cannot predict now"</span>,
+                <span class="constant">"Yes"</span>,
+                <span class="constant">"Outlook not so good"</span>,
+                <span class="constant">"Signs point to yes"</span>,
+                <span class="constant">"Concentrate and ask again"</span>,
+                <span class="constant">"Very doubtful"</span>),
+            <span class="constant">"Ask, and you will be answered"</span>)))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/MAGIC8BALL/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

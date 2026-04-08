@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: CELLNAME</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../CELLNAME/">CELLNAME</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../CELLNAME/">CELLNAME</a>(<span class="variable">A1</span>)
+-> <span class="constant">"A1"</span>
+
+=<a href="../CELLNAME/">CELLNAME</a>(<span class="variable">A1</span>, <span class="constant">YES</span>)
+-> <span class="constant">"$A$1"</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../CELLNAME/">CELLNAME</a>,
+    LAMBDA(
+        [<span class="variable">reference</span>],
+        [<span class="variable">absolute?</span>],
+        LET(
+            <span class="variable">address</span>,
+                <a href="../IFOMITTED/">IFOMITTED</a>(
+                    <span class="variable">reference</span>,
+                    CELL(<span class="constant">"address"</span>),
+                    CELL(
+                        <span class="constant">"address"</span>,
+                        <span class="variable">reference</span>)),
+            <span class="variable">display_absolute</span>,
+                <a href="../DEFAULT/">DEFAULT</a>(
+                    <span class="variable">absolute?</span>,
+                    <span class="constant">NO</span>),
+            IF(
+                <span class="variable">display_absolute</span>,
+                <span class="variable">address</span>,
+                SUBSTITUTE(
+                    <span class="variable">address</span>,
+                    <span class="constant">"$"</span>,
+                    <span class="constant">""</span>)))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/CELLNAME/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

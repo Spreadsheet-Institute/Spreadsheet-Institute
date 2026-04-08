@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: EMPTYLIST?</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../EMPTYLIST%3F/">EMPTYLIST?</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../EMPTYLIST%3F/">EMPTYLIST?</a>(<span class="constant">"()"</span>)
+-> <span class="constant">TRUE</span>
+
+=<a href="../EMPTYLIST%3F/">EMPTYLIST?</a>({})
+-> <span class="constant">TRUE</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../EMPTYLIST%3F/">EMPTYLIST?</a>,
+    LAMBDA(
+        <span class="variable">input</span>,
+        LET(
+            <span class="variable">occupied_cells</span>,
+                COUNTA(<span class="variable">input</span>),
+            <span class="variable">blank_cells</span>,
+                COUNTBLANK(<span class="variable">input</span>),
+            IF(
+                <a href="../ONE%3F/">ONE?</a>(
+                    SUM(
+                        <span class="variable">occupied_cells</span>,
+                        <span class="variable">blank_cells</span>)),
+                OR(
+                    ISBLANK(<span class="variable">input</span>),
+                    <a href="../EQUAL/">EQUAL</a>(
+                        <span class="variable">input</span>,
+                        <span class="constant">"()"</span>),
+                <a href="../NO/">NO</a>)))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/EMPTYLIST%3F/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

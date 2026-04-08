@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: MEETSCRITERIA</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../MEETSCRITERIA/">MEETSCRITERIA</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../MEETSCRITERIA/">MEETSCRITERIA</a>,
+    LAMBDA(
+        <span class="variable">row_data</span>,
+        <span class="variable">criteria_table</span>,
+        <a href="../ALL/">ALL</a>(
+            MAKEARRAY(
+                ROWS(<span class="variable">criteria_table</span>),
+                <span class="constant">1</span>,
+                LAMBDA(
+                    <span class="variable">row</span>,
+                    <span class="variable">_col</span>,
+                    LET(
+                        <span class="variable">function</span>,
+                            INDEX(
+                                <span class="variable">criteria_table</span>,
+                                <span class="variable">row</span>,
+                                <span class="constant">2</span>),
+                        <span class="variable">value</span>,
+                            INDEX(
+                                <span class="variable">row_data</span>,
+                                <span class="constant">1</span>,
+                                INDEX(
+                                    <span class="variable">criteria_table</span>,
+                                    <span class="variable">row</span>,
+                                    <span class="constant">3</span>)),
+                        <span class="variable">criterion</span>,
+                            INDEX(
+                                <span class="variable">criteria_table</span>,
+                                <span class="variable">row</span>,
+                                <span class="constant">4</span>),
+                        <a href="../APPLY/">APPLY</a>(
+                            <span class="variable">function</span>,
+                            <span class="variable">value</span>,
+                            <span class="variable">criterion</span>)))))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/MEETSCRITERIA/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

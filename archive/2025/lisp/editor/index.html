@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp Editor</title>
+        <link rel="stylesheet" href="./editor.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16-papercolor-dark.min.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/wren.min.js"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+    </head>
+    <body>
+        <p id="download-link">
+            <span style="color:#FF69B4!important;cursor:pointer;font-size:0.75rem;" onclick="definition_download()">Download definition</span> (<span style="color:#00FFFF!important;font-size:0.75rem;">Control/Command</span> + <span style="color:#00FFFF!important;font-size:0.75rem;">Shift</span> + <span style="color:#00FFFF!important;font-size:0.75rem;">S</span>)
+        </p>
+        <pre>
+            <code class="language-wren">
+                <div id="editor"></div>
+            </code>
+        </pre>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/lips@beta/dist/lips.min.js" bootstrap="https://cdn.jsdelivr.net/npm/lips@beta/dist/std.xcb"></script>-->
+        <!-- <script type="text/x-scheme" bootstrap src="./editor.scm"></script> -->
+        <script src="./editor.js"></script>
+    </body>
+</html>

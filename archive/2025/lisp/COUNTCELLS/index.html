@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: COUNTCELLS</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../COUNTCELLS/">COUNTCELLS</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../COUNTCELLS/">COUNTCELLS</a>(<span class="variable">A1:A10</span>)
+-> <span class="constant">10</span>
+
+=<a href="../COUNTCELLS/">COUNTCELLS</a>(<span class="variable">A1:Z1</span>)
+-> <span class="constant">26</span>
+
+=<a href="../COUNTCELLS/">COUNTCELLS</a>(<span class="variable">A1:Z10</span>)
+-> <span class="constant">260</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../COUNTCELLS/">COUNTCELLS</a>,
+    LAMBDA(
+        <span class="variable">range</span>,
+        SUM(
+            COUNTA(<span class="variable">range</span>),
+            COUNTBLANK(<span class="variable">range</span>))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/COUNTCELLS/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

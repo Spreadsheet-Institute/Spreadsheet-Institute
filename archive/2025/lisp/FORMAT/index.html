@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: FORMAT</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../FORMAT/">FORMAT</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../FORMAT/">FORMAT</a>(<span class="constant">"The time is now {1} o'clock."</span>, <span class="constant">5</span>)
+-> <span class="constant">"The time is now 5 o'clock."</span>
+
+=<a href="../FORMAT/">FORMAT</a>(
+    <span class="constant">"{1}% of {2} is {3}."</span>,
+    <span class="constant">10</span>,
+    <span class="constant">20</span>,
+    PRODUCT(
+        <span class="constant">20</span>,
+        <a href="../RATIO/">RATIO</a>(
+            <span class="constant">10</span>,
+            <span class="constant">100</span>)))
+-> <span class="constant">"10% of 20 is 2."</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../FORMAT/">FORMAT</a>,
+    LAMBDA(
+        template_text,
+        first_value,
+        [second_value],
+        [third_value],
+        [fourth_value],
+        [fifth_value],
+        [sixth_value],
+        [seventh_value],
+        [eigth_value],
+        [ninth_value],
+        [tenth_value],
+        LET(
+            _after1,
+                SUBSTITUTE(template_text, <span class="constant">"{1}"</span>, first_value),
+            _after2,
+                IF(
+                    <a href="../PROVIDED%3F/">PROVIDED?</a>(second_value),
+                    SUBSTITUTE(_after1, <span class="constant">"{2}"</span>, second_value),
+                    _after1),
+            _after3,
+                IF(
+                    <a href="../PROVIDED%3F/">PROVIDED?</a>(third_value),
+                    SUBSTITUTE(_after2, <span class="constant">"{3}"</span>, third_value),
+                    _after2),
+            _after4,
+                IF(
+                    <a href="../PROVIDED%3F/">PROVIDED?</a>(fourth_value),
+                    SUBSTITUTE(_after3, <span class="constant">"{4}"</span>, fourth_value),
+                    _after3),
+            _after5,
+                IF(
+                    <a href="../PROVIDED%3F/">PROVIDED?</a>(fifth_value),
+                    SUBSTITUTE(_after4, <span class="constant">"{5}"</span>, fifth_value),
+                    _after4),
+            _after6,
+                IF(
+                    <a href="../PROVIDED%3F/">PROVIDED?</a>(sixth_value),
+                    SUBSTITUTE(_after5, <span class="constant">"{6}"</span>, sixth_value),
+                    _after5),
+            _after7,
+                IF(
+                    <a href="../PROVIDED%3F/">PROVIDED?</a>(seventh_value),
+                    SUBSTITUTE(_after6, <span class="constant">"{7}"</span>, seventh_value),
+                    _after6),
+            _after8,
+                IF(
+                    <a href="../PROVIDED%3F/">PROVIDED?</a>(eigth_value),
+                    SUBSTITUTE(_after7, <span class="constant">"{8}"</span>, eigth_value),
+                    _after7),
+            _after9,
+                IF(
+                    <a href="../PROVIDED%3F/">PROVIDED?</a>(ninth_value),
+                    SUBSTITUTE(_after8, <span class="constant">"{9}"</span>, ninth_value),
+                    _after8),
+            IF(
+                <a href="../PROVIDED%3F/">PROVIDED?</a>(tenth_value),
+                SUBSTITUTE(_after9, <span class="constant">"{10}"</span>, tenth_value),
+                _after9))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/FORMAT/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

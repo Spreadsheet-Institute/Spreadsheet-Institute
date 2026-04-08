@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: _All_1_are_?.</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../-All-1-are-%3F%2E/">_All_1_are_?.</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+<span class="variable">A1</span>=<span class="constant">"All women are mortal."</span>
+
+=<a href="../-All-1-are-%3F%2E/">_All_1_are_?.</a>(<span class="constant">"women"</span>, <span class="variable">A1</span>)
+-> <span class="constant">"mortal"</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../-All-1-are-%3F%2E/">_All_1_are_?.</a>,
+    LAMBDA(
+        <span class="variable">_1</span>,
+        <span class="variable">knowledgebase</span>,
+        LET(
+            <span class="variable">fragment</span>,
+                <a href="../FORMAT/">FORMAT</a>(
+                    <span class="constant">"All {1} are "</span>,
+                    <span class="variable">_1</span>),
+            <span class="variable">knowledgecolumn</span>,
+                TOCOL(<span class="variable">knowledgebase</span>),
+            <span class="variable">matches</span>,
+                FILTER(
+                    <span class="variable">knowledgecolumn</span>,
+                    <a href="../BEGINSWITH%3F/">BEGINSWITH?</a>(
+                        <span class="variable">knowledgecolumn</span>,
+                        <span class="variable">fragment</span>)),
+            IF(
+                ISERROR(<span class="variable">matches</span>),
+                <span class="constant">FALSE</span>,
+                <a href="../TRIMALL/">TRIMALL</a>(
+                    REGEXEXTRACT(
+                        <span class="variable">matches</span>,
+                        <a href="../FORMAT/">FORMAT</a>(
+                            <span class="constant">"^All {1} are (.+)\.$"</span>,
+                            <span class="variable">_1</span>),
+                        <span class="constant">2</span>))))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/-1-is-the-2-of-%3F%2E/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: FIRSTCOLUMN</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../FIRSTCOLUMN/">FIRSTCOLUMN</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../FIRSTCOLUMN/">FIRSTCOLUMN</a>(A1:Z100)
+-> A1:A100
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../FIRSTCOLUMN/">FIRSTCOLUMN</a>,
+    LAMBDA(
+        <span class="variable">range</span>,
+        INDEX(
+            <span class="variable">range</span>,
+            <span class="constant">0</span>,
+            <span class="constant">1</span>)))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/FIRSTCOLUMN/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

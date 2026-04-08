@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: SELECTFROM</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../SELECTFROM/">SELECTFROM</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../SELECTFROM/">SELECTFROM</a>(
+    <span class="constant">"Name, ID"</span>,
+    <span class="variable">Sheet1!A1:D1000</span>)
+
+=<a href="../SELECTFROM/">SELECTFROM</a>(
+    <span class="constant">"*"</span>,
+    <span class="variable">Sheet2!A1:Z1000</span>,
+    <span class="constant">"Salary > 100000, Department = IT"</span>)
+    
+=<a href="../SELECTFROM/">SELECTFROM</a>(
+    <span class="constant">"Title, Year, Runtime"</span>,
+    <span class="variable">Data!A1:Z1000</span>,
+    <span class="constant">"Score >= 0.7, Genre = Comedy"</span>)
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../SELECTFROM/">SELECTFROM</a>,
+    LAMBDA(
+        <span class="variable">columns</span>,
+        <span class="variable">table_range</span>,
+        [<span class="variable">row_conditions</span>],
+        <a href="../SELECTCOLUMNS/">SELECTCOLUMNS</a>(
+            <a href="../SELECTROWS/">SELECTROWS</a>(
+                <span class="variable">table_range</span>,
+                <span class="variable">row_conditions</span>),
+            <span class="variable">columns</span>)))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/SELECTFROM/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

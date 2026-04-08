@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: FIRSTLETTER</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../FIRSTLETTER/">FIRSTLETTER</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../FIRSTLETTER/">FIRSTLETTER</a>(<span class="constant">"spreadsheet"</span>)
+-> <span class="constant">"s"</span>
+
+=<a href="../FIRSTLETTER/">FIRSTLETTER</a>(<span class="constant">"What is love?"</span>)
+-> <span class="constant">"W"</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../FIRSTLETTER/">FIRSTLETTER</a>,
+    LAMBDA(
+        text,
+        LEFT(
+            text,
+            <span class="constant">1</span>)))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/FIRSTLETTER/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

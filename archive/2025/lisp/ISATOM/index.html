@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: ISATOM</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../ISATOM/">ISATOM</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../ISATOM/">ISATOM</a>(A1:E1)
+-> <span class="constant">FALSE</span>
+
+=<a href="../ISATOM/">ISATOM</a>(A1)
+-> <span class="constant">FALSE</span>
+
+=<a href="../ISATOM/">ISATOM</a>(<span class="constant">1</span>)
+-> <span class="constant">TRUE</span>
+
+=<a href="../ISATOM/">ISATOM</a>(<span class="constant">#N/A!</span>)
+-> <span class="constant">TRUE</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../ISATOM/">ISATOM</a>,
+    LAMBDA(
+        input,
+        <a href="../MEMBER/">MEMBER</a>(
+            <a href="../TYPESTRING/">TYPESTRING</a>(input),
+            <a href="../VLIST/">VLIST</a>(
+                <span class="constant">"Number"</span>,
+                <span class="constant">"String"</span>,
+                <span class="constant">"Error"</span>))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/ISATOM/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

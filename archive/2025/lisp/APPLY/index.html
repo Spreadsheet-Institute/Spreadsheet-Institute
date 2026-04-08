@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: APPLY</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../APPLY/">APPLY</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../APPLY/">APPLY</a>(<a href="../INCREMENT/">INCREMENT</a>, <span class="constant">0</span>)
+-> <span class="constant">1</span>
+
+=<a href="../APPLY/">APPLY</a>(SUM, <span class="constant">1</span>, <span class="constant">2</span>, <span class="constant">3</span>)
+-> <span class="constant">6</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../APPLY/">APPLY</a>,
+    LAMBDA(
+        function,
+        [argument1],
+        [argument2],
+        [argument3],
+        [argument4],
+        [argument5],
+        [argument6],
+        [argument7],
+        [argument8],
+        [argument9],
+        [argument10],
+        SWITCH(
+            <a href="../ARITY/">ARITY</a>(
+                argument1,
+                argument2,
+                argument3,
+                argument4,
+                argument5,
+                argument6,
+                argument7,
+                argument8,
+                argument9,
+                argument10),
+            <span class="constant">0</span>,
+                function(),
+            <span class="constant">1</span>,
+                function(argument1),
+            <span class="constant">2</span>,
+                function(argument1, argument2),
+            <span class="constant">3</span>,
+                function(argument1, argument2, argument3),
+            <span class="constant">4</span>,
+                function(argument1, argument2, argument3, argument4),
+            <span class="constant">5</span>,
+                function(argument1, argument2, argument3, argument4, argument5),
+            <span class="constant">6</span>,
+                function(argument1, argument2, argument3, argument4, argument5, argument6),
+            <span class="constant">7</span>,
+                function(argument1, argument2, argument3, argument4, argument5, argument6, argument7),
+            <span class="constant">8</span>,
+                function(argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8),
+            <span class="constant">9</span>,
+                function(argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8, argument9),
+            function(argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8, argument9, argument10))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/ID/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

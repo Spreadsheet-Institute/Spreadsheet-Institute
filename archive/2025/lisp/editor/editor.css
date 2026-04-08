@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+::selection {
+    background-color: rgba(255, 255, 255, 0.5)!important;
+    color: black!important;
+}
+
+::-moz-selection {
+    background-color: rgba(255, 255, 255, 0.5)!important;
+    color: black!important;
+}
+
+* {
+    background-color: #0F0616;
+    color: #FFFFFF;
+    caret-color: #FF69B4!important;
+    font-family: "Source Code Pro", monospace!important;
+    font-optical-sizing: auto;
+    font-size: 1.5rem;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.function {
+    color: #FF69B4;
+
+    font-weight: bold;
+}
+
+.constant {
+    color: #00FFFF;
+
+    font-style: italic;
+    font-weight: bold;
+}
+
+.variable {
+    color: #FFFFFF;
+
+    font-style: italic;
+}
+
+#editor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100px;
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#cli {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 100;
+    margin: 0;
+    border: 0;
+    padding-left: 25px;
+    opacity: 0.4;
+    
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-size: 2rem;
+    font-style: normal;
+
+    background-color: transparent;
+}
+
+#cli:focus {
+    opacity: 1;
+}
+
+#palette,
+#grid {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 100px);
+    z-index: 100;
+    overflow-y: auto;
+    text-align: center;
+    opacity: 0.4;
+}
+
+#palette {
+    z-index: 0;
+    opacity: 0;
+    line-height: calc((100vh - 100px) / 2);
+}
+
+#grid {
+    line-height: calc(100vh - 100px);
+}
+
+#cli,
+#palette {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#cli:focus + #palette {
+    opacity: 1;
+    z-index: 200;
+}
+
+#buffer {
+    position: absolute;
+    z-index: 0;
+    opacity: 0;
+}
+
+#buffer:focus + #grid {
+    opacity: 1;
+}
+
+.hljs-function,
+.hljs-keyword {
+    color: #FF69B4!important;
+}
+
+#download-link {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    z-index: 1000;
+    font-size: 0.75rem!important;
+}

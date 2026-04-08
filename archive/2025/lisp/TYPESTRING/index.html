@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: TYPESTRING</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../TYPESTRING/">TYPESTRING</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../TYPESTRING/">TYPESTRING</a>(<span class="constant">1</span>)
+-> <span class="constant">"Number"</span>
+
+=<a href="../TYPESTRING/">TYPESTRING</a>(<span class="constant">TRUE</span>)
+-> <span class="constant">"Boolean"</span>
+
+=<a href="../TYPESTRING/">TYPESTRING</a>(<span class="constant">"What is love?"</span>)
+-> <span class="constant">"String"</span>
+
+=<a href="../TYPESTRING/">TYPESTRING</a>(<span class="constant">#REF!</span>)
+-> <span class="constant">"Error"</span>
+
+=<a href="../TYPESTRING/">TYPESTRING</a>(<span class="constant">A1:A3</span>)
+-> <span class="constant">"Range"</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+            
+DEFINE(
+    <a href="../TYPESTRING/">TYPESTRING</a>,
+    LAMBDA(
+        input,
+        [recursive],
+        SWITCH(
+            TYPE(input),
+            1,
+                <span class="constant">"Number"</span>,
+            2,
+                <span class="constant">"String"</span>,
+            4,
+                <span class="constant">"Boolean"</span>,
+            16,
+                <span class="constant">"Error"</span>,
+            64,
+                IF(
+                    <a href="../DEFAULT/">DEFAULT</a>(recursive, <span class="constant">FALSE</span>),
+                    MAP(
+                        input,
+                        LAMBDA(
+                            each,
+                            <a href="../TYPESTRING/">TYPESTRING</a>(each))),
+                    <span class="constant">"Range"</span>),
+            128,
+                <span class="constant">"Function"</span>,
+            <a href="../OTHERWISE/">OTHERWISE</a>,
+                <span class="constant">"Unknown"</span>)))
+        
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/MAGIC8BALL/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>

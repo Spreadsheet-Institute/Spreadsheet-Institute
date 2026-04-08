@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: IS</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered"><a href="../IS/">IS</a></p>
+        <br>
+        <hr>
+        <br>
+        <pre>
+=<a href="../ISATOM/">IS</a>(23)
+-> <span class="constant">1</span>
+
+=<a href="../ISATOM/">IS</a>("What is love?")
+-> <span class="constant">1</span>
+
+=<a href="../ISATOM/">IS</a>(missing_optional_argument)
+-> <span class="constant">0</span>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <pre>
+DEFINE(
+    <a href="../IS/">IS</a>,
+    LAMBDA(
+        argument,
+        IF(
+            ISOMITTED(argument),
+            <span class="constant">0</span>,
+            <span class="constant">1</span>)))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/IS/index.html">optimize this function</a></p>
+        <br>
+    </body>
+</html>
