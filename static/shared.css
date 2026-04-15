@@ -50,3 +50,7 @@ pre {
 .bordered-cell {
     border: 2px solid white;
 }
+
+td {
+    padding: 10px;
+}
