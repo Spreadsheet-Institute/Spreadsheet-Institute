@@ -20,6 +20,10 @@ table {
     padding-bottom: 2vh;
 }
 
+h2 {
+    font-size: 1.75rem;
+}
+
 a {
     color: #FF69B4;  /* Abstract Pink */
 
