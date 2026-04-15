@@ -46,8 +46,6 @@ pre {
     overflow-x: auto;
 }
 
-.example-grid,
-.example-grid > th,
-.example-grid > tr {
+.example-grid > td {
     border: 2px solid white;
 }
