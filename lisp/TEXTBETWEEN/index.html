@@ -7,42 +7,49 @@
     <body>
         <br>
         <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
-        <p class="centered"><a href="../TEXTBETWEEN/">TEXTBETWEEN</a></p>
+        <p class="centered">The <a href="../TEXTBETWEEN/">TEXTBETWEEN</a> function</p>
         <br>
         <hr>
         <br>
+        <sl-c>ABSTRACT:</sl-c>
+        <p>The =<a href="../TEXTBETWEEN/">TEXTBETWEEN</a>(<sl-v>source_text</sl-v>, <sl-v>first_boundary</sl-v>, <sl-v>second_boundary</sl-v>) function returns the text between two given boundaries.</p>
+        <br>
+        <hr>
+        <br>
+        <sl-c>EXAMPLE:</sl-c>
         <pre>
-=<a href="../TEXTBETWEEN/">TEXTBETWEEN</a>(<span class="constant">"(123) 456 - 7890"</span>, <span class="constant">"("</span>, <span class="constant">")"</span>)
--> <span class="constant">"123"</span>
+=<a href="../TEXTBETWEEN/">TEXTBETWEEN</a>(<sl-c>"(123) 456 - 7890"</sl-c>, <sl-c>"("</sl-c>, <sl-c>")"</sl-c>)
+-> <sl-c>"123"</sl-c>
         </pre>
         <br>
         <hr>
         <br>
+        <sl-c>SOURCE:</sl-c>
         <pre>
 DEFINE(
     <a href="../TEXTBETWEEN/">TEXTBETWEEN</a>,
     LAMBDA(
-        source_text,
-        first_boundary,
-        second_boundary,
+        <sl-v>source_text</sl-v>,
+        <sl-v>first_boundary</sl-v>,
+        <sl-v>second_boundary</sl-v>,
         LET(
-            text_after_first_boundary,
+            <sl-v>text_after_first_boundary</sl-v>,
                 RIGHT(
-                    source_text,
+                    <sl-v>source_text</sl-v>,
                     <a href="../DIFFERENCE/">DIFFERENCE</a>(
-                        LEN(source_text),
-                        DECREMENT(
+                        LEN(<sl-v>source_text</sl-v>),
+                        <a href="../DECREMENT/">DECREMENT</a>(
                             SUM(
                                 FIND(
-                                    first_boundary,
-                                    source_text),
-                                LEN(first_boundary))))),
+                                    <sl-v>first_boundary</sl-v>,
+                                    <sl-v>source_text</sl-v>),
+                                LEN(<sl-v>first_boundary</sl-v>))))),
             LEFT(
-                text_after_first_boundary,
+                <sl-v>text_after_first_boundary</sl-v>,
                 <a href="../DECREMENT/">DECREMENT</a>(
                     FIND(
-                        second_boundary,
-                        text_after_first_boundary))))))
+                        <sl-v>second_boundary</sl-v>,
+                        <sl-v>text_after_first_boundary</sl-v>))))))
         </pre>
         <br>
         <hr>

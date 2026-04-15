@@ -27,14 +27,16 @@ a {
     text-decoration: none;
 }
 
-.constant {
+.constant,
+sl-c {
     color: #00FFFF;  /* Seafaring Cyan */
 
     font-style: italic;
     font-weight: bold;
 }
 
-.variable {
+.variable,
+sl-v {
     color: #808080;   /* Blubber Gray */
 
     font-style: italic;
