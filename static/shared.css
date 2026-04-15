@@ -45,3 +45,9 @@ sl-v {
 pre {
     overflow-x: auto;
 }
+
+.example-grid,
+.example-grid > th,
+.example-grid > tr {
+    border: 2px solid white;
+}
