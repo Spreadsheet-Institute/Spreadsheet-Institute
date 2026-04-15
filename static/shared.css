@@ -4,7 +4,8 @@
     text-align: center;
 }
 
-body {
+body,
+table {
     background-color: #01111F; /* Mariana Blue */
     color: #FFFFFF;
     
@@ -46,6 +47,6 @@ pre {
     overflow-x: auto;
 }
 
-.example-grid > td {
+.bordered-cell {
     border: 2px solid white;
 }
