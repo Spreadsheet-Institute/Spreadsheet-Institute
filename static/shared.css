@@ -24,6 +24,10 @@ h2 {
     font-size: 1.75rem;
 }
 
+hr {
+    color: #00FFFF;  /* Seafaring Cyan */
+}
+
 a {
     color: #FF69B4;  /* Abstract Pink */
 
