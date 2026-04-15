@@ -1,0 +1,24 @@
+DEFINE(
+    TEXTBETWEEN,
+    LAMBDA(
+        source_text,
+        first_boundary,
+        second_boundary,
+        LET(
+            text_after_first_boundary,
+                RIGHT(
+                    source_text,
+                    DIFFERENCE(
+                        LEN(source_text),
+                        DECREMENT(
+                            SUM(
+                                FIND(
+                                    first_boundary,
+                                    source_text),
+                                LEN(first_boundary))))),
+            LEFT(
+                text_after_first_boundary,
+                DECREMENT(
+                    FIND(
+                        second_boundary,
+                        text_after_first_boundary))))))
