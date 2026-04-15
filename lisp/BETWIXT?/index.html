@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Spreadsheet Lisp: BETWIXT?</title>
+        <link rel="stylesheet" href="/static/shared.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    </head>
+    <body>
+        <br>
+        <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
+        <p class="centered">The =<a href="../BETWIXT%3F/">BETWIXT?</a>() function</p>
+        <br>
+        <hr>
+        <br>
+        <h2 class="centered">ABSTRACT</h2>
+        <p>The =<a href="../BETWIXT%3F/">BETWIXT?</a>([<sl-v>number_to_check</sl-v>], [<sl-v>lower_bound</sl-v>], [<sl-v>upper_bound</sl-v>]) function returns <sl-c>TRUE</sl-c> if the <sl-v>number_to_check</sl-v> is betwixt the given <sl-v>lower_bound</sl-v> and <sl-v>upper_bound</sl-v> (exclusive) and <sl-c>FALSE</sl-c> if the <sl-v>number_to_check</sl-v> is either above the <sl-v>upper_bound</sl-v> or below the <sl-v>lower_bound</sl-v> or equal to either bound.</p>
+        <br>
+        <p>(Use the <a href="../BETWEEN%3F/">BETWEEN?</a> function to include the boundaries)</p>
+        <br>
+        <hr>
+        <br>
+        <h2 class="centered">EXAMPLES</h2>
+        <pre>
+=<a href="../BETWIXT%3F/">BETWIXT?</a>(<sl-c>10</sl-c>, <sl-c>5</sl-c>, <sl-c>15</sl-c>)
+-> <sl-c>TRUE</sl-c>
+
+=<a href="../BETWIXT%3F/">BETWIXT?</a>(<sl-c>10</sl-c>, <sl-c>10</sl-c>, <sl-c>15</sl-c>)
+-> <sl-c>FALSE</sl-c>
+
+=<a href="../BETWIXT%3F/">BETWIXT?</a>(<sl-c>10</sl-c>, <sl-c>12</sl-c>, <sl-c>15</sl-c>)
+-> <sl-c>FALSE</sl-c>
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <h2 class="centered">SOURCE CODE</h2>
+        <pre>
+DEFINE(
+    <a href="../BETWIXT%3F/">BETWIXT?</a>,
+    LAMBDA(
+        <sl-v>number_to_check</sl-v>,
+        <sl-v>lower_bound</sl-v>,
+        <sl-v>upper_bound</sl-v>,
+        AND(
+            <a href="../GREATERTHAN%3F/">GREATERTHAN?</a>(
+                <sl-v>number_to_check</sl-v>,
+                <sl-v>lower_bound</sl-v>),
+            <a href="../LESSTHAN%3F/">LESSTHAN?</a>(
+                <sl-v>number_to_check</sl-v>,
+                <sl-v>upper_bound</sl-v>))))
+        </pre>
+        <br>
+        <hr>
+        <br>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/BETWIXT%3F/definition.lisp">optimize this function</a>!</p>
+        <br>
+    </body>
+</html>

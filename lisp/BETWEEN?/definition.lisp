@@ -1,0 +1,13 @@
+DEFINE(
+    BETWEEN?,
+    LAMBDA(
+        number_to_check,
+        lower_bound,
+        upper_bound,
+        AND(
+            GTE?(
+                number_to_check,
+                lower_bound),
+            LTE?(
+                number_to_check,
+                upper_bound))))

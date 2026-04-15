@@ -1,0 +1,13 @@
+DEFINE(
+    BETWIXT?,
+    LAMBDA(
+        number_to_check,
+        lower_bound,
+        upper_bound,
+        AND(
+            GREATERTHAN?(
+                number_to_check,
+                lower_bound),
+            LESSTHAN?(
+                number_to_check,
+                upper_bound))))
