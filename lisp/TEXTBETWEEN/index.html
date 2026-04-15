@@ -11,19 +11,33 @@
         <br>
         <hr>
         <br>
-        <sl-c>ABSTRACT:</sl-c>
+        - <sl-c>ABSTRACT</sl-c>:
         <p>The =<a href="../TEXTBETWEEN/">TEXTBETWEEN</a>(<sl-v>source_text</sl-v>, <sl-v>first_boundary</sl-v>, <sl-v>second_boundary</sl-v>) function returns the text between two given boundaries.</p>
         <br>
         <hr>
         <br>
-        <sl-c>EXAMPLE:</sl-c>
+        - <sl-c>EXAMPLES</sl-c>:
         <pre>
+<table>
+    <tr>
+        <th>&nbsp;</th>
+        <th>A</th>
+    </tr>
+    <tr>
+        <th>1</th>
+        <th><sl-c>(123) 456 - 7890</sl-c></th>
+    </tr>
+</table>
+
 =<a href="../TEXTBETWEEN/">TEXTBETWEEN</a>(<sl-c>"(123) 456 - 7890"</sl-c>, <sl-c>"("</sl-c>, <sl-c>")"</sl-c>)
--> <sl-c>"123"</sl-c>
+-> <sl-c>123</sl-c>
+
+=<a href="../TEXTBETWEEN/">TEXTBETWEEN</a>(<sl-c>"username@gmail.com"</sl-c>, <sl-c>"@"</sl-c>, <sl-c>"."</sl-c>)
+-> <sl-c>gmail</sl-c>
         </pre>
         <hr>
         <br>
-        <sl-c>SOURCE:</sl-c>
+        - <sl-c>SOURCE CODE</sl-c>:
         <pre>
 DEFINE(
     <a href="../TEXTBETWEEN/">TEXTBETWEEN</a>,
@@ -52,7 +66,7 @@ DEFINE(
         </pre>
         <hr>
         <br>
-        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/TEXTBETWEEN/index.html">optimize this function</a></p>
+        <p class="centered">Help us <a target="_blank" href="https://github.com/Spreadsheet-Institute/Spreadsheet-Institute/blob/main/lisp/TEXTBETWEEN/index.html">optimize this function</a>!</p>
         <br>
     </body>
 </html>
