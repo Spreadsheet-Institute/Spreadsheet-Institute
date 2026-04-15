@@ -7,13 +7,42 @@
     <body>
         <br>
         <h1 class="centered">S.<a href="/">I</a>/<a href="/lisp">Lisp</a>/</h1>
-        <p class="centered"><a href="../BINGO/">BINGO</a></p>
+        <p class="centered">The =<a href="../BINGO/">BINGO</a>() function</p>
         <br>
         <hr>
         <br>
+        <h2 class="centered">ABSTRACT</h2>
+        <p>The =<a href="../BINGO/">BINGO</a>([<sl-v>options</sl-v>]) function returns a complete/random game of bingo, which is either 75 standard bingo balls or 24 text options (if provided).</p>
+        <br>
+        <hr>
+        <br>
+        <h2 class="centered">EXAMPLE</h2>
         <pre>
-            
+A1=<a href="../BINGO/">BINGO</a>()
+->
         </pre>
+        <table class="example-grid">
+            <tr>
+                <th>&nbsp;</th>
+                <th>A</th>
+                <th>B</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td class="bordered-cell"><sl-c>G</sl-c></td>
+                <td class="bordered-cell"><sl-c>51</sl-c></td>
+            </tr>
+            <tr>
+                <td>...</td>
+                <td class="bordered-cell"><sl-c>...</sl-c></td>
+                <td class="bordered-cell"><sl-c>...</sl-c></td>
+            </tr>
+            <tr>
+                <td>75</td>
+                <td class="bordered-cell"><sl-c>B</sl-c></td>
+                <td class="bordered-cell"><sl-c>12</sl-c></td>
+            </tr>
+        </table>
         <br>
         <hr>
         <br>
@@ -21,8 +50,36 @@
 DEFINE(
     <a href="../BINGO/">BINGO</a>,
     LAMBDA(
-        [<span class="variable">valid_calls</span>],
-        <span class="variable">valid_calls</span>))
+        [<sl-v>list_of_options</sl-v>],
+        IF(
+            <a href="../PROVIDED%3F/">PROVIDED?</a>(<sl-v>list_of_options</sl-v>),
+            <a href="../SHUFFLED/">SHUFFLED</a>(<sl-v>list_of_options</sl-v>),
+            LET(
+                <sl-v>shuffled_bingo_balls</sl-v>,
+                    <a href="../SHUFFLED/">SHUFFLED</a>(
+                        SEQUENCE(
+                            <sl-c>75</sl-c>,
+                            <sl-c>1</sl-c>,
+                            <sl-c>1</sl-c>)),
+                HSTACK(
+                    MAKEARRAY(
+                        <sl-c>75</sl-c>,
+                        <sl-c>1</sl-c>,
+                        LAMBDA(
+                            <sl-v>ball_number</sl-v>,
+                            _col,
+                            IFS(
+                                <a href="../BETWEEN%3F/">BETWEEN?</a>(<sl-v>ball_number</sl-v>, <sl-c>1</sl-c>, <sl-c>15</sl-c>),
+                                    <sl-c>"B"</sl-c>,
+                                <a href="../BETWEEN%3F/">BETWEEN?</a>(<sl-v>ball_number</sl-v>, <sl-c>16</sl-c>, <sl-c>30</sl-c>),
+                                    <sl-c>"I"</sl-c>,
+                                <a href="../BETWEEN%3F/">BETWEEN?</a>(<sl-v>ball_number</sl-v>, <sl-c>31</sl-c>, <sl-c>45</sl-c>),
+                                    <sl-c>"N"</sl-c>,
+                                <a href="../BETWEEN%3F/">BETWEEN?</a>(<sl-v>ball_number</sl-v>, <sl-c>46</sl-c>, <sl-c>60</sl-c>),
+                                    <sl-c>"G"</sl-c>,
+                                <a href="../OTHERWISE/">OTHERWISE</a>,
+                                    <sl-c>"O"</sl-c>))),
+                    <sl-v>shuffled_bingo_balls</sl-v>)))))
         </pre>
         <br>
         <hr>
